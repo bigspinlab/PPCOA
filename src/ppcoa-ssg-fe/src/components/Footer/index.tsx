@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-auto border-t-1 border-solid border-Black">
+    <footer className="w-full mt-auto border-t border-solid border-Black">
       <div className='max-w-screen-2xl m-auto flex flex-col gap-6 md:flex-row justify-between'>
         <Link href="/" className='shrink-0'>
           <Image alt='mark-ppcoa' src="mark-ppcoa.svg" width={40} height={70} unoptimized />
