@@ -1,7 +1,3 @@
 export default function Team() {
-  return (
-    <div>
-      team
-    </div>
-  )
+  return <div>team</div>;
 }

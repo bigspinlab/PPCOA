@@ -1,6 +1,0 @@
-{
-  "extends": [
-    "@bigspinlab/shared-eslint",
-    "next/core-web-vitals"
-  ] 
-}
