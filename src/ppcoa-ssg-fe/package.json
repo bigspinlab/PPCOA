@@ -15,7 +15,7 @@
     "react-dom": "^18"
   },
   "devDependencies": {
-    "@bigspinlab/shared-eslint": "^0.1.1",
+    "@bigspinlab/shared-eslint": "^0.1.2",
     "@bigspinlab/shared-prettier": "^0.0.1",
     "@types/node": "^20",
     "@types/react": "^18",
