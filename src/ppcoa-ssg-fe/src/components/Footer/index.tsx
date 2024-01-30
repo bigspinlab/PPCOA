@@ -3,8 +3,8 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-auto border-t border-solid border-Black">
-      <div className="max-w-screen-2xl m-auto flex flex-col gap-6 md:flex-row justify-between">
+    <footer className="w-full mt-16 border-t border-solid border-Black py-16 px-4 md:p-16 md:mt-24">
+      <div className="m-auto flex flex-col gap-6 md:flex-row justify-between">
         <Link href="/" className="shrink-0">
           <Image alt="mark-ppcoa" src="mark-ppcoa.svg" width={40} height={70} unoptimized />
         </Link>
@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col gap-5">
-          <div className="flex gap-6 md:flex-col gap-0">
+          <div className="flex gap-6 md:flex-col md:gap-0">
             <a target="_blank" href="">
               Linkedin
             </a>
