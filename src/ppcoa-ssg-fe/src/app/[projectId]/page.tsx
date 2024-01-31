@@ -1,11 +1,14 @@
 import RootWrapper from "@/components/RootWrapper";
 import ProjectCard from "@/components/ProjectCard";
 
-export default function Home() {
+export default function ProjectDetails() {
   return (
     <RootWrapper>
-      <article className="pt-44">
-        <ul className="w-full flex flex-col items-center gap-16 lg:gap-20">
+      <article className="flex flex-col gap-10">
+        <h2>
+          Outros Projetos Arquitetura
+        </h2>
+        <ul className="w-full grid grid-cols-1 grid-rows-2 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
           <li>
             <ProjectCard 
               id="1"
@@ -14,7 +17,6 @@ export default function Home() {
               imageWidth={550}
               imageHeight={550}
               projectName="Project Name"
-              category="Category"
             />
           </li>
           <li>
@@ -25,7 +27,7 @@ export default function Home() {
               imageWidth={550}
               imageHeight={550}
               projectName="Project Name"
-              category="Category"
+              
             />
           </li>
           <li>
@@ -36,7 +38,7 @@ export default function Home() {
               imageWidth={550}
               imageHeight={550}
               projectName="Project Name"
-              category="Category"
+              
             />
           </li>
           <li>
@@ -47,12 +49,11 @@ export default function Home() {
               imageWidth={550}
               imageHeight={550}
               projectName="Project Name"
-              category="Category"
+              
             />
           </li>
         </ul>
       </article>
     </RootWrapper>
-
   )
 }

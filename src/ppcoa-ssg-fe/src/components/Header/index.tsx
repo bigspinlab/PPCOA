@@ -4,14 +4,14 @@ import Nav from '../Nav';
 
 export default function Header() {
   return (
-    <header className="w-full">
-      <div className="m-auto">
+    <header className="w-full fixed bg-white">
+      <div className="m-auto flex justify-between items-center gap-5 px-4 py-1.5 lg:py-3 lg:px-8">
         <Link href="/">
           <Image alt="logo-ppcoa" src="logo-ppcoa.svg" width={94} height={58} unoptimized />
         </Link>
-        <button type="button">toggle menu button</button>
-        <Nav />
+        <button type="button">btn</button>
       </div>
+      <Nav /> 
     </header>
   );
 }
