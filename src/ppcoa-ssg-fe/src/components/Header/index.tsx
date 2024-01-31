@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,13 +7,12 @@ import Drawer from '../Drawer';
 import React from 'react';
 import { useState } from 'react';
 
-
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggleMobileMenu = () => {
     setIsOpen(!isOpen);
-  }
+  };
 
   return (
     <header className="w-full fixed bg-white">
@@ -21,11 +20,13 @@ export default function Header() {
         <Link href="/" onClick={() => setIsOpen(false)}>
           <Image alt="logo-ppcoa" src="logo-ppcoa.svg" width={94} height={58} unoptimized />
         </Link>
-        <button type="button" onClick={handleToggleMobileMenu}>btn</button>
+        <button type="button" onClick={handleToggleMobileMenu}>
+          btn
+        </button>
       </div>
-      
+
       <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-        <Nav onRouteClick={handleToggleMobileMenu}/>
+        <Nav onRouteClick={handleToggleMobileMenu} />
       </Drawer>
     </header>
   );
