@@ -21,7 +21,7 @@ export default function ProjectCard({
   category
 }: ProjectCardProps) {
   return (
-    <Link href={`/${id}`} className="flex flex-col gap-1.5">
+    <Link href={`/${category}/${id}`} className="flex flex-col gap-1.5">
       <Image className="shrink-0 aspect-square" alt={imageAlt} src={imageSrc} width={imageWidth} height={imageHeight} />
       <div className="flex flex-col">
         <h2>{projectName}</h2>

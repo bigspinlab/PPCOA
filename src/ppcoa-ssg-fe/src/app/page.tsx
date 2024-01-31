@@ -14,7 +14,7 @@ export default function Home() {
               imageWidth={550}
               imageHeight={550}
               projectName="Project Name"
-              category="Category"
+              category="architecture"
             />
           </li>
           <li>
@@ -25,7 +25,7 @@ export default function Home() {
               imageWidth={550}
               imageHeight={550}
               projectName="Project Name"
-              category="Category"
+              category="social"
             />
           </li>
           <li>
@@ -36,7 +36,7 @@ export default function Home() {
               imageWidth={550}
               imageHeight={550}
               projectName="Project Name"
-              category="Category"
+              category="urban"
             />
           </li>
           <li>
@@ -47,7 +47,7 @@ export default function Home() {
               imageWidth={550}
               imageHeight={550}
               projectName="Project Name"
-              category="Category"
+              category="architecture"
             />
           </li>
         </ul>
