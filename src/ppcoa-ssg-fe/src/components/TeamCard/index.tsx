@@ -25,7 +25,7 @@ export default function TeamCard({
 }: TeamCardProps) {
   return (
     <div className="flex flex-col gap-4 md:gap-8 xl:flex-row xl:items-start">
-      <Image className='shrink-0 aspect-square' alt={imageAlt} src={imageSrc} width={imageWidth} height={imageHeight} />
+      <Image className="shrink-0 aspect-square" alt={imageAlt} src={imageSrc} width={imageWidth} height={imageHeight} />
       <div className="flex flex-col gap-2">
         <h2>{teamName}</h2>
         <p>{role}</p>

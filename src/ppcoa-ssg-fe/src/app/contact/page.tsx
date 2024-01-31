@@ -1,4 +1,4 @@
-import RootWrapper from "@/components/RootWrapper";
+import RootWrapper from '@/components/RootWrapper';
 
 export default function Contact() {
   return (
@@ -19,9 +19,7 @@ export default function Contact() {
             <p>
               <strong>Questões Gerais</strong>
             </p>
-            <p>
-              geral@pedropintocorreia.com
-            </p>
+            <p>geral@pedropintocorreia.com</p>
           </div>
 
           <div className="flex flex-col gap-5">

@@ -1,5 +1,5 @@
-import RootWrapper from "@/components/RootWrapper";
-import ProjectCard from "@/components/ProjectCard";
+import RootWrapper from '@/components/RootWrapper';
+import ProjectCard from '@/components/ProjectCard';
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <article className="pt-44">
         <ul className="w-full flex flex-col items-center gap-16 lg:gap-20">
           <li>
-            <ProjectCard 
+            <ProjectCard
               id="1"
               imageSrc="https://via.placeholder.com/550"
               imageAlt="placeholder"
@@ -19,7 +19,7 @@ export default function Home() {
           </li>
           <li>
             <ProjectCard
-              id="2" 
+              id="2"
               imageSrc="https://via.placeholder.com/550"
               imageAlt="placeholder"
               imageWidth={550}
@@ -29,7 +29,7 @@ export default function Home() {
             />
           </li>
           <li>
-            <ProjectCard 
+            <ProjectCard
               id="3"
               imageSrc="https://via.placeholder.com/550"
               imageAlt="placeholder"
@@ -41,7 +41,7 @@ export default function Home() {
           </li>
           <li>
             <ProjectCard
-              id="4" 
+              id="4"
               imageSrc="https://via.placeholder.com/550"
               imageAlt="placeholder"
               imageWidth={550}
@@ -53,6 +53,5 @@ export default function Home() {
         </ul>
       </article>
     </RootWrapper>
-
-  )
+  );
 }

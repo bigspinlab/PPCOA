@@ -11,7 +11,7 @@ export default function Header() {
         </Link>
         <button type="button">btn</button>
       </div>
-      <Nav /> 
+      <Nav />
     </header>
   );
 }
