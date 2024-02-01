@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Nav from '../Nav';
-import Drawer from '../Drawer';
+import Drawer from '../../ui-elements/Drawer';
 import React from 'react';
 import { useState } from 'react';
 
