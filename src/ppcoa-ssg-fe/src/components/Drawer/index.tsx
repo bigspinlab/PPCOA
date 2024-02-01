@@ -1,5 +1,4 @@
 import React from 'react';
-import { createPortal } from 'react-dom';
 
 interface DrawerProps {
   children: React.ReactNode;
@@ -9,7 +8,7 @@ interface DrawerProps {
 }
 
 export default function Drawer({ children, isOpen, setIsOpen }: DrawerProps) {
-  return createPortal(
+  return (
     <main
       className={
         ' fixed top-16 overflow-hidden z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out' +
@@ -34,7 +33,6 @@ export default function Drawer({ children, isOpen, setIsOpen }: DrawerProps) {
           setIsOpen(false);
         }}
       ></section>
-    </main>,
-    document.body
+    </main>
   );
 }
