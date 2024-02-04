@@ -7,7 +7,7 @@ import Drawer from '../../ui-elements/Drawer';
 import React from 'react';
 import { useState } from 'react';
 import { Filter } from '../Filter/Filter';
-import { useMediaQuery } from '@uidotdev/usehooks';
+import { useMediaQuery } from 'usehooks-ts';
 
 export default function Header() {
   const isMediumAndUp = useMediaQuery('(min-width: 768px)');
