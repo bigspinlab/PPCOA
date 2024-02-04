@@ -24,6 +24,7 @@ const SelectTrigger = React.forwardRef<
     )}
     {...props}
   >
+    <Image className="h-4 w-4 opacity-50" alt="language" src="/language.svg" width={34} height={34} unoptimized />
     {children}
     <SelectPrimitive.Icon asChild>
       <Image

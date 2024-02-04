@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/ui-elements/Select';
 
 export default function Footer() {
   return (
@@ -47,7 +48,15 @@ export default function Footer() {
             </a>
           </div>
           <Link href="/privacy-policy">Política de Privacidade</Link>
-          <div>change language component</div>
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="PT" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="pt">PT</SelectItem>
+              <SelectItem value="en">EN</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </footer>
