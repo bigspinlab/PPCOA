@@ -1,46 +1,45 @@
 {
-	"meta": {
-      "Status":200,
-      "Redirect": null
+  "meta": {
+    "Status": 200,
+    "Redirect": null
+  },
+  "globalData": {
+    "brandLogo": {
+      "id": "1",
+      "alias": "brandLogo",
+      "content": {
+        "url": "https://www.example.com/logo.png",
+        "alt": "Brand Logo"
+      }
     },
-    "globalData": {
-      "brandLogo": {
-        "id": "1",
-        "alias": "brandLogo",
-        "content": {
-          "url": "https://www.example.com/logo.png",
-          "alt": "Brand Logo"    
-        }
-      },
-      "navigation":{
-        "id": "2",
-        "alias": "navigation",
-        "content": {
-          "items": [
-            { "id": 1, "label": "Home", "url": "/" },
-            { "id": 2, "label": "About", "url": "/about" },
-            { "id": 3, "label": "Contact", "url": "/contact" },
-            { "id": 4, "label": "Team", "url": "/team" },
-            { "id": 5, "label": "Privacy Policy", "url": "/privacy-policy" }  
-          ]
-        }
-      },
-      "footer": {
-        "id": "3",
-        "alias": "footer",
-        "content": {
-            "image": {
-              "url": "https://www.example.com/footer-image.jpg",
-              "alt": "Footer Image"
-            },
-            "gridColumns": [
-              {
-                "id": 1,
-                "reachText": "<strong>Pedro Pinto Correia</strong>"
-              }
-            ]
+    "navigation": {
+      "id": "2",
+      "alias": "navigation",
+      "content": {
+        "items": [
+          { "id": 1, "label": "Home", "url": "/" },
+          { "id": 2, "label": "About", "url": "/about" },
+          { "id": 3, "label": "Contact", "url": "/contact" },
+          { "id": 4, "label": "Team", "url": "/team" },
+          { "id": 5, "label": "Privacy Policy", "url": "/privacy-policy" }
+        ]
+      }
+    },
+    "footer": {
+      "id": "3",
+      "alias": "footer",
+      "content": {
+        "image": {
+          "url": "https://www.example.com/footer-image.jpg",
+          "alt": "Footer Image"
+        },
+        "gridColumns": [
+          {
+            "id": 1,
+            "reachText": "<strong>Pedro Pinto Correia</strong>"
           }
-        }
+        ]
+      }
     }
-
+  }
 }
