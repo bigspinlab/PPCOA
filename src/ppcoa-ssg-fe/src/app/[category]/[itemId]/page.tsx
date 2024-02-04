@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import RootWrapper from '@/components/RootWrapper';
 import ProjectCard from '@/components/ProjectCard';
