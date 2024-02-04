@@ -2,10 +2,15 @@ import RootWrapper from '@/components/RootWrapper';
 import ProjectCard from '@/components/ProjectCard';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/ui-elements/Carousel';
 import { CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
+import { useMediaQuery } from '@uidotdev/usehooks';
+import { Filter } from '@/components/Filter/Filter';
 
 export default function ProjectDetails() {
+  const isMediumAndUp = useMediaQuery('(min-width: 768px)');
+
   return (
     <>
+      {isMediumAndUp ? <Filter /> : null}
       <section className="overflow-hidden mb-20 md:mb-40">
         <article className="pt-44">
           <Carousel className="flex flex-col-reverse">

@@ -6,8 +6,11 @@ import Nav from '../Nav';
 import Drawer from '../../ui-elements/Drawer';
 import React from 'react';
 import { useState } from 'react';
+import { Filter } from '../Filter/Filter';
+import { useMediaQuery } from '@uidotdev/usehooks';
 
 export default function Header() {
+  const isMediumAndUp = useMediaQuery('(min-width: 768px)');
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggleMobileMenu = () => {
@@ -20,6 +23,7 @@ export default function Header() {
         <Link href="/" onClick={() => setIsOpen(false)}>
           <Image alt="logo-ppcoa" src="logo-ppcoa.svg" width={94} height={58} unoptimized />
         </Link>
+        {isMediumAndUp ? <Filter /> : null}
         <button type="button" onClick={handleToggleMobileMenu}>
           btn
         </button>
