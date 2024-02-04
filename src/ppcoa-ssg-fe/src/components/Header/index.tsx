@@ -8,6 +8,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Filter } from '../Filter/Filter';
 import { useMediaQuery } from 'usehooks-ts';
+import { Button } from '@/ui-elements/Button';
 
 export default function Header() {
   const isMediumAndUp = useMediaQuery('(min-width: 768px)');
@@ -24,9 +25,9 @@ export default function Header() {
           <Image alt="logo-ppcoa" src="logo-ppcoa.svg" width={94} height={58} unoptimized />
         </Link>
         {isMediumAndUp ? <Filter /> : null}
-        <button type="button" onClick={handleToggleMobileMenu}>
+        <Button variant="ghost" type="button" onClick={handleToggleMobileMenu}>
           btn
-        </button>
+        </Button>
       </div>
 
       <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
