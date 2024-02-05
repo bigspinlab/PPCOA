@@ -14,6 +14,7 @@ export default function ProjectDetails() {
     <>
       {!isMediumAndUp ? <Filter /> : null}
       <section className="overflow-hidden mb-20 md:mb-40">
+        <h2 className='sr-only'>Project Detail</h2>
         <article className="pt-44">
           <Carousel className="flex flex-col-reverse">
             <CarouselContent>
@@ -62,8 +63,9 @@ export default function ProjectDetails() {
         </article>
       </section>
       <RootWrapper>
+        <h2 className='sr-only'>Project list</h2>
         <article className="flex flex-col gap-10">
-          <h2>Outros Projetos Arquitetura</h2>
+          <h3 className='font-bold'>Outros Projetos Arquitetura</h3>
           <ul className="w-full grid grid-cols-1 grid-rows-2 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
             <li>
               <ProjectCard

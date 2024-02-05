@@ -83,4 +83,16 @@
       'rlig' 1,
       'calt' 1;
   }
+
+  h2 {
+    @apply text-xl font-bold md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl;
+  }
+
+  p {
+    @apply text-base;
+  }
 }

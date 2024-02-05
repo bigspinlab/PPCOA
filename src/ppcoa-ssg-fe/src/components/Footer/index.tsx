@@ -4,7 +4,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-16 border-t border-solid border-Black py-16 px-4 md:p-16 md:mt-24">
+    <footer className="w-full mt-16 border-t border-solid border-Black py-16 px-4 lg:p-16 lg:mt-24">
       <div className="m-auto flex flex-col gap-6 md:flex-row justify-between">
         <Link href="/" className="shrink-0">
           <Image alt="mark-ppcoa" src="mark-ppcoa.svg" width={40} height={70} unoptimized />
