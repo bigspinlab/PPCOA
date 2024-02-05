@@ -1,0 +1,47 @@
+{
+  "route": {
+    "path": "/",
+    "component": "Home"
+  },
+  "projectsList": {
+    "id": "projectsList",
+    "alias": "projectsList",
+    "content": [
+      {
+        "id": "1",
+        "title": "Project 1",
+        "category": "architecture",
+        "imageSrc": {
+          "desktop": "https://www.example.com/image.jpg",
+          "mobile": "https://www.example.com/image.jpg",
+          "alt": "Project 1"
+        }
+      },
+      {
+        "id": "2",
+        "title": "Project 1",
+        "category": "urban",
+        "imageSrc": {
+          "desktop": "https://www.example.com/image.jpg",
+          "mobile": "https://www.example.com/image.jpg",
+          "alt": "Project 1"
+        }
+      },
+      {
+        "id": "3",
+        "title": "Project 1",
+        "category": "society",
+        "imageSrc": {
+          "desktop": "https://www.example.com/image.jpg",
+          "mobile": "https://www.example.com/image.jpg",
+          "alt": "Project 1"
+        }
+      }
+    ]
+  },
+  "seo": {
+    "title": "home",
+    "description": "home",
+    "imageSrc": "https://www.example.com/image.jpg"
+  }
+}

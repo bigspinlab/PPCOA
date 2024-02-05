@@ -1,0 +1,62 @@
+{
+  "route": {
+    "path": "/team",
+    "component": "Team"
+  },
+  "teamList": {
+    "id": "teamList",
+    "alias": "teamList",
+    "content": [
+      {
+        "id": "1",
+        "name": "John Doe",
+        "role": "CEO",
+        "imageSrc": {
+          "desktop": "https://www.example.com/image.jpg",
+          "mobile": "https://www.example.com/image.jpg",
+          "alt": "John Doe"
+        },
+        "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
+        "contact": {
+          "email": "",
+          "phone": ""
+        }
+      },
+      {
+        "id": "1",
+        "name": "John Doe",
+        "role": "CEO",
+        "imageSrc": {
+          "desktop": "https://www.example.com/image.jpg",
+          "mobile": "https://www.example.com/image.jpg",
+          "alt": "John Doe"
+        },
+        "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
+        "contact": {
+          "email": "",
+          "phone": ""
+        }
+      },
+      {
+        "id": "1",
+        "name": "John Doe",
+        "role": "CEO",
+        "imageSrc": {
+          "desktop": "https://www.example.com/image.jpg",
+          "mobile": "https://www.example.com/image.jpg",
+          "alt": "John Doe"
+        },
+        "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
+        "contact": {
+          "email": "",
+          "phone": ""
+        }
+      }
+    ]
+  },
+  "seo": {
+    "title": "team",
+    "description": "team",
+    "imageSrc": "https://www.example.com/image.jpg"
+  }
+}

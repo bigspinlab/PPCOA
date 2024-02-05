@@ -1,0 +1,93 @@
+{
+  "route": {
+    "path": "/:category/:projectId",
+    "component": "Project Detail"
+  },
+  "projectDetail": {
+    "id": "1",
+    "alias": "projectDetail",
+    "carousel": [
+      {
+        "id": "1",
+        "alias": "carouselItem",
+        "carouselType": "image",
+        "content": {
+          "text": "Project 1",
+          "imageSrc": {
+            "desktop": "https://www.example.com/image.jpg",
+            "mobile": "https://www.example.com/image.jpg",
+            "alt": "Project 1"
+          }
+        }
+      },
+      {
+        "id": "1",
+        "alias": "carouselItem",
+        "carouselType": "image",
+        "content": {
+          "text": "Project 1",
+          "imageSrc": {
+            "desktop": "https://www.example.com/image.jpg",
+            "mobile": "https://www.example.com/image.jpg",
+            "alt": "Project 1"
+          }
+        }
+      },
+      {
+        "id": "1",
+        "alias": "carouselItem",
+        "carouselType": "image",
+        "content": {
+          "text": "Project 1",
+          "imageSrc": {
+            "desktop": "https://www.example.com/image.jpg",
+            "mobile": "https://www.example.com/image.jpg",
+            "alt": "Project 1"
+          }
+        }
+      }
+    ]
+  },
+  "projectsList": {
+    "id": "projectsList",
+    "alias": "projectsList",
+    "title": "Outros Projetos",
+    "content": [
+      {
+        "id": "1",
+        "title": "Project 1",
+        "category": "urban",
+        "imageSrc": {
+          "desktop": "https://www.example.com/image.jpg",
+          "mobile": "https://www.example.com/image.jpg",
+          "alt": "Project 1"
+        }
+      },
+      {
+        "id": "2",
+        "title": "Project 1",
+        "category": "urban",
+        "imageSrc": {
+          "desktop": "https://www.example.com/image.jpg",
+          "mobile": "https://www.example.com/image.jpg",
+          "alt": "Project 1"
+        }
+      },
+      {
+        "id": "3",
+        "title": "Project 1",
+        "category": "urban",
+        "imageSrc": {
+          "desktop": "https://www.example.com/image.jpg",
+          "mobile": "https://www.example.com/image.jpg",
+          "alt": "Project 1"
+        }
+      }
+    ]
+  },
+  "seo": {
+    "title": "Project Detail",
+    "description": "Project Detail",
+    "imageSrc": "https://www.example.com/image.jpg"
+  }
+}

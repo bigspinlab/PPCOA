@@ -1,0 +1,95 @@
+{
+  "route": {
+    "path": "/contact",
+    "component": "Contact"
+  },
+  "contact": {
+    "id": "1",
+    "alias": "contact",
+    "content": {
+      "headline": "Pretende falar connosco? Conforme a sua questão, encontre o contacto mais apropriado, ou envie-nos uma mensagem. Adorávamos ouvir o que tem para nos dizer.",
+      "columns": {
+        "id": "1",
+        "alias": "contact-columns",
+        "items": [
+          {
+            "id": "1",
+            "title": "Sede",
+            "content": ""
+          },
+          {
+            "id": "1",
+            "title": "Carreiras",
+            "content": ""
+          },
+          {
+            "id": "1",
+            "title": "Redes Sociais",
+            "content": ""
+          }
+        ]
+      },
+      "form": {
+        "id": "1",
+        "alias": "contact-form",
+        "title": "Fale connosco",
+        "fields": {
+          "id": "1",
+          "alias": "contact-form-fields",
+          "items": [
+            {
+              "id": "1",
+              "type": "email",
+              "label": "Email",
+              "placeholder": "Email",
+              "required": true
+            },
+            {
+              "id": "2",
+              "type": "select",
+              "label": "Assunto",
+              "placeholder": "Assunto",
+              "required": true,
+              "options": [
+                {
+                  "id": "1",
+                  "value": "1",
+                  "label": "Assunto 1"
+                },
+                {
+                  "id": "2",
+                  "value": "2",
+                  "label": "Assunto 2"
+                },
+                {
+                  "id": "3",
+                  "value": "3",
+                  "label": "Assunto 3"
+                }
+              ]
+            },
+            {
+              "id": "3",
+              "type": "textarea",
+              "label": "Mensagem",
+              "placeholder": "Mensagem",
+              "required": true
+            },
+            {
+              "id": "4",
+              "type": "checkbox",
+              "label": "Aceito a política de privacidade",
+              "required": true
+            }
+          ]
+        },
+        "submit": "Enviar"
+      }
+    }
+  },
+  "seo": {
+    "title": "contact",
+    "description": "contact",
+    "imageSrc": "https://www.example.com/image.jpg"
+  }
+}
