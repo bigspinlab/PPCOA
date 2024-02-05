@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/ui-elements/Button';
-import { FormField, FormItem, FormLabel, FormControl, FormDescription, FormMessage, Form } from '@/components/Form';
+import { FormField, FormItem, FormControl, FormMessage, Form } from '@/ui-elements/Form';
 import RootWrapper from '@/components/RootWrapper';
 import { Input } from '@/ui-elements/Input';
 import { useForm } from 'react-hook-form';
@@ -32,7 +32,9 @@ export default function FormContact() {
 
   return (
     <RootWrapper>
-      <article>
+      <h2 className='sr-only'>Contact form</h2>
+      <article className='flex flex-col'>
+        <h3 className='font-bold mb-5'>Fale conosco</h3>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <FormField
@@ -40,11 +42,9 @@ export default function FormContact() {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
                   <FormControl>
                     <Input placeholder="shadcn" {...field} />
                   </FormControl>
-                  <FormDescription>This is your public display name.</FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
