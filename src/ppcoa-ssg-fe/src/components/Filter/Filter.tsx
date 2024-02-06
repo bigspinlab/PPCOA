@@ -28,9 +28,9 @@ const Filter = () => {
   // }, [activeChip, isCatalogLoading, isMediumAndUp]);
 
   return (
-    <section className="w-full pt-20 lg:pt-0">
-      <article className="flex items-center">
-        <ul className="whitespace-nowrap flex items-center justify-center overflow-x-scroll m-auto space-x-1 pl-40 sm:pl-0">
+    <section className="w-full h-full flex justify-center pt-20 lg:pt-0">
+      <article className="w-full flex items-center">
+        <ul className="w-full h-full whitespace-nowrap flex items-center justify-center overflow-x-scroll m-auto space-x-1 sm:pl-0">
           <li className="flex justify-center shrink-0">
             <FilterItem filterFillColor="bg-red-500" filterLabel="Todos" isActive={true} />
           </li>
