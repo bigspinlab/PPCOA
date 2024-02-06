@@ -8,7 +8,7 @@ import { useMediaQuery } from 'usehooks-ts';
 import { Filter } from '@/components/Filter/Filter';
 
 export default function ProjectDetails() {
-  const isMediumAndUp = useMediaQuery('(min-width: 768px)');
+  const isMediumAndUp = useMediaQuery('(min-width: 1024px)');
 
   return (
     <>

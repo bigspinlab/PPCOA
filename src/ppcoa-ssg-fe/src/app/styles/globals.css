@@ -37,6 +37,9 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    --custom-height-70-px: 4.375rem;
+    --custom-height-86-px: 5.375rem;
   }
 
   .dark {

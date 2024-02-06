@@ -19,7 +19,7 @@ export default function Drawer({ children, isOpen, setIsOpen }: DrawerProps) {
     >
       <section
         className={
-          'w-screen right-0 absolute bg-white h-dvh shadow-xl delay-400 duration-500 ease-in-out transition-all transform lg:h-auto lg:min-h-20 lg:py-3 lg:flex lg:items-center lg:w-9/12 lg:right-24 lg:shadow-none' +
+          'w-screen right-0 absolute bg-white h-dvh shadow-xl delay-400 duration-500 ease-in-out transition-all transform lg:h-auto lg:min-h-21 lg:flex lg:items-center lg:w-9/12 lg:right-24 lg:shadow-none' +
           (isOpen ? ' translate-x-0 ' : ' translate-x-full ')
         }
       >
@@ -28,7 +28,7 @@ export default function Drawer({ children, isOpen, setIsOpen }: DrawerProps) {
         </article>
       </section>
       <section
-        className="w-screen h-dvh cursor-pointer lg:relative lg:top-20 lg:bg-gray-900 lg:bg-opacity-25"
+        className="w-screen h-dvh cursor-pointer lg:relative lg:top-21 lg:bg-gray-900 lg:bg-opacity-25"
         onClick={() => {
           setIsOpen(false);
         }}

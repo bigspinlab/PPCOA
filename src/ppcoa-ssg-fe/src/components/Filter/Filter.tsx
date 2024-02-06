@@ -1,7 +1,7 @@
 import { FilterItem } from '../FilterItem/FilterItem';
 
 const Filter = () => {
-  // const isMediumAndUp = useMediaQuery('(min-width: 768px)')
+  // const isMediumAndUp = useMediaQuery('(min-width: 1024px)')
   // const chipContainer = useRef<HTMLUListElement>();
 
   // const scrollToActiveChip = useCallback(() => {
@@ -28,7 +28,7 @@ const Filter = () => {
   // }, [activeChip, isCatalogLoading, isMediumAndUp]);
 
   return (
-    <section className="w-full pt-20 md:pt-0">
+    <section className="w-full pt-20 lg:pt-0">
       <article className="flex items-center">
         <ul className="whitespace-nowrap flex items-center justify-center overflow-x-scroll m-auto space-x-1 pl-40 sm:pl-0">
           <li className="flex justify-center shrink-0">
