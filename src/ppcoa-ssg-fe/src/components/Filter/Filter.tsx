@@ -31,7 +31,7 @@ const Filter = () => {
   return (
     <ScrollArea>
       <section className="w-full h-full flex justify-center pt-20 lg:pt-0">
-        <article className="w-full flex items-center">
+        <article className="w-full flex items-center pb-2.5 sm:pb-0">
           <ul className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
             <li className="flex justify-center shrink-0">
               <FilterItem filterLabel="Todos"  />

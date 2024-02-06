@@ -13,9 +13,9 @@ export default function ProjectDetails() {
   return (
     <>
       {!isMediumAndUp ? <Filter /> : null}
-      <section className="overflow-hidden mb-20 md:mb-40">
+      <section className="overflow-hidden mb-17 md:mb-36">
         <h2 className="sr-only">Project Detail</h2>
-        <article className="pt-44">
+        <article className="pt-14 lg:pt-36">
           <Carousel className="flex flex-col-reverse">
             <CarouselContent>
               <CarouselItem>
@@ -62,6 +62,7 @@ export default function ProjectDetails() {
           </Carousel>
         </article>
       </section>
+
       <RootWrapper>
         <h2 className="sr-only">Project list</h2>
         <article className="flex flex-col gap-10">
