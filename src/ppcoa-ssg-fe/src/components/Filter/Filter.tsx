@@ -1,7 +1,12 @@
 import { ScrollArea, ScrollBar } from '@/ui-elements/ScrollArea';
 import { FilterItem } from '../FilterItem/FilterItem';
+import { usePathname } from 'next/navigation';
 
 const Filter = () => {
+  const location = usePathname()
+  const routesToHideFilter = ['/contact', '/about', '/team', '/privacy-policy', '/not-found'];
+  const hideFilter = routesToHideFilter.some(route => location.includes(route));
+
   // const isMediumAndUp = useMediaQuery('(min-width: 1024px)')
   // const chipContainer = useRef<HTMLUListElement>();
 
@@ -27,6 +32,10 @@ const Filter = () => {
   //     scrollToActiveChip();
   //   }
   // }, [activeChip, isCatalogLoading, isMediumAndUp]);
+
+  if (hideFilter) {
+    return null;
+  }
 
   return (
     <ScrollArea>

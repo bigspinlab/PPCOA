@@ -31,7 +31,7 @@ export default function FormContact() {
   }
 
   return (
-    <RootWrapper customClassName='flex justify-start'>
+    <RootWrapper customClassName='w-full flex justify-start'>
       <h2 className="sr-only">Contact form</h2>
       <article className="flex flex-col items-start">
         <h3 className="font-bold mb-5">Fale conosco</h3>
