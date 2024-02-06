@@ -24,7 +24,7 @@ export default function ProjectCard({
     <Link href={`/${category}/${id}`} className="flex flex-col gap-1.5">
       <Image className="shrink-0 aspect-square" alt={imageAlt} src={imageSrc} width={imageWidth} height={imageHeight} />
       <div className="flex flex-col">
-        <h3 className='font-bold'>{projectName}</h3>
+        <h3 className="font-bold">{projectName}</h3>
         <p>{category}</p>
       </div>
     </Link>

@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-        <h1 className='sr-only'>PPCOA website</h1>
+        <h1 className="sr-only">PPCOA website</h1>
         <main className="w-full min-h-full flex flex-col m-auto pt-22">{children}</main>
         <Footer />
       </body>

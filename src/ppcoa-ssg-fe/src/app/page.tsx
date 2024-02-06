@@ -12,7 +12,7 @@ export default function Home() {
     <>
       {!isMediumAndUp ? <Filter /> : null}
       <RootWrapper>
-        <h2 className='sr-only'>Project list</h2>
+        <h2 className="sr-only">Project list</h2>
         <article className="pt-14 md:pt-44">
           <ul className="w-full flex flex-col items-center gap-16 lg:gap-20">
             <li>

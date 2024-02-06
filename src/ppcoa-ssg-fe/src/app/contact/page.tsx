@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <>
       <RootWrapper>
-        <h2 className='sr-only'>Contact</h2>
+        <h2 className="sr-only">Contact</h2>
         <article className="pt-44">
           <div className="w-full mb-24">
             <p>

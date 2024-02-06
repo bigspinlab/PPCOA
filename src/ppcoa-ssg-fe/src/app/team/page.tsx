@@ -4,7 +4,7 @@ import TeamCard from '@/components/TeamCard';
 export default function Team() {
   return (
     <RootWrapper>
-      <h2 className='sr-only'>Team list</h2>
+      <h2 className="sr-only">Team list</h2>
       <article className="pt-44">
         <ul className="w-full grid grid-cols-1 grid-rows-2 gap-6 sm:grid-cols-2 lg:gap-y-36 lg:gap-x-8">
           <li>
