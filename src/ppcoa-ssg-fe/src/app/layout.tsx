@@ -19,7 +19,7 @@ export default function RootLayout({
       <body>
         <Header />
         <h1 className='sr-only'>PPCOA website</h1>
-        <main className="w-full min-h-full flex flex-col max-w-screen-2xl m-auto pt-22">{children}</main>
+        <main className="w-full min-h-full flex flex-col m-auto pt-22">{children}</main>
         <Footer />
       </body>
     </html>
