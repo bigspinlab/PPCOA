@@ -9,7 +9,7 @@ export default function Nav({ onRouteClick }: NavProps) {
   useLockBodyScroll();
 
   return (
-    <nav className="w-full flex lg:justify-end">
+    <nav className="w-full flex justify-end">
       <NavRouteList onRouteClick={onRouteClick} />
     </nav>
   );

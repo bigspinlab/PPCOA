@@ -21,18 +21,17 @@ export default function Header() {
   return (
     <header className="w-full fixed bg-white z-10">
       <div className="m-auto flex justify-between items-center gap-5 px-4 py-1.5 lg:py-3 lg:px-8">
-        <Link href="/" onClick={() => setIsOpen(false)}>
+        <Link className='z-20' href="/" onClick={() => setIsOpen(false)}>
           <Image alt="logo-ppcoa" src="logo-ppcoa.svg" width={94} height={58} unoptimized />
         </Link>
         {isMediumAndUp ? <Filter /> : null}
-        <Button variant="ghost" type="button" onClick={handleToggleMobileMenu}>
+        <Button className='z-20' variant="ghost" type="button" onClick={handleToggleMobileMenu}>
           btn
         </Button>
+        <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
+          <Nav onRouteClick={handleToggleMobileMenu} />
+        </Drawer>
       </div>
-
-      <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-        <Nav onRouteClick={handleToggleMobileMenu} />
-      </Drawer>
     </header>
   );
 }

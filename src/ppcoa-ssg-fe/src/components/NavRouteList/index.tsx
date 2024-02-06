@@ -6,21 +6,21 @@ interface NavRouteListProps {
 
 export default function NavRouteList({ onRouteClick }: NavRouteListProps) {
   return (
-    <ul className="flex flex-col px-4 py-3 lg:flex-row lg:gap-5 lg:p-0">
-      <li>
-        <Link href="/about" onClick={onRouteClick}>
+    <ul className="flex flex-col px-4 py-3 lg:flex-row gap-5 lg:p-0">
+      <li className='text-right text-4xl font-extralight lg:text-3xl'>
+        <Link className='animate-in' href="/about" onClick={onRouteClick}>
           Sobre
         </Link>
       </li>
 
-      <li>
-        <Link href="/team" onClick={onRouteClick}>
+      <li className='text-right text-4xl font-extralight lg:text-3xl'>
+        <Link className='animate-in' href="/team" onClick={onRouteClick}>
           Equipa
         </Link>
       </li>
 
-      <li>
-        <Link href="/contact" onClick={onRouteClick}>
+      <li className='text-right text-4xl font-extralight lg:text-3xl'>
+        <Link className='animate-in' href="/contact" onClick={onRouteClick}>
           Contactos
         </Link>
       </li>
