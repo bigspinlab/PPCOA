@@ -34,19 +34,19 @@ const Filter = () => {
         <article className="w-full flex items-center">
           <ul className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
             <li className="flex justify-center shrink-0">
-              <FilterItem filterFillColor="bg-red-500" filterLabel="Todos" isActive={true} />
+              <FilterItem filterLabel="Todos"  />
             </li>
             <li className="flex justify-center shrink-0">
-              <FilterItem filterFillColor="bg-red-500" filterLabel="Arquitetura" isActive={true} />
+              <FilterItem filterLabel="Arquitetura"  />
             </li>
             <li className="flex justify-center shrink-0">
-              <FilterItem filterFillColor="bg-red-500" filterLabel="Sociedade" isActive={true} />
+              <FilterItem filterLabel="Sociedade"  />
             </li>
             <li className="flex justify-center shrink-0">
-              <FilterItem filterFillColor="bg-red-500" filterLabel="Urbano" isActive={true} />
+              <FilterItem filterLabel="Urbano"  />
             </li>
             <li className="flex justify-center shrink-0">
-              <FilterItem filterFillColor="bg-red-500" filterLabel="Concurso" isActive={true} />
+              <FilterItem filterLabel="Concurso"  />
             </li>
           </ul>
         </article>

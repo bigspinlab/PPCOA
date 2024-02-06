@@ -31,9 +31,9 @@ export default function FormContact() {
   }
 
   return (
-    <RootWrapper>
+    <RootWrapper customClassName='flex justify-start'>
       <h2 className="sr-only">Contact form</h2>
-      <article className="flex flex-col">
+      <article className="flex flex-col items-start">
         <h3 className="font-bold mb-5">Fale conosco</h3>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">

@@ -2,9 +2,9 @@ import { Button } from '@/ui-elements/Button';
 import Image from 'next/image';
 
 interface FilterItemProps {
-  filterFillColor: string;
+  filterFillColor?: string;
   filterLabel: string;
-  isActive: boolean;
+  isActive?: boolean;
 }
 
 const FilterItem = ({ filterFillColor, filterLabel, isActive }: FilterItemProps) => {
