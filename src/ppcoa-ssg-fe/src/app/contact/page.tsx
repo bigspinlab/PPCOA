@@ -8,7 +8,7 @@ export default function Contact() {
         <h2 className="sr-only">Contact</h2>
         <article className="pt-44">
           <div className="w-full mb-24 font-bold sm:w-3/4">
-            <h3>
+            <h3 className='text-3xl'>
               Pretende falar connosco? Conforme a sua questão, encontre o contacto mais apropriado, ou envie-nos uma
               mensagem. Adorávamos ouvir o que tem para nos dizer.
             </h3>
