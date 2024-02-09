@@ -6,7 +6,7 @@ import Nav from '../Nav';
 import Drawer from '../../ui-elements/Drawer';
 import React from 'react';
 import { useState } from 'react';
-import { Filter } from '../Filter/Filter';
+import { Filter } from '../Filter';
 import { useMediaQuery } from 'usehooks-ts';
 import { Button } from '@/ui-elements/Button';
 

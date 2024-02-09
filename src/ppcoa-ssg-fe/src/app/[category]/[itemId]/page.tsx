@@ -1,18 +1,18 @@
-'use client';
+'use server';
 
 import RootWrapper from '@/components/RootWrapper';
 import ProjectCard from '@/components/ProjectCard';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/ui-elements/Carousel';
 import { CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
-import { useMediaQuery } from 'usehooks-ts';
-import { Filter } from '@/components/Filter/Filter';
+import { Filter } from '@/components/Filter';
 
-export default function ProjectDetails() {
-  const isMediumAndUp = useMediaQuery('(min-width: 1024px)');
+export default async function ProjectDetails({params}: any) {
+  const { slug } = params;
+  console.log('params', params, slug);
 
   return (
     <>
-      {!isMediumAndUp ? <Filter /> : null}
+      <Filter />
       <section className="overflow-hidden mb-17 md:mb-36">
         <h2 className="sr-only">Project Detail</h2>
         <article className="pt-14 lg:pt-36">
@@ -114,3 +114,10 @@ export default function ProjectDetails() {
     </>
   );
 }
+
+// Return a list of `params` to populate the [slug] dynamic segment
+// export async function generateStaticParams() {
+//   const posts = await fetch('http://localhost:8000/projectDetail').then((res) => res.json())
+ 
+//   return posts
+// }

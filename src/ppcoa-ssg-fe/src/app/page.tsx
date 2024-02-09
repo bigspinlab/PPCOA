@@ -1,67 +1,62 @@
-'use client';
 
-import RootWrapper from '@/components/RootWrapper';
-import ProjectCard from '@/components/ProjectCard';
-import { useMediaQuery } from 'usehooks-ts';
-import { Filter } from '@/components/Filter/Filter';
+
+// import RootWrapper from '@/components/RootWrapper';
+// import ProjectCard from '@/components/ProjectCard';
+//import { useMediaQuery } from 'usehooks-ts';
+import { Filter } from '@/components/Filter';
+// import { GetStaticProps } from 'next';
+// import { getHeadless } from '@/lib/getHeadless';
+import ProjectsList from '@/components/ProjectsList';
+import { Suspense } from 'react';
 
 export default function Home() {
-  const isMediumAndUp = useMediaQuery('(min-width: 1024px)');
+  // const umbracoContent = await getHeadless();
+  // console.log('umbracoContent', umbracoContent);
 
   return (
     <>
-      {!isMediumAndUp ? <Filter /> : null}
-      <RootWrapper>
-        <h2 className="sr-only">Project list</h2>
-        <article className="pt-14 md:pt-44">
-          <ul className="w-full flex flex-col items-center gap-16 lg:gap-20">
-            <li>
-              <ProjectCard
-                id="1"
-                imageSrc="https://via.placeholder.com/550"
-                imageAlt="placeholder"
-                imageWidth={550}
-                imageHeight={550}
-                projectName="Project Name"
-                category="architecture"
-              />
-            </li>
-            <li>
-              <ProjectCard
-                id="2"
-                imageSrc="https://via.placeholder.com/550"
-                imageAlt="placeholder"
-                imageWidth={550}
-                imageHeight={550}
-                projectName="Project Name"
-                category="social"
-              />
-            </li>
-            <li>
-              <ProjectCard
-                id="3"
-                imageSrc="https://via.placeholder.com/550"
-                imageAlt="placeholder"
-                imageWidth={550}
-                imageHeight={550}
-                projectName="Project Name"
-                category="urban"
-              />
-            </li>
-            <li>
-              <ProjectCard
-                id="4"
-                imageSrc="https://via.placeholder.com/550"
-                imageAlt="placeholder"
-                imageWidth={550}
-                imageHeight={550}
-                projectName="Project Name"
-                category="architecture"
-              />
-            </li>
-          </ul>
-        </article>
-      </RootWrapper>
+
+      <Filter />
+      <Suspense fallback={<div className="fixed top-16 bg-red-500 h-10">Loading...</div>}>
+        <ProjectsList />      
+      </Suspense>
+ 
     </>
   );
 }
+
+
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+
+//   if (!params) {
+//     return {
+//       notFound: true
+//     };
+//   }
+
+//   try {
+//     const umbracoContent = await getHeadless();
+
+//     if (umbracoContent.meta?.Status === 404) {
+//       throw new Error('Error to fetch the Umbraco Content');
+//     }
+
+//     console.log('umbracoContent', umbracoContent);
+
+//     return {
+//       props: {
+//         umbracoContent
+//       },
+//       revalidate: 60
+//     };
+
+//   } catch (error) {
+//     console.error(error);
+//     return {
+//       notFound: true
+//     }
+//   }
+
+// }
+
+

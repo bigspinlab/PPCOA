@@ -1,6 +1,8 @@
+'use client'
+
 import { ScrollArea, ScrollBar } from '@/ui-elements/ScrollArea';
-import { FilterItem } from '../FilterItem/FilterItem';
 import { usePathname } from 'next/navigation';
+import { FilterList } from '../FilterList';
 
 const Filter = () => {
   const location = usePathname()
@@ -41,28 +43,11 @@ const Filter = () => {
     <ScrollArea>
       <section className="w-full h-full flex justify-center pt-20 lg:pt-0">
         <article className="w-full flex items-center pb-2.5 sm:pb-0">
-          <ul className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
-            <li className="flex justify-center shrink-0">
-              <FilterItem filterLabel="Todos"  />
-            </li>
-            <li className="flex justify-center shrink-0">
-              <FilterItem filterLabel="Arquitetura"  />
-            </li>
-            <li className="flex justify-center shrink-0">
-              <FilterItem filterLabel="Sociedade"  />
-            </li>
-            <li className="flex justify-center shrink-0">
-              <FilterItem filterLabel="Urbano"  />
-            </li>
-            <li className="flex justify-center shrink-0">
-              <FilterItem filterLabel="Concurso"  />
-            </li>
-          </ul>
+         <FilterList />
         </article>
       </section>
       <ScrollBar orientation='horizontal'/>
     </ScrollArea>
-    
   );
 };
 export { Filter };
