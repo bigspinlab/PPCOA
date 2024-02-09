@@ -169,26 +169,20 @@ const CarouselItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLD
 CarouselItem.displayName = 'CarouselItem';
 
 const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
-  ({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
-    const { orientation, scrollPrev, canScrollPrev } = useCarousel();
+  ({ className, variant = 'ghost', size = 'icon', ...props }, ref) => {
+    const { scrollPrev, canScrollPrev } = useCarousel();
 
     return (
       <Button
         ref={ref}
         variant={variant}
         size={size}
-        className={cn(
-          'disabled:opacity-5 absolute h-8 w-8 rounded-full',
-          orientation === 'horizontal'
-            ? '-left-12 top-1/2 -translate-y-1/2'
-            : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
-          className
-        )}
+        className={cn('disabled:opacity-25 h-10 w-10', className)}
         disabled={!canScrollPrev}
         onClick={scrollPrev}
         {...props}
       >
-        <Image className="h-4 w-4" alt="arrow-left" src="/arrow-left.svg" width={34} height={34} unoptimized />
+        <Image className="h-8 w-8" alt="arrow-left" src="/arrow-left.svg" width={34} height={34} unoptimized />
       </Button>
     );
   }
@@ -196,26 +190,20 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
 CarouselPrevious.displayName = 'CarouselPrevious';
 
 const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
-  ({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
-    const { orientation, scrollNext, canScrollNext } = useCarousel();
+  ({ className, variant = 'ghost', size = 'icon', ...props }, ref) => {
+    const { scrollNext, canScrollNext } = useCarousel();
 
     return (
       <Button
         ref={ref}
         variant={variant}
         size={size}
-        className={cn(
-          'absolute h-8 w-8 rounded-full',
-          orientation === 'horizontal'
-            ? '-right-12 top-1/2 -translate-y-1/2'
-            : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
-          className
-        )}
+        className={cn('disabled:opacity-25 h-10 w-10', className)}
         disabled={!canScrollNext}
         onClick={scrollNext}
         {...props}
       >
-        <Image className="h-4 w-4" alt="arrow-right" src="/arrow-right.svg" width={34} height={34} unoptimized />
+        <Image className="h-8 w-8" alt="arrow-right" src="/arrow-right.svg" width={34} height={34} unoptimized />
       </Button>
     );
   }

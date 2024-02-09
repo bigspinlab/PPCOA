@@ -56,8 +56,8 @@ export default async function ProjectDetails({ params }: any) {
               </CarouselItem>
             </CarouselContent>
             <div className="hidden pb-9 md:pr-20 md:flex md:gap-8 lg:pr-32 justify-end">
-              <CarouselPrevious className="disabled:opacity-25" />
-              <CarouselNext className="disabled:opacity-25" />
+              <CarouselPrevious />
+              <CarouselNext />
             </div>
           </Carousel>
         </article>
