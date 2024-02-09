@@ -51,6 +51,18 @@ const config: Config = {
         card: {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))'
+        },
+        red: {
+          100: '#FA4647'
+        },
+        blue: {
+          100: '#006AAD'
+        },
+        yellow: {
+          100: '#FABD5C'
+        },
+        gray: {
+          100: '#6C757D'
         }
       },
       spacing: {

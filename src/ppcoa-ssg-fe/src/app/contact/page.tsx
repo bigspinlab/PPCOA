@@ -1,5 +1,6 @@
 import FormContact from '@/components/FormContact';
 import RootWrapper from '@/components/RootWrapper';
+import Rectangle from '@/ui-elements/Rectangle';
 
 export default function Contact() {
   return (
@@ -7,6 +8,7 @@ export default function Contact() {
       <RootWrapper>
         <h2 className="sr-only">Contact</h2>
         <article className="pt-44">
+          <Rectangle customStyles="bg-red-100 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
           <div className="w-full mb-24 font-bold sm:w-3/4">
             <h3 className='text-3xl'>
               Pretende falar connosco? Conforme a sua questão, encontre o contacto mais apropriado, ou envie-nos uma
