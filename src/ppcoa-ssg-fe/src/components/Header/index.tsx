@@ -25,7 +25,15 @@ export default function Header() {
           <Image alt="logo-ppcoa" src="logo-ppcoa.svg" width={94} height={58} unoptimized />
         </Link>
         {isMediumAndUp ? <Filter /> : null}
-        <Button className={"shrink-0 z-20 relative w-9 h-9 bg-white hover:bg-white p-0 lg:mr-8 ease-in-out" + (isOpen ? 'delay-500 rotate-45 transition-all lg:mr-8':'delay-500 rotate-0 transition-all')} variant="ghost" type="button" onClick={handleToggleMobileMenu}>
+        <Button
+          className={
+            'shrink-0 z-20 relative w-9 h-9 bg-white hover:bg-white p-0 lg:mr-8 ease-in-out' +
+            (isOpen ? 'delay-500 rotate-45 transition-all lg:mr-8' : 'delay-500 rotate-0 transition-all')
+          }
+          variant="ghost"
+          type="button"
+          onClick={handleToggleMobileMenu}
+        >
           <span className="block absolute h-px w-full text-black bg-current"></span>
           <span className="block absolute h-px w-full text-black bg-current rotate-90"></span>
         </Button>

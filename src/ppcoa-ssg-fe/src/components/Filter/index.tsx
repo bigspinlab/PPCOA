@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
 import { ScrollArea, ScrollBar } from '@/ui-elements/ScrollArea';
 import { usePathname } from 'next/navigation';
 import { FilterList } from '../FilterList';
 
 const Filter = () => {
-  const location = usePathname()
+  const location = usePathname();
   const routesToHideFilter = ['/contact', '/about', '/team', '/privacy-policy', '/not-found'];
-  const hideFilter = routesToHideFilter.some(route => location.includes(route));
+  const hideFilter = routesToHideFilter.some((route) => location.includes(route));
 
   // const isMediumAndUp = useMediaQuery('(min-width: 1024px)')
   // const chipContainer = useRef<HTMLUListElement>();
@@ -43,10 +43,10 @@ const Filter = () => {
     <ScrollArea>
       <section className="w-full h-full flex justify-center pt-20 lg:pt-0">
         <article className="w-full flex items-center pb-2.5 sm:pb-0">
-         <FilterList />
+          <FilterList />
         </article>
       </section>
-      <ScrollBar orientation='horizontal'/>
+      <ScrollBar orientation="horizontal" />
     </ScrollArea>
   );
 };

@@ -31,7 +31,6 @@ export default async function ProjectsList() {
   );
 }
 
-
 // export const getStaticProps: GetStaticProps = async ({ params }) => {
 
 //   if (!params) {
@@ -64,5 +63,3 @@ export default async function ProjectsList() {
 //   }
 
 // }
-
-

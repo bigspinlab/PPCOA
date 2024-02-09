@@ -2,7 +2,6 @@ import TeamCard from '@/components/TeamCard';
 
 export default function TeamCardList() {
   return (
-
     <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-y-36 lg:gap-x-8">
       <li>
         <TeamCard

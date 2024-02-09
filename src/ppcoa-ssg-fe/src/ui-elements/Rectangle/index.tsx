@@ -5,7 +5,5 @@ interface RectangleProps {
 }
 
 export default function Rectangle({ customStyles }: RectangleProps) {
-  return (
-    <div className={`h-10 ${customStyles}`}></div>
-  );
+  return <div className={`h-10 ${customStyles}`}></div>;
 }

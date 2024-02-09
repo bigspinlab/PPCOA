@@ -1,5 +1,3 @@
-
-
 // import RootWrapper from '@/components/RootWrapper';
 // import ProjectCard from '@/components/ProjectCard';
 //import { useMediaQuery } from 'usehooks-ts';
@@ -15,16 +13,13 @@ export default function Home() {
 
   return (
     <>
-
       <Filter />
       <Suspense fallback={<div className="fixed top-16 bg-red-500 h-10">Loading...</div>}>
-        <ProjectsList />      
+        <ProjectsList />
       </Suspense>
- 
     </>
   );
 }
-
 
 // export const getStaticProps: GetStaticProps = async ({ params }) => {
 
@@ -58,5 +53,3 @@ export default function Home() {
 //   }
 
 // }
-
-

@@ -66,7 +66,7 @@ const config: Config = {
         }
       },
       spacing: {
-        17: 'var(--custom-height-70-px)', 
+        17: 'var(--custom-height-70-px)',
         21: 'var(--custom-height-86-px)'
       },
       borderRadius: {

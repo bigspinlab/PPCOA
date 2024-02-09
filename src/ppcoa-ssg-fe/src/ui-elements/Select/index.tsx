@@ -26,14 +26,7 @@ const SelectTrigger = React.forwardRef<
   >
     {children}
     <SelectPrimitive.Icon asChild>
-      <Image
-        className="h-4 w-4 "
-        alt="chevron-down"
-        src="/chevron-down.svg"
-        width={34}
-        height={34}
-        unoptimized
-      />
+      <Image className="h-4 w-4 " alt="chevron-down" src="/chevron-down.svg" width={34} height={34} unoptimized />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ));
@@ -62,14 +55,7 @@ const SelectScrollDownButton = React.forwardRef<
     className={cn('flex cursor-default items-center justify-center py-1', className)}
     {...props}
   >
-    <Image
-      className="h-4 w-4 "
-      alt="chevron-down"
-      src="/chevron-down.svg"
-      width={34}
-      height={34}
-      unoptimized
-    />
+    <Image className="h-4 w-4 " alt="chevron-down" src="/chevron-down.svg" width={34} height={34} unoptimized />
   </SelectPrimitive.ScrollDownButton>
 ));
 SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName;

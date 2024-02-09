@@ -6,7 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { Filter } from '@/components/Filter';
 
-export default async function ProjectDetails({params}: any) {
+export default async function ProjectDetails({ params }: any) {
   const { slug } = params;
   console.log('params', params, slug);
 
@@ -118,6 +118,6 @@ export default async function ProjectDetails({params}: any) {
 // Return a list of `params` to populate the [slug] dynamic segment
 // export async function generateStaticParams() {
 //   const posts = await fetch('http://localhost:8000/projectDetail').then((res) => res.json())
- 
+
 //   return posts
 // }

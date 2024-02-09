@@ -33,7 +33,7 @@ export default function FormContact() {
   }
 
   return (
-    <RootWrapper customClassName='w-full flex justify-start'>
+    <RootWrapper customClassName="w-full flex justify-start">
       <h2 className="sr-only">Contact form</h2>
       <article className="flex flex-col items-start grow">
         <h3 className="font-bold mb-5">Fale conosco</h3>
@@ -56,11 +56,7 @@ export default function FormContact() {
                           <SelectItem value="assunto-b">assunto-b</SelectItem>
                         </SelectContent>
                       </Select>
-                      <Textarea
-                        placeholder="Escreva a sua mensagem"
-                        className="resize-none"
-                        {...field}
-                      />
+                      <Textarea placeholder="Escreva a sua mensagem" className="resize-none" {...field} />
                     </>
                   </FormControl>
                   <FormMessage />
