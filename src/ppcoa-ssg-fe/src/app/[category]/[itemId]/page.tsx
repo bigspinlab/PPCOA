@@ -67,7 +67,7 @@ export default async function ProjectDetails({ params }: any) {
         <h2 className="sr-only">Project list</h2>
         <article className="flex flex-col gap-10">
           <h3 className="font-bold">Outros Projetos Arquitetura</h3>
-          <ul className="w-full grid grid-cols-1 grid-rows-2 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
+          <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
             <li>
               <ProjectCard
                 id="1"

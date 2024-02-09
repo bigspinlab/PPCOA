@@ -5,7 +5,6 @@ import { Filter } from '@/components/Filter';
 // import { GetStaticProps } from 'next';
 // import { getHeadless } from '@/lib/getHeadless';
 import ProjectsList from '@/components/ProjectsList';
-import { Suspense } from 'react';
 
 export default function Home() {
   // const umbracoContent = await getHeadless();
@@ -14,9 +13,7 @@ export default function Home() {
   return (
     <>
       <Filter />
-      <Suspense fallback={<div className="fixed top-16 bg-red-500 h-10">Loading...</div>}>
-        <ProjectsList />
-      </Suspense>
+      <ProjectsList />
     </>
   );
 }
