@@ -5,6 +5,7 @@ import ProjectCard from '@/components/ProjectCard';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/ui-elements/Carousel';
 import { CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { Filter } from '@/components/Filter';
+import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
 
 export default async function ProjectDetails({ params }: any) {
   const { slug } = params;
@@ -16,44 +17,20 @@ export default async function ProjectDetails({ params }: any) {
       <section className="overflow-hidden mb-17 md:mb-36">
         <h2 className="sr-only">Project Detail</h2>
         <article className="pt-14 lg:pt-36">
-          <Carousel className="flex flex-col-reverse">
+          <Carousel className="flex flex-col-reverse" opts={{ dragFree: true, containScroll: 'trimSnaps' }}>
             <CarouselContent>
-              <CarouselItem>
-                <CarouselItemContent
-                  alt="placeholder"
-                  height={550}
-                  type={CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT}
-                  url="https://via.placeholder.com/550"
-                  width={550}
-                />
-              </CarouselItem>
-              <CarouselItem>
-                <CarouselItemContent
-                  alt="placeholder"
-                  height={550}
-                  type={CAROUSEL_ITEM_TYPE.FULL_IMAGE}
-                  url="https://via.placeholder.com/550"
-                  width={550}
-                />
-              </CarouselItem>
-              <CarouselItem>
-                <CarouselItemContent
-                  alt="placeholder"
-                  height={550}
-                  type={CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT}
-                  url="https://via.placeholder.com/550"
-                  width={550}
-                />
-              </CarouselItem>
-              <CarouselItem>
-                <CarouselItemContent
-                  alt="placeholder"
-                  height={550}
-                  type={CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_REVERSED}
-                  url="https://via.placeholder.com/550"
-                  width={550}
-                />
-              </CarouselItem>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem
+                  key={index}
+                  className={index === 0 ? 'basis-full md:basis-3/4' : 'basis-full md:basis-2/4'}
+                >
+                  <CarouselItemContent
+                    alt="placeholder"
+                    type={CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT}
+                    url="https://via.placeholder.com/550"
+                  />
+                </CarouselItem>
+              ))}
             </CarouselContent>
             <div className="hidden pb-9 md:pr-20 md:flex md:gap-8 lg:pr-32 justify-end">
               <CarouselPrevious />
@@ -62,7 +39,25 @@ export default async function ProjectDetails({ params }: any) {
           </Carousel>
         </article>
       </section>
+      <section className="overflow-hidden mb-17 md:mb-36">
+        <h2 className="sr-only">Project Detail</h2>
+        <article className="pt-14 lg:pt-36">
+          <ScrollArea className="w-full whitespace-nowrap">
+            <div className="w-max flex">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItemContent
+                  key={index}
+                  alt="placeholder"
+                  type={CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT}
+                  url="https://via.placeholder.com/1024x700"
+                />
+              ))}
+            </div>
 
+            <ScrollBar orientation="horizontal" className="hidden" />
+          </ScrollArea>
+        </article>
+      </section>
       <RootWrapper>
         <h2 className="sr-only">Project list</h2>
         <article className="flex flex-col gap-10">
@@ -73,8 +68,6 @@ export default async function ProjectDetails({ params }: any) {
                 id="1"
                 imageSrc="https://via.placeholder.com/550"
                 imageAlt="placeholder"
-                imageWidth={550}
-                imageHeight={550}
                 projectName="Project Name"
               />
             </li>
@@ -83,8 +76,6 @@ export default async function ProjectDetails({ params }: any) {
                 id="2"
                 imageSrc="https://via.placeholder.com/550"
                 imageAlt="placeholder"
-                imageWidth={550}
-                imageHeight={550}
                 projectName="Project Name"
               />
             </li>
@@ -93,8 +84,6 @@ export default async function ProjectDetails({ params }: any) {
                 id="3"
                 imageSrc="https://via.placeholder.com/550"
                 imageAlt="placeholder"
-                imageWidth={550}
-                imageHeight={550}
                 projectName="Project Name"
               />
             </li>
@@ -103,8 +92,6 @@ export default async function ProjectDetails({ params }: any) {
                 id="4"
                 imageSrc="https://via.placeholder.com/550"
                 imageAlt="placeholder"
-                imageWidth={550}
-                imageHeight={550}
                 projectName="Project Name"
               />
             </li>
