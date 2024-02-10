@@ -99,3 +99,12 @@
     @apply text-base;
   }
 }
+
+/* //breakpoint vars
+$extra-small: 22.5em; //360px
+$small: 36em; //576px
+$medium: 48em; //768px
+$large: 64em; //1024px
+$extra-large: 75em; //1200px
+$wide: 90em; //1440px
+$extra-wide: 100em; //1600px */

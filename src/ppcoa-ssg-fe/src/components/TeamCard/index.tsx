@@ -3,8 +3,6 @@ import Image from 'next/image';
 interface TeamCardProps {
   imageSrc: string;
   imageAlt: string;
-  imageWidth: number;
-  imageHeight: number;
   teamName: string;
   role: string;
   description: string;
@@ -15,8 +13,6 @@ interface TeamCardProps {
 export default function TeamCard({
   imageSrc,
   imageAlt,
-  imageWidth,
-  imageHeight,
   teamName,
   role,
   description,
@@ -25,7 +21,14 @@ export default function TeamCard({
 }: TeamCardProps) {
   return (
     <div className="flex flex-col gap-4 md:gap-8 xl:flex-row xl:items-start">
-      <Image className="shrink-0 aspect-square" alt={imageAlt} src={imageSrc} width={imageWidth} height={imageHeight} />
+      <div className="relative">
+        <Image
+          className="shrink-0 aspect-square object-contain"
+          alt={imageAlt}
+          src={imageSrc}
+          sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
+        />
+      </div>
       <div className="flex flex-col gap-2">
         <h2>{teamName}</h2>
         <p>{role}</p>

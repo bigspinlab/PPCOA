@@ -18,8 +18,6 @@ export default async function ProjectsList() {
                 id={project.id}
                 imageSrc={project.imageSrc.desktop}
                 imageAlt={project.imageSrc.alt}
-                imageWidth={550}
-                imageHeight={550}
                 projectName={project.title}
                 category={project.category}
               />

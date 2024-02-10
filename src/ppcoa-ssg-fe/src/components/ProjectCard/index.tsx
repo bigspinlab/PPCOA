@@ -5,24 +5,22 @@ interface ProjectCardProps {
   id: string;
   imageSrc: string;
   imageAlt: string;
-  imageWidth: number;
-  imageHeight: number;
   projectName: string;
   category?: string;
 }
 
-export default function ProjectCard({
-  id,
-  imageSrc,
-  imageAlt,
-  imageWidth,
-  imageHeight,
-  projectName,
-  category
-}: ProjectCardProps) {
+export default function ProjectCard({ id, imageSrc, imageAlt, projectName, category }: ProjectCardProps) {
   return (
     <Link href={`/${category}/${id}`} className="flex flex-col gap-1.5">
-      <Image className="shrink-0 aspect-square" alt={imageAlt} src={imageSrc} width={imageWidth} height={imageHeight} />
+      <div className="relative">
+        <Image
+          className="shrink-0 aspect-square object-contain"
+          alt={imageAlt}
+          src={imageSrc}
+          fill
+          sizes="(min-width: 48em) 50vw, 100vw"
+        />
+      </div>
       <div className="flex flex-col">
         <h3 className="font-bold">{projectName}</h3>
         <p>{category}</p>

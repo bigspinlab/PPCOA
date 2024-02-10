@@ -2,7 +2,6 @@
 
 import RootWrapper from '@/components/RootWrapper';
 import ProjectCard from '@/components/ProjectCard';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/ui-elements/Carousel';
 import { CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { Filter } from '@/components/Filter';
 import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
@@ -17,34 +16,9 @@ export default async function ProjectDetails({ params }: any) {
       <section className="overflow-hidden mb-17 md:mb-36">
         <h2 className="sr-only">Project Detail</h2>
         <article className="pt-14 lg:pt-36">
-          <Carousel className="flex flex-col-reverse" opts={{ dragFree: true, containScroll: 'trimSnaps' }}>
-            <CarouselContent>
-              {Array.from({ length: 5 }).map((_, index) => (
-                <CarouselItem
-                  key={index}
-                  className={index === 0 ? 'basis-full md:basis-3/4' : 'basis-full md:basis-2/4'}
-                >
-                  <CarouselItemContent
-                    alt="placeholder"
-                    type={CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT}
-                    url="https://via.placeholder.com/550"
-                  />
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="hidden pb-9 md:pr-20 md:flex md:gap-8 lg:pr-32 justify-end">
-              <CarouselPrevious />
-              <CarouselNext />
-            </div>
-          </Carousel>
-        </article>
-      </section>
-      <section className="overflow-hidden mb-17 md:mb-36">
-        <h2 className="sr-only">Project Detail</h2>
-        <article className="pt-14 lg:pt-36">
-          <ScrollArea className="w-full whitespace-nowrap">
+          <ScrollArea showArrowButtons className="w-full whitespace-nowrap">
             <div className="w-max flex">
-              {Array.from({ length: 5 }).map((_, index) => (
+              {Array.from({ length: 9 }).map((_, index) => (
                 <CarouselItemContent
                   key={index}
                   alt="placeholder"
