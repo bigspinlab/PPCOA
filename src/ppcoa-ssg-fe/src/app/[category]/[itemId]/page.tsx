@@ -22,8 +22,13 @@ export default async function ProjectDetails({ params }: any) {
                 <CarouselItemContent
                   key={index}
                   alt="placeholder"
-                  type={CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT}
+                  type={
+                    index === 0
+                      ? CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED
+                      : CAROUSEL_ITEM_TYPE.FULL_IMAGE_LANDSCAPE
+                  }
                   url="https://via.placeholder.com/1024x700"
+                  className="pr-4"
                 />
               ))}
             </div>
@@ -32,43 +37,21 @@ export default async function ProjectDetails({ params }: any) {
           </ScrollArea>
         </article>
       </section>
-      <RootWrapper>
+      <RootWrapper customClassName="w-full">
         <h2 className="sr-only">Project list</h2>
         <article className="flex flex-col gap-10">
           <h3 className="font-bold">Outros Projetos Arquitetura</h3>
           <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
-            <li>
-              <ProjectCard
-                id="1"
-                imageSrc="https://via.placeholder.com/550"
-                imageAlt="placeholder"
-                projectName="Project Name"
-              />
-            </li>
-            <li>
-              <ProjectCard
-                id="2"
-                imageSrc="https://via.placeholder.com/550"
-                imageAlt="placeholder"
-                projectName="Project Name"
-              />
-            </li>
-            <li>
-              <ProjectCard
-                id="3"
-                imageSrc="https://via.placeholder.com/550"
-                imageAlt="placeholder"
-                projectName="Project Name"
-              />
-            </li>
-            <li>
-              <ProjectCard
-                id="4"
-                imageSrc="https://via.placeholder.com/550"
-                imageAlt="placeholder"
-                projectName="Project Name"
-              />
-            </li>
+            {Array.from({ length: 9 }).map((_, index) => (
+              <li key={index}>
+                <ProjectCard
+                  id="1"
+                  imageSrc="https://via.placeholder.com/550"
+                  imageAlt="placeholder"
+                  projectName="Project Name"
+                />
+              </li>
+            ))}
           </ul>
         </article>
       </RootWrapper>

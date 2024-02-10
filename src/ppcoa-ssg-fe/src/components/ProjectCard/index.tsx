@@ -12,9 +12,9 @@ interface ProjectCardProps {
 export default function ProjectCard({ id, imageSrc, imageAlt, projectName, category }: ProjectCardProps) {
   return (
     <Link href={`/${category}/${id}`} className="flex flex-col gap-1.5">
-      <div className="relative">
+      <div className="relative aspect-square">
         <Image
-          className="shrink-0 aspect-square object-contain"
+          className="shrink-0 aspect-square object-contain min-w-72 min-h-72"
           alt={imageAlt}
           src={imageSrc}
           fill

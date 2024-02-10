@@ -8,10 +8,10 @@ export default async function ProjectsList() {
   const umbracoContent = await getHeadless({ route: 'view' });
 
   return (
-    <RootWrapper>
+    <RootWrapper customClassName="w-full">
       <h2 className="sr-only">Project list</h2>
       <article className="pt-14 md:pt-44">
-        <ul className="w-full flex flex-col items-center gap-16 lg:gap-20">
+        <ul className="w-full max-w-[550px] grid grid-rows-1 m-auto gap-16 lg:gap-20">
           {umbracoContent?.projectsList?.content.map((project: any) => (
             <li key={project.id}>
               <ProjectCard

@@ -3,9 +3,11 @@ import Image from 'next/image';
 import * as React from 'react';
 
 export enum CAROUSEL_ITEM_TYPE {
-  FULL_IMAGE = 'full-image',
+  FULL_IMAGE_LANDSCAPE = 'full-image',
   IMAGE_WITH_TEXT = 'image-with-text',
-  IMAGE_WITH_TEXT_REVERSED = 'image-with-text-reversed'
+  IMAGE_WITH_TEXT_REVERSED = 'image-with-text-reversed',
+  IMAGE_WITH_TEXT_SMALL_CONTAINER = 'image-with-text-small-container',
+  IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED = 'image-with-text-small-container-reversed'
 }
 
 interface CarouselItemContentProps {
@@ -18,13 +20,15 @@ interface CarouselItemContentProps {
 const CarouselItemContent = ({ className = '', type, alt, url }: CarouselItemContentProps) => {
   return (
     <div
-      className={`flex shrink-0  ${className} ${type === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_REVERSED ? 'flex-row-reverse' : ''}`}
+      className={`flex shrink-0 ${type === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_REVERSED || CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED ? 'flex-row-reverse' : ''} ${className}`}
     >
-      <div className="w-[768px] h-full min-h-96 lg:w-[1024px] lg:h-[700px] relative shrink-0">
+      <div className={`h-full min-h-96 relative shrink-0 w-[768px] lg:w-[1024px] lg:h-[700px] `}>
         <Image alt={alt} src={url} fill sizes="100vw" />
       </div>
-      {type !== CAROUSEL_ITEM_TYPE.FULL_IMAGE ? (
-        <div className="whitespace-normal max-w-64 py-5 px-4 bg-red-700 md:py-7 md:px-9 md:max-w-xs">
+      {!type.includes(CAROUSEL_ITEM_TYPE.FULL_IMAGE_LANDSCAPE) ? (
+        <div
+          className={`whitespace-normal py-5 px-4 bg-red-700 md:py-7 md:px-9 ${type === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER ? 'max-w-[166px] md:max-w-[300px]' : 'max-w-72 md:max-w-[400px]'}`}
+        >
           <h3>Colégio Sta. Clara de Assis</h3>
           <p>Arquitetura</p>
           <p>Tipologia</p>

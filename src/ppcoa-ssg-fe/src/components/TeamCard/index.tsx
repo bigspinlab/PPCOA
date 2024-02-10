@@ -20,12 +20,13 @@ export default function TeamCard({
   phoneNumber
 }: TeamCardProps) {
   return (
-    <div className="flex flex-col gap-4 md:gap-8 xl:flex-row xl:items-start">
-      <div className="relative">
+    <div className="flex flex-col gap-4 md:gap-8 xl:grid xl:grid-cols-2">
+      <div className="relative aspect-square">
         <Image
           className="shrink-0 aspect-square object-contain"
           alt={imageAlt}
           src={imageSrc}
+          fill
           sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
         />
       </div>
