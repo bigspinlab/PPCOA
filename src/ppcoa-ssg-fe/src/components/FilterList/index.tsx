@@ -35,7 +35,7 @@ const FilterList = () => {
   const useLocation = usePathname();
 
   return (
-    <div className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
+    <ul className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
       {categoryRoutes.map((category) => {
         const isActive = category.path === '/' ? useLocation === category.path : useLocation.includes(category.path);
 
@@ -50,7 +50,7 @@ const FilterList = () => {
           </li>
         );
       })}
-    </div>
+    </ul>
   );
 };
 export { FilterList };

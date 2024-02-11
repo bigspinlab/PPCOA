@@ -63,7 +63,7 @@ export default function FormContact() {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button aria-label='form submit' type="submit">Submit</Button>
           </form>
         </Form>
       </article>
