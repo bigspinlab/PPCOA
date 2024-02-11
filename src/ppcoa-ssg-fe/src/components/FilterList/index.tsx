@@ -7,27 +7,27 @@ const categoryRoutes = [
   {
     path: '/',
     label: 'Todos',
-    iconThemeColor: '#fff'
+    themeColor: '#fff'
   },
   {
     path: '/architecture',
     label: 'Arquitetura',
-    iconThemeColor: '#FABD5C'
+    themeColor: '#FABD5C'
   },
   {
     path: '/interiors',
     label: 'Interiores',
-    iconThemeColor: '#006AAD'
+    themeColor: '#006AAD'
   },
   {
     path: '/urban',
     label: 'Urbano',
-    iconThemeColor: '#FA4647'
+    themeColor: '#FA4647'
   },
   {
     path: '/contest',
     label: 'Concurso',
-    iconThemeColor: '#6C757D'
+    themeColor: '#6C757D'
   }
 ];
 
@@ -42,7 +42,7 @@ const FilterList = () => {
         return (
           <li key={category.label} className="flex justify-center shrink-0">
             <FilterItem
-              iconThemeColor={category.iconThemeColor}
+              themeColor={category.themeColor}
               filterPath={category.path}
               filterLabel={category.label}
               isActive={isActive}
