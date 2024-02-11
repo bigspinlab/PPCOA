@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
           <Link href="/privacy-policy">Política de Privacidade</Link>
           <Select>
-            <SelectTrigger className="justify-start gap-0.5 text-base font-bold">
+            <SelectTrigger aria-label='change-language' className="justify-start gap-0.5 text-base font-bold">
               <Image className="h-5 w-5 mr-1" alt="language" src="/language.svg" width={34} height={34} unoptimized />
               <SelectValue placeholder="PT" />
             </SelectTrigger>
