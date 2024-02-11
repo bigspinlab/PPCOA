@@ -14,7 +14,7 @@ export enum BACKGROUND_COLOR {
   RED = 'bg-red-100',
   BLUE = 'bg-blue-100',
   GREEN = 'bg-green-100',
-  YELLOW = 'bg-yellow-100',
+  YELLOW = 'bg-yellow-100'
 }
 
 interface CarouselItemContentProps {

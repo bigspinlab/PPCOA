@@ -1,7 +1,6 @@
 // import RootWrapper from '@/components/RootWrapper';
 // import ProjectCard from '@/components/ProjectCard';
 //import { useMediaQuery } from 'usehooks-ts';
-import { Filter } from '@/components/Filter';
 // import { GetStaticProps } from 'next';
 // import { getHeadless } from '@/lib/getHeadless';
 import ProjectsList from '@/components/ProjectsList';
@@ -10,12 +9,7 @@ export default function Home() {
   // const umbracoContent = await getHeadless();
   // console.log('umbracoContent', umbracoContent);
 
-  return (
-    <>
-      <Filter />
-      <ProjectsList />
-    </>
-  );
+  return <ProjectsList />;
 }
 
 // export const getStaticProps: GetStaticProps = async ({ params }) => {

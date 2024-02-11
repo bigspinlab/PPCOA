@@ -32,19 +32,19 @@ const FilterList = () => {
   return (
     <ul className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
       <li className="flex justify-center shrink-0">
-        <FilterItem filterLabel="Todos" />
+        <FilterItem filterPath="/" filterLabel="Todos" />
       </li>
       <li className="flex justify-center shrink-0">
-        <FilterItem filterLabel="Arquitetura" />
+        <FilterItem filterPath="architecture" filterLabel="Arquitetura" />
       </li>
       <li className="flex justify-center shrink-0">
-        <FilterItem filterLabel="Sociedade" />
+        <FilterItem filterPath="society" filterLabel="Sociedade" />
       </li>
       <li className="flex justify-center shrink-0">
-        <FilterItem filterLabel="Urbano" />
+        <FilterItem filterPath="urban" filterLabel="Urbano" />
       </li>
       <li className="flex justify-center shrink-0">
-        <FilterItem filterLabel="Concurso" />
+        <FilterItem filterPath="contest" filterLabel="Concurso" />
       </li>
     </ul>
   );

@@ -14,7 +14,7 @@ export default function ProjectCard({ id, imageSrc, imageAlt, projectName, categ
     <Link href={`/${category}/${id}`} className="flex flex-col gap-1.5">
       <div className="relative aspect-square">
         <Image
-          className="shrink-0 aspect-square object-contain min-w-72 min-h-72"
+          className="shrink-0 aspect-square object-cover min-w-72 min-h-72"
           alt={imageAlt}
           src={imageSrc}
           fill

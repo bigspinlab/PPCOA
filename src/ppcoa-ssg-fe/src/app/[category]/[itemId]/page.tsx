@@ -3,7 +3,6 @@
 import RootWrapper from '@/components/RootWrapper';
 import ProjectCard from '@/components/ProjectCard';
 import { BACKGROUND_COLOR, CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
-import { Filter } from '@/components/Filter';
 import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
 
 export default async function ProjectDetails({ params }: any) {
@@ -12,7 +11,6 @@ export default async function ProjectDetails({ params }: any) {
 
   return (
     <>
-      <Filter />
       <section className="overflow-hidden mb-17 md:mb-36">
         <h2 className="sr-only">Project Detail</h2>
         <article className="pt-14 lg:pt-36">
