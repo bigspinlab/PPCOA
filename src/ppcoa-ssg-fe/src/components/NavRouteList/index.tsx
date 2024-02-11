@@ -5,28 +5,37 @@ interface NavRouteListProps {
   onRouteClick: () => void;
 }
 
+const navRoutes = [
+  {
+    path: '/about',
+    label: 'Sobre'
+  },
+  {
+    path: '/team',
+    label: 'Equipa'
+  },
+  {
+    path: '/contact',
+    label: 'Contactos'
+  }
+];
+
 export default function NavRouteList({ onRouteClick }: NavRouteListProps) {
-  const isActive = usePathname().includes('about');
+  const useLocation = usePathname();
 
   return (
     <ul className="flex flex-col px-4 py-3 lg:flex-row lg:items-center gap-5 lg:p-0">
-      <li className="text-right text-4xl font-extralight lg:text-3xl">
-        <Link className={isActive ? 'font-bold' : ''} href="/about" onClick={onRouteClick}>
-          Sobre
-        </Link>
-      </li>
+      {navRoutes.map((route) => {
+        const isActive = useLocation.includes(route.path);
 
-      <li className="text-right text-4xl font-extralight lg:text-3xl">
-        <Link className={isActive ? 'font-bold' : ''} href="/team" onClick={onRouteClick}>
-          Equipa
-        </Link>
-      </li>
-
-      <li className="text-right text-4xl font-extralight lg:text-3xl">
-        <Link className={isActive ? 'font-bold' : ''} href="/contact" onClick={onRouteClick}>
-          Contactos
-        </Link>
-      </li>
+        return (
+          <li key={route.label} className="text-right text-4xl font-extralight lg:text-3xl">
+            <Link className={isActive ? 'font-bold' : ''} href={route.path} onClick={onRouteClick}>
+              {route.label}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 }

@@ -1,52 +1,57 @@
 'use client';
 
 import { FilterItem } from '../FilterItem';
+import { usePathname } from 'next/navigation';
+
+const categoryRoutes = [
+  {
+    path: '/',
+    label: 'Todos',
+    themeColor: ''
+  },
+  {
+    path: '/architecture',
+    label: 'Arquitetura',
+    themeColor: 'yellow-100'
+  },
+  {
+    path: '/interiors',
+    label: 'Interiores',
+    themeColor: 'blue-100'
+  },
+  {
+    path: '/urban',
+    label: 'Urbano',
+    themeColor: 'red-100'
+  },
+  {
+    path: '/contest',
+    label: 'Concurso',
+    themeColor: 'gray-100'
+  }
+];
 
 const FilterList = () => {
-  // const isMediumAndUp = useMediaQuery('(min-width: 1024px)')
-  // const chipContainer = useRef<HTMLUListElement>();
-
-  // const scrollToActiveChip = useCallback(() => {
-  //   if (chipContainer && chipContainer.current) {
-  //     const { scrollWidth, clientWidth, children } = chipContainer.current;
-  //     if (scrollWidth > clientWidth) {
-  //       let left = 0;
-
-  //       if (activeChipIndex && children) {
-  //         left = Array.from(children)
-  //           .filter((_, index) => index <= activeChipIndex)
-  //           .map((element) => element.scrollWidth)
-  //           .reduce((total, num) => total + num);
-  //       }
-  //       chipContainer.current.scroll({ left, behavior: 'smooth' });
-  //     }
-  //   }
-  // }, [chipContainer, availableUniqueChips]);
-
-  // useEffect(() => {
-  //   if (!isMediumAndUp) {
-  //     scrollToActiveChip();
-  //   }
-  // }, [activeChip, isCatalogLoading, isMediumAndUp]);
+  const useLocation = usePathname();
 
   return (
-    <ul className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
-      <li className="flex justify-center shrink-0">
-        <FilterItem filterPath="/" filterLabel="Todos" />
-      </li>
-      <li className="flex justify-center shrink-0">
-        <FilterItem filterPath="architecture" filterLabel="Arquitetura" />
-      </li>
-      <li className="flex justify-center shrink-0">
-        <FilterItem filterPath="society" filterLabel="Sociedade" />
-      </li>
-      <li className="flex justify-center shrink-0">
-        <FilterItem filterPath="urban" filterLabel="Urbano" />
-      </li>
-      <li className="flex justify-center shrink-0">
-        <FilterItem filterPath="contest" filterLabel="Concurso" />
-      </li>
-    </ul>
+    <div className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
+      {categoryRoutes.map((category) => {
+        const isActive = category.path === '/' ? useLocation === category.path : useLocation.includes(category.path);
+
+
+        return (
+          <li key={category.label} className="flex justify-center shrink-0">
+            <FilterItem
+              filterPath={category.path}
+              filterLabel={category.label}
+              filterThemeColor={category.themeColor}
+              isActive={isActive}
+            />
+          </li>
+        );
+      })}
+    </div>
   );
 };
 export { FilterList };

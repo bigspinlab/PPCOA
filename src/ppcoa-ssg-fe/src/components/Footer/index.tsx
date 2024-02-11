@@ -53,7 +53,7 @@ export default function Footer() {
               <Image className="h-5 w-5 mr-1" alt="language" src="/language.svg" width={34} height={34} unoptimized />
               <SelectValue placeholder="PT" />
             </SelectTrigger>
-            <SelectContent className='max-w-40'>
+            <SelectContent className="max-w-40">
               <SelectItem value="pt">PT</SelectItem>
               <SelectItem value="en">EN</SelectItem>
             </SelectContent>
