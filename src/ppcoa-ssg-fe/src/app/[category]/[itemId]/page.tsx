@@ -2,7 +2,7 @@
 
 import RootWrapper from '@/components/RootWrapper';
 import ProjectCard from '@/components/ProjectCard';
-import { CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
+import { BACKGROUND_COLOR, CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { Filter } from '@/components/Filter';
 import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
 
@@ -17,7 +17,7 @@ export default async function ProjectDetails({ params }: any) {
         <h2 className="sr-only">Project Detail</h2>
         <article className="pt-14 lg:pt-36">
           <ScrollArea showArrowButtons className="w-full whitespace-nowrap">
-            <div className="w-max flex">
+            <div className="w-max flex pl-4 md:pl-16 xl:pl-32">
               {Array.from({ length: 9 }).map((_, index) => (
                 <CarouselItemContent
                   key={index}
@@ -29,6 +29,7 @@ export default async function ProjectDetails({ params }: any) {
                   }
                   url="https://via.placeholder.com/1024x700"
                   className="pr-4"
+                  backgroundColor={BACKGROUND_COLOR.YELLOW}
                 />
               ))}
             </div>

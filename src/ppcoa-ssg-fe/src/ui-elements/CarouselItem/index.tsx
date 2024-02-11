@@ -10,14 +10,22 @@ export enum CAROUSEL_ITEM_TYPE {
   IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED = 'image-with-text-small-container-reversed'
 }
 
+export enum BACKGROUND_COLOR {
+  RED = 'bg-red-100',
+  BLUE = 'bg-blue-100',
+  GREEN = 'bg-green-100',
+  YELLOW = 'bg-yellow-100',
+}
+
 interface CarouselItemContentProps {
   type: CAROUSEL_ITEM_TYPE;
   url: string;
   alt: string;
   className?: string;
+  backgroundColor?: string;
 }
 
-const CarouselItemContent = ({ className = '', type, alt, url }: CarouselItemContentProps) => {
+const CarouselItemContent = ({ className = '', type, alt, url, backgroundColor }: CarouselItemContentProps) => {
   return (
     <div
       className={`flex shrink-0 ${type === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_REVERSED || CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED ? 'flex-row-reverse' : ''} ${className}`}
@@ -27,7 +35,7 @@ const CarouselItemContent = ({ className = '', type, alt, url }: CarouselItemCon
       </div>
       {!type.includes(CAROUSEL_ITEM_TYPE.FULL_IMAGE_LANDSCAPE) ? (
         <div
-          className={`whitespace-normal py-5 px-4 bg-red-700 md:py-7 md:px-9 ${type === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER ? 'max-w-[166px] md:max-w-[300px]' : 'max-w-72 md:max-w-[400px]'}`}
+          className={`whitespace-normal py-5 px-4  md:py-7 md:px-9 ${backgroundColor} ${type === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER ? 'max-w-[166px] md:max-w-[300px]' : 'max-w-72 md:max-w-[400px]'}`}
         >
           <h3>Colégio Sta. Clara de Assis</h3>
           <p>Arquitetura</p>
