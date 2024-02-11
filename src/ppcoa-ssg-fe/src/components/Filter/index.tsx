@@ -4,13 +4,11 @@ import { ScrollArea, ScrollBar } from '@/ui-elements/ScrollArea';
 import { usePathname } from 'next/navigation';
 import { FilterList } from '../FilterList';
 
-
 const Filter = () => {
   const location = usePathname();
   const routesToHideFilter = ['/contact', '/about', '/team', '/privacy-policy', '/not-found'];
   const hideFilter = routesToHideFilter.some((route) => location.includes(route));
 
-  
   if (hideFilter) {
     return null;
   }

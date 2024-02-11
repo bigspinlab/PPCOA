@@ -39,7 +39,6 @@ const FilterList = () => {
       {categoryRoutes.map((category) => {
         const isActive = category.path === '/' ? useLocation === category.path : useLocation.includes(category.path);
 
-
         return (
           <li key={category.label} className="flex justify-center shrink-0">
             <FilterItem
