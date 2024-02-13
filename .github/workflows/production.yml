@@ -18,7 +18,7 @@ jobs:
           node-version: 18.x
 
       - name: Authenticate with private NPM package
-        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.GH_PKG_TOKEN }}" > ~ src/ppcoa-ssg-fe/.npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.GH_PKG_TOKEN }}" > src/ppcoa-ssg-fe/.npmrc
 
       - name: Install dependencies
         run: cd src/ppcoa-ssg-fe && npm install
