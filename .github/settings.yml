@@ -52,7 +52,6 @@ labels:
     color: BB0000
     description: Issue related to React v18 Typescript types issue
 
-
 branches:
   - name: main
     protection:

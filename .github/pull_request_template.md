@@ -1,6 +1,6 @@
 # What
-<!-- Describe the technical "why" behind your changes -->
 
+<!-- Describe the technical "why" behind your changes -->
 
 ## Code Quality Checklist
 
@@ -9,5 +9,5 @@
 - [ ] I have added the necessary documentation (if appropriate)
 
 ## Jira Card
-<!-- If no card is associated, remove the line below and add "Not Applicable" -->
 
+<!-- If no card is associated, remove the line below and add "Not Applicable" -->
