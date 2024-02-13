@@ -23,11 +23,11 @@ export default async function ProjectDetails({ params }: any) {
                   type={
                     index === 0
                       ? CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED
-                      : index === 2 
-                      ? CAROUSEL_ITEM_TYPE.FULL_IMAGE_SQUARE
-                      : index === 4
-                      ? CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT
-                      : CAROUSEL_ITEM_TYPE.FULL_IMAGE_LANDSCAPE
+                      : index === 2
+                        ? CAROUSEL_ITEM_TYPE.FULL_IMAGE_SQUARE
+                        : index === 4
+                          ? CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT
+                          : CAROUSEL_ITEM_TYPE.FULL_IMAGE_LANDSCAPE
                   }
                   url="https://via.placeholder.com/1024x700"
                   className="pr-4"

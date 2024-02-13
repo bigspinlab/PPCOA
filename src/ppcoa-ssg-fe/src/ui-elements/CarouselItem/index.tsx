@@ -27,13 +27,16 @@ interface CarouselItemContentProps {
 }
 
 const CarouselItemContent = ({ className = '', type, alt, url, backgroundColor }: CarouselItemContentProps) => {
-  const showContainerText = type !== CAROUSEL_ITEM_TYPE.FULL_IMAGE_LANDSCAPE && type !== CAROUSEL_ITEM_TYPE.FULL_IMAGE_SQUARE;
-  
+  const showContainerText =
+    type !== CAROUSEL_ITEM_TYPE.FULL_IMAGE_LANDSCAPE && type !== CAROUSEL_ITEM_TYPE.FULL_IMAGE_SQUARE;
+
   return (
     <div
       className={`flex shrink-0 ${type === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_REVERSED || CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED ? 'flex-row-reverse' : ''} ${className}`}
     >
-      <div className={`h-full min-h-96 relative shrink-0 lg:h-[700px] ${type.includes(CAROUSEL_ITEM_TYPE.FULL_IMAGE_SQUARE) ? 'aspect-square w-full min-w-[500px]' : 'w-[768px] lg:w-[1024px]'}`}>
+      <div
+        className={`h-full min-h-96 relative shrink-0 lg:h-[700px] ${type.includes(CAROUSEL_ITEM_TYPE.FULL_IMAGE_SQUARE) ? 'aspect-square w-full min-w-[500px]' : 'w-[768px] lg:w-[1024px]'}`}
+      >
         <Image alt={alt} src={url} fill sizes="100vw" />
       </div>
       {showContainerText ? (

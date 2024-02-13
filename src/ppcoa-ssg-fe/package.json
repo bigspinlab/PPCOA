@@ -66,6 +66,5 @@
   "lint-staged": {
     "*": "prettier --ignore-unknown --write",
     "src/**/*.{ts,tsx}": "eslint --fix"
-  },
-  "prettier": "@bigspinlab/shared-prettier"
+  }
 }
