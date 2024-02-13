@@ -2,8 +2,6 @@
 
 ## 💇🏻‍♂️ About the project
 
-
-
 ## 🚀 Technologies
 
 Technologies that I used to develop this project
@@ -16,7 +14,6 @@ Technologies that I used to develop this project
 - [Editor Config](https://editorconfig.org/)
 
 ## 💻 Getting started
-
 
 ### Requirements
 
@@ -32,7 +29,7 @@ $ git clone https://github.com/bigspinlab/PPCOA.git
 
 ```js
   # Go to ppcoa folder
-  cd src/ppcoa-fe 
+  cd src/ppcoa-fe
 
   # Install the dependencies
   $ yarn
@@ -67,7 +64,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
 
 ## 📝 Thanks
 
