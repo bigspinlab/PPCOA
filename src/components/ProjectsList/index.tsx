@@ -1,30 +1,49 @@
-'use server';
+'use client';
 
-import RootWrapper from '@/components/RootWrapper';
 import ProjectCard from '@/components/ProjectCard';
-import { projectsListMock } from '../../../mock/umbraco-home';
+import { useCallback, useEffect, useState } from 'react';
+import { fetchProjectsList } from './actions';
+import { useInView } from 'react-intersection-observer';
 
-export default async function ProjectsList() {
-  //const umbracoContent = await getHeadless({ route: 'view' });
+export default function ProjectsList({ initialUmbracoContent }: any) {
+  const [projectList, setProjectList] = useState(initialUmbracoContent);
+  const [page, setPage] = useState(1);
+  const [ref, inView] = useInView();
+
+  const fetchProjects = useCallback(async () => {
+    const next = page + 1;
+    const projectList = await fetchProjectsList({ page: next, category: 'all' });
+    if (projectList?.length) {
+      setPage(next);
+      setProjectList({
+        projectsList: {
+          content: [...projectList.projectsList.content, ...projectList.projectsList.content]
+        }
+      });
+    }
+  }, [page]);
+
+  useEffect(() => {
+    if (inView) {
+      fetchProjects();
+    }
+  }, [inView, fetchProjects]);
 
   return (
-    <RootWrapper customClassName="w-full">
-      <h2 className="sr-only">Project list</h2>
-      <article className="pt-14 md:pt-44">
-        <ul className="w-full max-w-[550px] grid grid-rows-1 m-auto gap-16 lg:gap-20">
-          {projectsListMock?.content.map((project: any) => (
-            <li key={project.id}>
-              <ProjectCard
-                id={project.id}
-                imageSrc={project.imageSrc.desktop}
-                imageAlt={project.imageSrc.alt}
-                projectName={project.title}
-                category={project.category}
-              />
-            </li>
-          ))}
-        </ul>
-      </article>
-    </RootWrapper>
+    <>
+      {projectList?.projectsList?.content.map((project: any) => (
+        <li key={project.id}>
+          <ProjectCard
+            id={project.id}
+            imageSrc={project.imageSrc.desktop}
+            imageAlt={project.imageSrc.alt}
+            projectName={project.title}
+            category={project.category}
+          />
+        </li>
+      ))}
+
+      <li ref={ref}>loading spinner</li>
+    </>
   );
 }

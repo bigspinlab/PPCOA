@@ -1,46 +1,20 @@
-// import RootWrapper from '@/components/RootWrapper';
-// import ProjectCard from '@/components/ProjectCard';
-//import { useMediaQuery } from 'usehooks-ts';
-// import { GetStaticProps } from 'next';
-// import { getHeadless } from '@/lib/getHeadless';
+'use server';
+
+import RootWrapper from '@/components/RootWrapper';
+import { getHeadless } from '@/lib/getHeadless';
 import ProjectsList from '@/components/ProjectsList';
 
-export default function Home() {
-  // const umbracoContent = await getHeadless();
-  // console.log('umbracoContent', umbracoContent);
+export default async function Home() {
+  const umbracoContent = await getHeadless({ route: 'view', page: 1 });
 
-  return <ProjectsList />;
+  return (
+    <RootWrapper customClassName="w-full">
+      <h2 className="sr-only">Project list</h2>
+      <article className="pt-14 md:pt-44">
+        <ul className="w-full max-w-[550px] grid grid-rows-1 m-auto gap-16 lg:gap-20">
+          <ProjectsList initialUmbracoContent={umbracoContent} />
+        </ul>
+      </article>
+    </RootWrapper>
+  );
 }
-
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-
-//   if (!params) {
-//     return {
-//       notFound: true
-//     };
-//   }
-
-//   try {
-//     const umbracoContent = await getHeadless();
-
-//     if (umbracoContent.meta?.Status === 404) {
-//       throw new Error('Error to fetch the Umbraco Content');
-//     }
-
-//     console.log('umbracoContent', umbracoContent);
-
-//     return {
-//       props: {
-//         umbracoContent
-//       },
-//       revalidate: 60
-//     };
-
-//   } catch (error) {
-//     console.error(error);
-//     return {
-//       notFound: true
-//     }
-//   }
-
-// }
