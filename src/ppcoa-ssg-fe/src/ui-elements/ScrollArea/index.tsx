@@ -25,10 +25,20 @@ const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
       <ScrollAreaPrimitive.Root ref={ref} className={cn('relative overflow-hidden', className)} {...props}>
         {showArrowButtons ? (
           <div className="hidden pb-9 md:pr-20 md:flex md:gap-8 lg:pr-32 justify-end">
-            <Button aria-label='scroll-area-previous' variant="ghost" className="disabled:opacity-25 bg-transparent" onClick={() => handleScroll(-1000)}>
+            <Button
+              aria-label="scroll-area-previous"
+              variant="ghost"
+              className="disabled:opacity-25 bg-transparent"
+              onClick={() => handleScroll(-1000)}
+            >
               <Image className="h-8 w-8" alt="arrow-left" src="/arrow-left.svg" width={34} height={34} unoptimized />
             </Button>
-            <Button aria-label='scroll-area-next' variant="ghost" className="disabled:opacity-25 bg-transparent" onClick={() => handleScroll(1000)}>
+            <Button
+              aria-label="scroll-area-next"
+              variant="ghost"
+              className="disabled:opacity-25 bg-transparent"
+              onClick={() => handleScroll(1000)}
+            >
               <Image className="h-8 w-8" alt="arrow-right" src="/arrow-right.svg" width={34} height={34} unoptimized />
             </Button>
           </div>

@@ -22,7 +22,7 @@ export default function Header() {
           <Image alt="logo-ppcoa" src="logo-ppcoa.svg" width={94} height={58} unoptimized />
         </Link>
         <Button
-          aria-label='toggle-menu'
+          aria-label="toggle-menu"
           className={
             'shrink-0 z-20 relative w-9 h-9 bg-white hover:bg-white p-0 lg:mr-8 ease-in-out lg:min-w-32' +
             (isOpen ? 'delay-500 rotate-45 transition-all lg:mr-8' : 'delay-500 rotate-0 transition-all')

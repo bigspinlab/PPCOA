@@ -23,7 +23,7 @@ export default function ProjectCard({ id, imageSrc, imageAlt, projectName, categ
       </div>
       <div className="flex flex-col">
         <h3 className="font-bold">{projectName}</h3>
-        <p className='text-gray-100 capitalize'>{category}</p>
+        <p className="text-gray-100 capitalize">{category}</p>
       </div>
     </Link>
   );
