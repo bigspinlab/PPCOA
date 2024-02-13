@@ -1,4 +1,4 @@
-<img alt="Mockup" src="/readme.assets/cover.jpg">
+<img alt="Mockup" src="/public/readme/cover.jpg">
 
 ## 💇🏻‍♂️ About the project
 
