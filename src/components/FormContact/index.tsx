@@ -109,12 +109,12 @@ export default function FormContact() {
                   <FormControl>
                     <Checkbox checked={field.value} onCheckedChange={field.onChange} />
                   </FormControl>
-                    <FormLabel className='mt-0'>
-                      Confirmo que li e aceito a{' '}
-                      <Link href="/privacy-policy" className="font-bold">
-                        Política de Privacidade
-                      </Link>
-                    </FormLabel>
+                  <FormLabel className="mt-0">
+                    Confirmo que li e aceito a{' '}
+                    <Link href="/privacy-policy" className="font-bold">
+                      Política de Privacidade
+                    </Link>
+                  </FormLabel>
                   <FormMessage className="absolute bottom-[-24px]" />
                 </FormItem>
               )}
