@@ -1,0 +1,76 @@
+{
+  "widget": [
+    {
+      "id": "1",
+      "alias": "about",
+      "content": {
+        "title": "",
+        "firstParagraph": "PPCOA é uma oficina de arquitectura sediada em Lisboa e Luanda. Desenvolve um trabalho assente na relação entre a pessoa e o construído, oscilando  entre o espaço público e privado, na procura de uma experiência adaptável à envolvente social, económica e histórica.",
+        "secondParagraph": "",
+        "logo": "https://via.placeholder.com/550",
+        "image": "https://via.placeholder.com/550"
+      }
+    },
+    {
+      "id": "2",
+      "alias": "about",
+      "content": {
+        "title": "Pedro Pinto Coelho",
+        "firstParagraph": "Pedro Oliveira Santos Pinto Correia é um arquitecto luso-angolano, nascido em Lisboa a 8 de março de 1981. Estudou na Faculdade de Arquitectura da Universidade Lusíada de Lisboa entre 1999 e 2004, efectuando posteriormente o seu Estágio Profissional em Madrid com o Arquitecto Andrés Jaque, entre 2004 e 2008. Aqui realizou trabalhos como Teddy House (Vigo | Prémio COAG – Colegio Oficial Arquitectos de Galicia | Melhor Projecto, 2005) e Tupper Home (Madrid | Finalista do prémio Mies Van Rohe 2006).",
+        "secondParagraph": "",
+        "logo": "",
+        "image": "https://via.placeholder.com/550"
+      }
+    },
+    {
+      "id": "3",
+      "alias": "about",
+      "content": {
+        "title": "",
+        "firstParagraph": "Em Lisboa, ingressa no atelier da Arquitecta Teresa Nunes da Ponte, entre 2008 e 2010, tendo desenvolvido projectos na área da hotelaria/ensino. Escola de Hotelaria e Turismo de Lisboa, Escola Machado de Castro e Escola de Hotelaria e Turismo de Setúbal, Escola Padre António Vieira do arquitecto Athouguia.",
+        "secondParagraph": "",
+        "logo": "",
+        "image": ""
+     }
+    },
+    {
+      "id": "4",
+      "alias": "about",
+      "content": {
+        "title": "",
+        "firstParagraph": "Colaborou também no desenvolvimento da nova sede da Fundação Calouste Gulbenkian em Paris, entre outros trabalhos de apoio à sede da mesma em Lisboa.",
+        "secondParagraph": "Abre em 2011 a Oficina de Arquitectura, onde entre Lisboa e Luanda, executa parcerias e presta serviços de arquitectura nas mais diversas áreas: habitação, hotelaria, comércio, reabilitação e urbanismo tático.",
+        "logo": "https://via.placeholder.com/550",
+        "image": ""
+      }
+    },
+    {
+      "id": "5",
+      "alias": "about",
+      "content": {
+        "title": "",
+        "firstParagraph": "",
+        "secondParagraph": "",
+        "logo": "",
+        "image": "https://via.placeholder.com/550"
+      }
+    },
+    {
+      "id": "6",
+      "alias": "about",
+      "content": {
+        "title": "",
+        "firstParagraph": "Em 2012 é finalista do concurso internacional para habitações de baixo-custo do Haiti.",
+        "secondParagraph": "Em 2014 aceita o desafio para a direcção e coordenação do Atelier Jim Fernandes em Luanda, cargo que ocupou até 2020.",
+        "logo": "",
+        "image": ""
+      }
+    }
+
+  ],
+  "seo": {
+    "title": "About",
+    "description": "About page description",
+    "imageSrc": "https://via.placeholder.com/550"
+  }
+}
