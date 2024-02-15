@@ -1,105 +1,109 @@
 {
-  "master": {
-    "header": {
-      "id": "1",
-      "alias": "header",
-      "content": {
-        "brandLogo": {
-          "id": "1",
-          "alias": "brandLogo",
-          "content": {
-            "url": "https://www.example.com/logo.png",
-            "alt": "Brand Logo"
-          }
-        },
-        "navigation": {
-          "id": "2",
-          "alias": "navigation",
-          "content": {
-            "items": [
-              { "id": "1", "label": "Home", "url": "/" },
-              { "id": "2", "label": "About", "url": "/about" },
-              { "id": "3", "label": "Contact", "url": "/contact" },
-              { "id": "4", "label": "Team", "url": "/team" }
-            ],
-            "categories": [
-              {
-                "id": "1",
-                "label": "all",
-                "url": "/"
-              },
-              {
-                "id": "2",
-                "label": "architecture",
-                "url": "/architecture"
-              },
-              {
-                "id": "3",
-                "label": "interiors",
-                "url": "/interiors"
-              },
-              {
-                "id": "4",
-                "label": "urban",
-                "url": "/urban"
-              },
-              {
-                "id": "5",
-                "label": "contest",
-                "url": "/contest"
-              }
-            ]
+  "widget": [
+    {
+      "header": {
+        "id": "1",
+        "alias": "header",
+        "content": {
+          "brandLogo": {
+            "id": "1",
+            "alias": "brandLogo",
+            "content": {
+              "url": "https://www.example.com/logo.png",
+              "alt": "Brand Logo"
+            }
+          },
+          "navigation": {
+            "id": "2",
+            "alias": "navigation",
+            "content": {
+              "items": [
+                { "id": "1", "label": "Home", "url": "/" },
+                { "id": "2", "label": "About", "url": "/about" },
+                { "id": "3", "label": "Contact", "url": "/contact" },
+                { "id": "4", "label": "Team", "url": "/team" }
+              ],
+              "categories": [
+                {
+                  "id": "1",
+                  "label": "all",
+                  "url": "/"
+                },
+                {
+                  "id": "2",
+                  "label": "architecture",
+                  "url": "/architecture"
+                },
+                {
+                  "id": "3",
+                  "label": "interiors",
+                  "url": "/interiors"
+                },
+                {
+                  "id": "4",
+                  "label": "urban",
+                  "url": "/urban"
+                },
+                {
+                  "id": "5",
+                  "label": "contest",
+                  "url": "/contest"
+                }
+              ]
+            }
           }
         }
       }
     },
-    "footer": {
-      "id": "3",
-      "alias": "footer",
-      "content": {
-        "image": {
-          "url": "https://www.example.com/footer-image.jpg",
-          "alt": "Footer Image"
-        },
-        "gridColumns": [
-          {
-            "id": "1",
-            "reachText": "<strong>Pedro Pinto Correia</strong>"
+    {
+      "footer": {
+        "id": "3",
+        "alias": "footer",
+        "content": {
+          "image": {
+            "url": "https://www.example.com/footer-image.jpg",
+            "alt": "Footer Image"
           },
-          {
-            "id": "2",
-            "reachText": "<strong>Pedro Pinto Correia</strong>"
-          },
-          {
-            "id": "3",
-            "reachText": "<strong>Pedro Pinto Correia</strong>"
-          },
-          {
+          "gridColumns": [
+            {
+              "id": "1",
+              "reachText": "<strong>Pedro Pinto Correia</strong>"
+            },
+            {
+              "id": "2",
+              "reachText": "<strong>Pedro Pinto Correia</strong>"
+            },
+            {
+              "id": "3",
+              "reachText": "<strong>Pedro Pinto Correia</strong>"
+            },
+            {
+              "id": "4",
+              "reachText": "<strong>Pedro Pinto Correia</strong>"
+            }
+          ],
+          "languages": {
             "id": "4",
-            "reachText": "<strong>Pedro Pinto Correia</strong>"
-          }
-        ],
-        "languages": {
-          "id": "4",
-          "alias": "languages",
-          "content": {
-            "items": [
-              {
-                "id": "1",
-                "name": "PT",
-                "value": "pt",
-                "code": "pt-pt"
-              },
-              {
-                "id": "2",
-                "name": "EN",
-                "value": "en",
-                "code": "en-US"
-              }
-            ]
+            "alias": "languages",
+            "content": {
+              "items": [
+                {
+                  "id": "1",
+                  "name": "PT",
+                  "value": "pt",
+                  "code": "pt-pt"
+                },
+                {
+                  "id": "2",
+                  "name": "EN",
+                  "value": "en",
+                  "code": "en-US"
+                }
+              ]
+            }
           }
         }
       }
     }
-  }
+  ]
 }
