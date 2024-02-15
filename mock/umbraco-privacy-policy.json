@@ -1,19 +1,14 @@
 {
-  "route": {
-    "path": "/privacy-policy",
-    "component": "Privacy Policy"
-  },
-  "privacyPolicy": {
-    "id": "privacy-policy",
+  "widgets": {
+    "id": "1",
     "alias": "privacy-policy",
     "content": {
       "title": "Privacy Policy",
-      "description": "This is the privacy policy page",
-      "body": "This is the body of the privacy policy page"
+      "reachText": "This is the privacy policy page"
     }
   },
   "seo": {
-    "title": "privacy-policy",
+    "title": "PPCOA::Privacy policy",
     "description": "privacy-policy",
     "imageSrc": "https://www.example.com/image.jpg"
   }
