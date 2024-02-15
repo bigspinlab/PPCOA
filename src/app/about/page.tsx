@@ -1,4 +1,3 @@
-import RootWrapper from '@/components/RootWrapper';
 import Rectangle from '@/ui-elements/Rectangle';
 import Image from 'next/image';
 
@@ -61,7 +60,7 @@ export default function About() {
       <section className="w-full pt-20 mb-24">
         <h2 className="sr-only">About</h2>
         <article className="w-full pl-4 grid lg:grid-cols-12">
-          <Rectangle customStyles="justify-self-end bg-red-100 w-full mb-9 sm:w-11/12 md:mb-20 lg:mb-28 lg:col-start-2 lg:justify-self-start lg:col-end-9" />
+          <Rectangle customStyles="w-full justify-self-end bg-red-100 w-full mb-9 md:mb-20 lg:mb-28 lg:col-start-2 lg:justify-self-start lg:col-end-8" />
           <div className="pr-4 max-w-96 justify-self-center lg:col-start-9 lg:col-end-12 lg:pr-0">
             <p className="text-xl">
               Em Lisboa, ingressa no atelier da Arquitecta Teresa Nunes da Ponte, entre 2008 e 2010, tendo desenvolvido
@@ -99,28 +98,30 @@ export default function About() {
 
       <section className="w-full pt-20 mb-24">
         <h2 className="sr-only">About</h2>
-        <article className="w-full flex md:pl-16 xl:pl-32">
-          <div className="w-full h-auto bg-red-100"></div>
-          <Image src="https://via.placeholder.com/220" alt="office" width={280} height={300} />
+        <article className="w-full h-44 grid grid-cols-12 lg:h-80">
+          <div className="w-full h-auto bg-red-100 col-start-1 col-end-5 lg:col-start-2 lg:col-end-8"></div>
+          <div className='relative col-start-5 col-end-13 lg:col-start-8'>
+            <Image className='object-cover' src="https://via.placeholder.com/700x300" alt="office" fill sizes='(min-width: 64em) 33vw, (min-width: 48em) 50vw, 75vw' />
+          </div>
         </article>
       </section>
 
-      <RootWrapper>
+      <section className='w-full pt-20 mb-24'>
         <h2 className="sr-only">About</h2>
-        <article className="w-full flex flex-col md:pl-16 xl:pl-32">
-          <div className="flex flex-col gap-10 md:max-w-96">
-            <p>
+        <article className="w-full grid grid-cols-12 grid-rows-2">
+          <div className="flex flex-col gap-36 justify-self-center px-4 md:px-0 col-span-full md:col-start-4 md:w-full md:col-end-12 md:justify-self-start lg:col-start-6">
+            <p className="text-xl max-w-96">
               Colaborou também no desenvolvimento da nova sede da Fundação Calouste Gulbenkian em Paris, entre outros
               trabalhos de apoio à sede da mesma em Lisboa.
             </p>
-            <p>
+            <p className="text-xl max-w-96 md:ml-auto">
               Abre em 2011 a Oficina de Arquitectura, onde entre Lisboa e Luanda, executa parcerias e presta serviços de
               arquitectura nas mais diversas áreas: habitação, hotelaria, comércio, reabilitação e urbanismo tático.
             </p>
           </div>
-          <div className="w-1/2 h-10 mt-32 ml-auto bg-yellow-100 lg:w-2/5"></div>
+          <div className="w-full h-28 mt-32 ml-auto bg-yellow-100 col-start-7 col-end-13 row-start-2"></div>
         </article>
-      </RootWrapper>
+      </section>
     </>
   );
 }
