@@ -1,10 +1,6 @@
 {
-  "route": {
-    "path": "/team",
-    "component": "Team"
-  },
-  "teamList": {
-    "id": "teamList",
+  "widget": {
+    "id": "1",
     "alias": "teamList",
     "content": [
       {
@@ -12,8 +8,7 @@
         "name": "John Doe",
         "role": "CEO",
         "imageSrc": {
-          "desktop": "https://www.example.com/image.jpg",
-          "mobile": "https://www.example.com/image.jpg",
+          "url": "https://www.example.com/image.jpg",
           "alt": "John Doe"
         },
         "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
@@ -27,8 +22,7 @@
         "name": "John Doe",
         "role": "CEO",
         "imageSrc": {
-          "desktop": "https://www.example.com/image.jpg",
-          "mobile": "https://www.example.com/image.jpg",
+          "url": "https://www.example.com/image.jpg",
           "alt": "John Doe"
         },
         "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
@@ -42,8 +36,7 @@
         "name": "John Doe",
         "role": "CEO",
         "imageSrc": {
-          "desktop": "https://www.example.com/image.jpg",
-          "mobile": "https://www.example.com/image.jpg",
+          "url": "https://www.example.com/image.jpg",
           "alt": "John Doe"
         },
         "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
@@ -55,7 +48,7 @@
     ]
   },
   "seo": {
-    "title": "team",
+    "title": "PPCOA::Team",
     "description": "team",
     "imageSrc": "https://www.example.com/image.jpg"
   }
