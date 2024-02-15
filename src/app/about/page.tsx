@@ -43,7 +43,9 @@ export default function About() {
           </div>
           <div className="flex flex-col px-4 lg:col-start-6 lg:col-end-9 lg:px-0">
             <div className="max-w-96 text-xl">
-              <h3 className='text-xl mb-[30px]'><strong>Fundador</strong></h3>
+              <h3 className="text-xl mb-[30px]">
+                <strong>Fundador</strong>
+              </h3>
               <p className="text-xl">
                 Pedro Oliveira Santos Pinto Correia é um arquitecto luso-angolano, nascido em Lisboa a 8 de março de
                 1981. Estudou na Faculdade de Arquitectura da Universidade Lusíada de Lisboa entre 1999 e 2004,
@@ -84,7 +86,13 @@ export default function About() {
             </p>
           </div>
           <div className="flex items-center justify-center py-24 px-16 bg-yellow-100 max-w-56 row-start-1 md:col-start-9 md:col-end-12 md:justify-self-end md:max-w-72">
-            <Image className='max-h-72 object-contain md:max-h-[490px]' src="/about-layer.png" alt="office" width={90} height={530} />
+            <Image
+              className="max-h-72 object-contain md:max-h-[490px]"
+              src="/about-layer.png"
+              alt="office"
+              width={90}
+              height={530}
+            />
           </div>
         </article>
       </section>
