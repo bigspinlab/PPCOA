@@ -21,6 +21,33 @@
               { "id": "2", "label": "About", "url": "/about" },
               { "id": "3", "label": "Contact", "url": "/contact" },
               { "id": "4", "label": "Team", "url": "/team" }
+            ],
+            "categories": [
+              {
+                "id": "1",
+                "label": "all",
+                "url": "/"
+              },
+              {
+                "id": "2",
+                "label": "architecture",
+                "url": "/architecture"
+              },
+              {
+                "id": "3",
+                "label": "interiors",
+                "url": "/interiors"
+              },
+              {
+                "id": "4",
+                "label": "urban",
+                "url": "/urban"
+              },
+              {
+                "id": "5",
+                "label": "contest",
+                "url": "/contest"
+              }
             ]
           }
         }
@@ -40,15 +67,15 @@
             "reachText": "<strong>Pedro Pinto Correia</strong>"
           },
           {
-            "id": "1",
+            "id": "2",
             "reachText": "<strong>Pedro Pinto Correia</strong>"
           },
           {
-            "id": "1",
+            "id": "3",
             "reachText": "<strong>Pedro Pinto Correia</strong>"
           },
           {
-            "id": "1",
+            "id": "4",
             "reachText": "<strong>Pedro Pinto Correia</strong>"
           }
         ],
