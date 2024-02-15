@@ -27,26 +27,31 @@
                 {
                   "id": "1",
                   "label": "all",
+                  "themeColor": "white",
                   "url": "/"
                 },
                 {
                   "id": "2",
                   "label": "architecture",
+                  "themeColor": "yellow",
                   "url": "/architecture"
                 },
                 {
                   "id": "3",
                   "label": "interiors",
+                  "themeColor": "blue",
                   "url": "/interiors"
                 },
                 {
                   "id": "4",
                   "label": "urban",
+                  "themeColor": "red",
                   "url": "/urban"
                 },
                 {
                   "id": "5",
                   "label": "contest",
+                  "themeColor": "dark-gray",
                   "url": "/contest"
                 }
               ]
