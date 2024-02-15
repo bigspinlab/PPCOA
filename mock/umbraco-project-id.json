@@ -1,94 +1,95 @@
 {
-  "route": {
-    "path": "/:category/:projectId",
-    "component": "Project Detail"
-  },
-  "projectDetail": {
-    "id": "1",
-    "alias": "projectDetail",
-    "carousel": [
-      {
-        "id": "1",
-        "alias": "carouselItem",
-        "content": {
-          "text": "Project 1",
+  "widgets": [
+    {
+      "id": "1",
+      "alias": "carousel",
+      "content": [
+        {
+          "id": "1",
+          "alias": "carouselItem",
+          "carouselItemType": "FULL_IMAGE_LANDSCAPE | FULL_IMAGE_SQUARE | IMAGE_WITH_TEXT, | IMAGE_WITH_TEXT_REVERSED | IMAGE_WITH_TEXT_SMALL_CONTAINER | IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED",
+          "content": {
+            "text": "Project 1",
+            "imageSrc": {
+              "url": "https://www.example.com/image.jpg",
+              "alt": "Project 1"
+            }
+          },
+          "settings": {
+            "paddingRight": "pr-8",
+            "paddingLeft": "pl-8"
+          }
+        },
+        {
+          "id": "2",
+          "alias": "carouselItem",
+          "carouselItemType": "FULL_IMAGE_LANDSCAPE | FULL_IMAGE_SQUARE | IMAGE_WITH_TEXT, | IMAGE_WITH_TEXT_REVERSED | IMAGE_WITH_TEXT_SMALL_CONTAINER | IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED",
+          "content": {
+            "text": "Project 1",
+            "imageSrc": {
+              "url": "https://www.example.com/image.jpg",
+              "alt": "Project 1"
+            }
+          },
+          "settings": {
+            "paddingRight": "pr-8",
+            "paddingLeft": "pl-8"
+          }
+        },
+        {
+          "id": "3",
+          "alias": "carouselItem",
+          "carouselItemType": "FULL_IMAGE_LANDSCAPE | FULL_IMAGE_SQUARE | IMAGE_WITH_TEXT, | IMAGE_WITH_TEXT_REVERSED | IMAGE_WITH_TEXT_SMALL_CONTAINER | IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED",
+          "content": {
+            "text": "Project 1",
+            "imageSrc": {
+              "url": "https://www.example.com/image.jpg",
+              "alt": "Project 1"
+            }
+          },
+          "settings": {
+            "paddingRight": "pr-8",
+            "paddingLeft": "pl-8"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "alias": "projectsList",
+      "categoryList": "architecture",
+      "title": "Outros Projetos",
+      "content": [
+        {
+          "id": "1",
+          "title": "Project 1",
+          "category": "architecture",
           "imageSrc": {
-            "desktop": "https://www.example.com/image.jpg",
-            "mobile": "https://www.example.com/image.jpg",
+            "url": "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?ixid=M3w1NjU5MTZ8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzA3NjUxMTY3fDA&ixlib=rb-4.0.3",
             "alt": "Project 1"
           }
         },
-        "settings": {
-          "carouselType": "FULL_IMAGE | IMAGE_WITH_TEXT | IMAGE_WITH_TEXT_REVERSED",
-          "paddingRight": "pr-8",
-          "paddingLeft": "pl-8"
-        }
-      },
-      {
-        "id": "1",
-        "alias": "carouselItem",
-        "carouselType": "image",
-        "content": {
-          "text": "Project 1",
+        {
+          "id": "2",
+          "title": "Project 1",
+          "category": "architecture",
           "imageSrc": {
-            "desktop": "https://www.example.com/image.jpg",
-            "mobile": "https://www.example.com/image.jpg",
+            "url": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixid=M3w1NjU5MTZ8MHwxfHNlYXJjaHwyfHxhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzA3NjUxMTY3fDA&ixlib=rb-4.0.3",
+            "alt": "Project 1"
+          }
+        },
+        {
+          "id": "3",
+          "title": "Project 1",
+          "category": "architecture",
+          "imageSrc": {
+            "url": "https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixid=M3w1NjU5MTZ8MHwxfHNlYXJjaHw0fHxhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzA3NjUxMTY3fDA&ixlib=rb-4.0.3",
             "alt": "Project 1"
           }
         }
-      },
-      {
-        "id": "1",
-        "alias": "carouselItem",
-        "carouselType": "image",
-        "content": {
-          "text": "Project 1",
-          "imageSrc": {
-            "desktop": "https://www.example.com/image.jpg",
-            "mobile": "https://www.example.com/image.jpg",
-            "alt": "Project 1"
-          }
-        }
-      }
-    ]
-  },
-  "projectsList": {
-    "id": "projectsList",
-    "alias": "projectsList",
-    "title": "Outros Projetos",
-    "content": [
-      {
-        "id": "1",
-        "title": "Project 1",
-        "category": "urban",
-        "imageSrc": {
-          "desktop": "https://www.example.com/image.jpg",
-          "mobile": "https://www.example.com/image.jpg",
-          "alt": "Project 1"
-        }
-      },
-      {
-        "id": "2",
-        "title": "Project 1",
-        "category": "urban",
-        "imageSrc": {
-          "desktop": "https://www.example.com/image.jpg",
-          "mobile": "https://www.example.com/image.jpg",
-          "alt": "Project 1"
-        }
-      },
-      {
-        "id": "3",
-        "title": "Project 1",
-        "category": "urban",
-        "imageSrc": {
-          "desktop": "https://www.example.com/image.jpg",
-          "mobile": "https://www.example.com/image.jpg",
-          "alt": "Project 1"
-        }
-      }
-    ]
-  },
+      ]
+    }
+  ],
   "seo": {
     "title": "Project Detail",
     "description": "Project Detail",
