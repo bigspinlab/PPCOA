@@ -59,7 +59,7 @@ export default function About() {
 
       <section className="w-full pt-20 mb-24">
         <h2 className="sr-only">About</h2>
-        <article className="w-full pl-4 grid lg:grid-cols-12">
+        <article className="w-full pl-4 grid md:pl-0 lg:grid-cols-12">
           <Rectangle customStyles="w-full justify-self-end bg-red-100 w-full mb-9 md:mb-20 lg:mb-28 lg:col-start-2 lg:justify-self-start lg:col-end-8" />
           <div className="pr-4 max-w-96 justify-self-center lg:col-start-9 lg:col-end-12 lg:pr-0">
             <p className="text-xl">
@@ -73,7 +73,7 @@ export default function About() {
 
       <section className="w-full pt-20 mb-24">
         <h2 className="sr-only">About</h2>
-        <article className="w-full px-4 grid gap-y-36 md:gap-0 lg:grid-cols-12">
+        <article className="w-full px-4 grid gap-y-36 md:px-0 md:gap-0 lg:grid-cols-12">
           <div className="flex flex-col gap-36 justify-self-center md:col-start-2 md:w-full md:col-end-9 md:justify-self-start">
             <p className="text-xl max-w-96">
               Colaborou também no desenvolvimento da nova sede da Fundação Calouste Gulbenkian em Paris, entre outros
