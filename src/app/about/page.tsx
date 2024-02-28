@@ -33,7 +33,7 @@ export default function About() {
         <article className="w-full grid justify-center lg:grid-cols-12">
           <div className="w-full relative aspect-square mb-24 lg:mb-0 lg:col-start-2 lg:col-end-5">
             <Image
-              className="shrink-0 aspect-square object-contain"
+              className="shrink-0 aspect-square object-contain px-4 lg:px-0"
               alt="founder"
               src="https://via.placeholder.com/1080"
               fill
@@ -60,7 +60,7 @@ export default function About() {
       <section className="w-full pt-20 mb-24">
         <h2 className="sr-only">About</h2>
         <article className="w-full pl-4 grid md:pl-0 lg:grid-cols-12">
-          <Rectangle customStyles="w-full justify-self-end bg-red-100 w-full mb-9 md:mb-20 lg:mb-28 lg:col-start-2 lg:justify-self-start lg:col-end-8" />
+          <Rectangle customStyles="w-5/6 justify-self-end bg-red-100 mb-48 md:mb-20 lg:mb-28 lg:col-start-2 lg:w-full lg:justify-self-start lg:col-end-8" />
           <div className="pr-4 max-w-96 justify-self-center lg:col-start-9 lg:col-end-12 lg:pr-0">
             <p className="text-xl">
               Em Lisboa, ingressa no atelier da Arquitecta Teresa Nunes da Ponte, entre 2008 e 2010, tendo desenvolvido
