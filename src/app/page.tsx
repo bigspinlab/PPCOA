@@ -5,7 +5,7 @@ import { getHeadless } from '@/lib/getHeadless';
 import ProjectsList from '@/components/ProjectsList';
 
 export default async function Home() {
-  const umbracoContent = await getHeadless({ route: 'view', page: 1 });
+  const umbracoContent = await getHeadless({ route: 'widgets', page: 1 });
 
   return (
     <RootWrapper customClassName="w-full">
