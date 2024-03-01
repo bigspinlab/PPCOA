@@ -75,6 +75,8 @@ export default function Loading() {
               projectos na área da hotelaria/ensino. Escola de Hotelaria e Turismo de Lisboa, Escola Machado de Castro e
               Escola de Hotelaria e Turismo de Setúbal, Escola Padre António Vieira do arquitecto Athouguia.
             </p> */}
+            <Skeleton className="h-96 w-full " />
+
           </div>
         </article>
       </section>
@@ -91,8 +93,14 @@ export default function Loading() {
               Abre em 2011 a Oficina de Arquitectura, onde entre Lisboa e Luanda, executa parcerias e presta serviços de
               arquitectura nas mais diversas áreas: habitação, hotelaria, comércio, reabilitação e urbanismo tático.
             </p> */}
+            <Skeleton className="h-96 mb-[30px] w-full " />
+
+            <Skeleton className="h-96 mb-[30px] w-full " />
+
           </div>
           <div className="flex items-center justify-center py-24 px-16 bg-yellow-100 max-w-56 row-start-1 md:col-start-9 md:col-end-12 md:justify-self-end md:max-w-72">
+            <Skeleton className="h-72 mb-[30px] w-full " />
+
             {/* <Image
               className="max-h-72 object-contain md:max-h-[490px]"
               src="/about-layer.png"
@@ -109,6 +117,8 @@ export default function Loading() {
         <article className="w-full h-44 grid grid-cols-12 lg:h-80">
           <div className="w-full h-auto bg-red-100 col-start-1 col-end-5 lg:col-start-2 lg:col-end-8"></div>
           <div className='relative col-start-5 col-end-13 lg:col-start-8'>
+            <Skeleton className="h-96 mb-[30px] w-full " />
+
             {/* <Image className='object-cover' src="https://via.placeholder.com/700x300" alt="office" fill sizes='(min-width: 64em) 33vw, (min-width: 48em) 50vw, 75vw' /> */}
           </div>
         </article>
@@ -126,6 +136,10 @@ export default function Loading() {
               Abre em 2011 a Oficina de Arquitectura, onde entre Lisboa e Luanda, executa parcerias e presta serviços de
               arquitectura nas mais diversas áreas: habitação, hotelaria, comércio, reabilitação e urbanismo tático.
             </p> */}
+            <Skeleton className="h-96 mb-[30px] w-full " />
+
+            <Skeleton className="h-96 mb-[30px] w-full " />
+
           </div>
           <div className="w-full h-28 mt-32 ml-auto bg-yellow-100 col-start-7 col-end-13 row-start-2"></div>
         </article>
