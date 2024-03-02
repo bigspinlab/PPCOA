@@ -1,47 +1,59 @@
 'use client';
 
 import ProjectCard from '@/components/ProjectCard';
-import { useCallback, useEffect, useState } from 'react';
-import { fetchProjectsList } from './actions';
+import React, { useEffect } from 'react';
+import { getProjectsList } from './actions';
 import { useInView } from 'react-intersection-observer';
+import { useInfiniteQuery } from '@tanstack/react-query';
+//import { useParams } from 'next/navigation';
 
-export default function ProjectsList({ initialUmbracoContent }: any) {
-  const [projectList, setProjectList] = useState(initialUmbracoContent);
-  const [page, setPage] = useState(1);
+export default function ProjectsList() {
+  //const params = useParams();
   const [ref, inView] = useInView();
 
-  const fetchProjects = useCallback(async () => {
-    const next = page + 1;
-    const projectList = await fetchProjectsList({ page: next, category: 'all' });
-    if (projectList?.length) {
-      setPage(next);
-      setProjectList({
-        projectsList: {
-          content: [...projectList.projectsList.content, ...projectList.projectsList.content]
-        }
-      });
-    }
-  }, [page]);
+  const {
+    data,
+    isLoading,
+    fetchNextPage
+  } = useInfiniteQuery({
+    queryKey: ['projectsList'],
+    queryFn: () => getProjectsList({ page: 1 }),
+    initialPageParam: 1,
+    getNextPageParam: (nextPage: any) => nextPage.nextId ?? undefined,
+    maxPages: 3
+  });
 
   useEffect(() => {
     if (inView) {
-      fetchProjects();
+      fetchNextPage();
     }
-  }, [inView, fetchProjects]);
+  }, [inView, fetchNextPage]);
+
+  // filter projectList by params category
+  // const filteredProjectList = projectList?.pages..filter((project: any) => project.category === params.category);
+
+
+  if (isLoading) {
+    return <li>loading spinner</li>;
+  }
 
   return (
     <>
-      {projectList?.projectsList?.content.map((project: any) => (
-        <li key={project.id}>
-          <ProjectCard
-            id={project.id}
-            imageSrc={project.imageSrc.desktop}
-            imageAlt={project.imageSrc.alt}
-            projectName={project.title}
-            category={project.category}
-          />
-        </li>
-      ))}
+      {data?.pages.map((page) =>
+        <React.Fragment key={page.nextId}>
+          {page.data[0]?.content?.map((project: any) => (
+            <li key={project.id}>
+              <ProjectCard
+                id={project.id}
+                imageSrc={project.imageSrc?.url}
+                imageAlt={project.imageSrc?.alt}
+                projectName={project.title}
+                category={project.category}
+              />
+            </li>
+          ))}
+        </React.Fragment>
+      )}
 
       <li ref={ref}>loading spinner</li>
     </>
