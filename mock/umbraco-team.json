@@ -1,52 +1,54 @@
 {
-  "widget": {
-    "id": "1",
-    "alias": "teamList",
-    "content": [
-      {
-        "id": "1",
-        "name": "John Doe",
-        "role": "CEO",
-        "imageSrc": {
-          "url": "https://www.example.com/image.jpg",
-          "alt": "John Doe"
+  "widget": [
+    {
+      "id": "1",
+      "alias": "teamList",
+      "content": [
+        {
+          "id": "1",
+          "name": "John Doe",
+          "role": "CEO",
+          "imageSrc": {
+            "url": "https://www.example.com/image.jpg",
+            "alt": "John Doe"
+          },
+          "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
+          "contact": {
+            "email": "",
+            "phone": ""
+          }
         },
-        "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
-        "contact": {
-          "email": "",
-          "phone": ""
-        }
-      },
-      {
-        "id": "1",
-        "name": "John Doe",
-        "role": "CEO",
-        "imageSrc": {
-          "url": "https://www.example.com/image.jpg",
-          "alt": "John Doe"
+        {
+          "id": "1",
+          "name": "John Doe",
+          "role": "CEO",
+          "imageSrc": {
+            "url": "https://www.example.com/image.jpg",
+            "alt": "John Doe"
+          },
+          "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
+          "contact": {
+            "email": "",
+            "phone": ""
+          }
         },
-        "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
-        "contact": {
-          "email": "",
-          "phone": ""
+        {
+          "id": "1",
+          "name": "John Doe",
+          "role": "CEO",
+          "imageSrc": {
+            "url": "https://www.example.com/image.jpg",
+            "alt": "John Doe"
+          },
+          "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
+          "contact": {
+            "email": "",
+            "phone": ""
+          }
         }
-      },
-      {
-        "id": "1",
-        "name": "John Doe",
-        "role": "CEO",
-        "imageSrc": {
-          "url": "https://www.example.com/image.jpg",
-          "alt": "John Doe"
-        },
-        "description": "John is the CEO of the company. He is responsible for the overall management of the company and its operations.",
-        "contact": {
-          "email": "",
-          "phone": ""
-        }
-      }
-    ]
-  },
+      ]
+    }
+  ],
   "seo": {
     "title": "PPCOA::Team",
     "description": "team",

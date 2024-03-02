@@ -76,6 +76,7 @@
                 "id": "4",
                 "type": "checkbox",
                 "label": "Aceito a política de privacidade",
+                "link": "https://www.example.com/privacy-policy",
                 "required": true
               }
             ]
