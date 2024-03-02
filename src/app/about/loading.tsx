@@ -76,7 +76,6 @@ export default function Loading() {
               Escola de Hotelaria e Turismo de Setúbal, Escola Padre António Vieira do arquitecto Athouguia.
             </p> */}
             <Skeleton className="h-96 w-full " />
-
           </div>
         </article>
       </section>
@@ -96,7 +95,6 @@ export default function Loading() {
             <Skeleton className="h-96 mb-[30px] w-full " />
 
             <Skeleton className="h-96 mb-[30px] w-full " />
-
           </div>
           <div className="flex items-center justify-center py-24 px-16 bg-yellow-100 max-w-56 row-start-1 md:col-start-9 md:col-end-12 md:justify-self-end md:max-w-72">
             <Skeleton className="h-72 mb-[30px] w-full " />
@@ -116,7 +114,7 @@ export default function Loading() {
         <h2 className="sr-only">About</h2>
         <article className="w-full h-44 grid grid-cols-12 lg:h-80">
           <div className="w-full h-auto bg-red-100 col-start-1 col-end-5 lg:col-start-2 lg:col-end-8"></div>
-          <div className='relative col-start-5 col-end-13 lg:col-start-8'>
+          <div className="relative col-start-5 col-end-13 lg:col-start-8">
             <Skeleton className="h-96 mb-[30px] w-full " />
 
             {/* <Image className='object-cover' src="https://via.placeholder.com/700x300" alt="office" fill sizes='(min-width: 64em) 33vw, (min-width: 48em) 50vw, 75vw' /> */}
@@ -124,7 +122,7 @@ export default function Loading() {
         </article>
       </section>
 
-      <section className='w-full pt-20 mb-24'>
+      <section className="w-full pt-20 mb-24">
         <h2 className="sr-only">About</h2>
         <article className="w-full grid grid-cols-12 grid-rows-2">
           <div className="flex flex-col gap-36 justify-self-center px-4 md:px-0 col-span-full md:col-start-4 md:w-full md:col-end-12 md:justify-self-start lg:col-start-6">
@@ -139,10 +137,10 @@ export default function Loading() {
             <Skeleton className="h-96 mb-[30px] w-full " />
 
             <Skeleton className="h-96 mb-[30px] w-full " />
-
           </div>
           <div className="w-full h-28 mt-32 ml-auto bg-yellow-100 col-start-7 col-end-13 row-start-2"></div>
         </article>
       </section>
     </>
-  );}
+  );
+}

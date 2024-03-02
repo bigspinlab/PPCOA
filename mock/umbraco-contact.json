@@ -1,5 +1,5 @@
 {
-  "widget":[
+  "widget": [
     {
       "id": "1",
       "alias": "contact",
@@ -84,7 +84,7 @@
         }
       }
     }
-  ] ,
+  ],
   "seo": {
     "title": "contact",
     "description": "contact",

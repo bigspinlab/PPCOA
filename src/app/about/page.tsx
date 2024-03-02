@@ -100,13 +100,19 @@ export default function About() {
         <h2 className="sr-only">About</h2>
         <article className="w-full h-44 grid grid-cols-12 lg:h-80">
           <div className="w-full h-auto bg-red-100 col-start-1 col-end-5 lg:col-start-2 lg:col-end-8"></div>
-          <div className='relative col-start-5 col-end-13 lg:col-start-8'>
-            <Image className='object-cover' src="https://via.placeholder.com/700x300" alt="office" fill sizes='(min-width: 64em) 33vw, (min-width: 48em) 50vw, 75vw' />
+          <div className="relative col-start-5 col-end-13 lg:col-start-8">
+            <Image
+              className="object-cover"
+              src="https://via.placeholder.com/700x300"
+              alt="office"
+              fill
+              sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 75vw"
+            />
           </div>
         </article>
       </section>
 
-      <section className='w-full pt-20 mb-24'>
+      <section className="w-full pt-20 mb-24">
         <h2 className="sr-only">About</h2>
         <article className="w-full grid grid-cols-12 grid-rows-2">
           <div className="flex flex-col gap-36 justify-self-center px-4 md:px-0 col-span-full md:col-start-4 md:w-full md:col-end-12 md:justify-self-start lg:col-start-6">
