@@ -5,25 +5,25 @@ import ProjectCard from '@/components/ProjectCard';
 import { BACKGROUND_COLOR, CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
 // import type { Metadata, ResolvingMetadata } from 'next'
- 
+
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata#usage
 // type Props = {
 //   params: { category: string; projectId: string }
 // }
- 
+
 // export async function generateMetadata(
 //   { params }: Props,
 //   parent: ResolvingMetadata
 // ): Promise<Metadata> {
 //   // read route params
 //   const id = params.category
- 
+
 //   // fetch data
 //   const product = await fetch(`https://.../${id}`).then((res) => res.json())
- 
+
 //   // optionally access and extend (rather than replace) parent metadata
 //   const previousImages = (await parent).openGraph?.images || []
- 
+
 //   return {
 //     title: product.title,
 //     openGraph: {

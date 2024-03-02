@@ -11,11 +11,7 @@ export default function ProjectsList() {
   //const params = useParams();
   const [ref, inView] = useInView();
 
-  const {
-    data,
-    isLoading,
-    fetchNextPage
-  } = useInfiniteQuery({
+  const { data, isLoading, fetchNextPage } = useInfiniteQuery({
     queryKey: ['projectsList'],
     queryFn: () => getProjectsList({ page: 1 }),
     initialPageParam: 1,
@@ -33,7 +29,7 @@ export default function ProjectsList() {
   // const filteredProjectList = projectList?.pages..filter((project: any) => project.category === params.category);
   const projectList = data?.pages.reduce((acc, page) => {
     return [...acc, ...page.data[0].content];
-  }, [])
+  }, []);
 
   if (isLoading) {
     return <li>loading spinner</li>;
@@ -56,19 +52,17 @@ export default function ProjectsList() {
           ))}
         </React.Fragment>
       )} */}
-      {
-        projectList?.map((project: any) => (
-          <li key={project.id}>
-            <ProjectCard
-              id={project.id}
-              imageSrc={project.imageSrc?.url}
-              imageAlt={project.imageSrc?.alt}
-              projectName={project.title}
-              category={project.category}
-            />
-          </li>
-        ))
-      }
+      {projectList?.map((project: any) => (
+        <li key={project.id}>
+          <ProjectCard
+            id={project.id}
+            imageSrc={project.imageSrc?.url}
+            imageAlt={project.imageSrc?.alt}
+            projectName={project.title}
+            category={project.category}
+          />
+        </li>
+      ))}
       <li ref={ref}>loading spinner</li>
     </>
   );
