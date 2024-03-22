@@ -4,6 +4,7 @@ import RootWrapper from '@/components/RootWrapper';
 import ProjectCard from '@/components/ProjectCard';
 import { BACKGROUND_COLOR, CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
+import { Filter } from '@/components/Filter';
 // import type { Metadata, ResolvingMetadata } from 'next'
 
 // https://nextjs.org/docs/app/building-your-application/optimizing/metadata#usage
@@ -38,6 +39,7 @@ export default async function ProjectDetails({ params }: { params: { category: s
 
   return (
     <>
+      <Filter />
       <section className="overflow-hidden mb-17 md:mb-36">
         <h2 className="sr-only">
           Project Detail {category} {projectId}
