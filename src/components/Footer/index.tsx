@@ -3,11 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/ui-elements/Select';
-import { getHeadlessMaster } from '@/lib/getHeadlessMaster';
-import { useQuery } from '@tanstack/react-query';
+import { useGetHeadlessMaster } from '@/hooks/useGetHeadlessMaster';
 
 export default function Footer() {
-  const { data: footerData } = useQuery({ queryKey: ['masterPage'], queryFn: getHeadlessMaster });
+  const { data: footerData } = useGetHeadlessMaster();
 
   if (!footerData) {
     return null;

@@ -1,5 +1,4 @@
-import { getHeadlessMaster } from '@/lib/getHeadlessMaster';
-import { useQuery } from '@tanstack/react-query';
+import { useGetHeadlessMaster } from '@/hooks/useGetHeadlessMaster';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -8,7 +7,7 @@ interface NavRouteListProps {
 }
 
 export default function NavRouteList({ onRouteClick }: NavRouteListProps) {
-  const { data: headerNavList } = useQuery({ queryKey: ['masterPage'], queryFn: getHeadlessMaster });
+  const { data: headerNavList } = useGetHeadlessMaster();
 
   const useLocation = usePathname();
 

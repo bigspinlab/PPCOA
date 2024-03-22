@@ -7,12 +7,11 @@ import Drawer from '../../ui-elements/Drawer';
 import React from 'react';
 import { useState } from 'react';
 import { Button } from '@/ui-elements/Button';
-import { useQuery } from '@tanstack/react-query';
-import { getHeadlessMaster } from '@/lib/getHeadlessMaster';
+import { useGetHeadlessMaster } from '@/hooks/useGetHeadlessMaster';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const { data: headerLogo } = useQuery({ queryKey: ['masterPage'], queryFn: getHeadlessMaster });
+  const { data: headerLogo } = useGetHeadlessMaster();
 
   if (!headerLogo) {
     return null;
