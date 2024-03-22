@@ -4,7 +4,6 @@ import { ScrollArea, ScrollBar } from '@/ui-elements/ScrollArea';
 import { FilterList } from '../FilterList';
 
 const Filter = () => {
-
   return (
     <ScrollArea>
       <section className="w-full h-full flex justify-center pt-20 lg:pt-0 lg:fixed lg:w-2/4 lg:h-[86px] lg:translate-x-2/4 lg:z-10">

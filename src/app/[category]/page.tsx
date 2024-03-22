@@ -26,7 +26,7 @@ export default async function Category({ params }: { params: { category: string 
             </HydrationBoundary>
           </ul>
         </article>
-      </RootWrapper>  
+      </RootWrapper>
     </>
   );
 }
