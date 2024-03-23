@@ -3,12 +3,11 @@ import { useQuery } from '@tanstack/react-query';
 
 interface IGetHeadlessContent {
   route: string;
-  numberOfItems: number;
-  page: number;
+  queryKey: string;
 }
 
-export function useGetHeadlessContent({ route, numberOfItems, page }: IGetHeadlessContent) {
-  const { ...props } = useQuery({ queryKey: ['content'], queryFn: () => getHeadless({ route, numberOfItems, page }) });
+export function useGetHeadlessContent({ route, queryKey }: IGetHeadlessContent) {
+  const { ...props } = useQuery({ queryKey: [`${queryKey}`], queryFn: () => getHeadless({ route }) });
 
   return {
     ...props

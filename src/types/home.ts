@@ -105,3 +105,8 @@ export interface ISeo {
     alt: string;
   };
 }
+
+export interface IHeadlessContentPage {
+  widgets: (ICarousel | IText | IImageText | ITeamList)[];
+  seo: ISeo;
+}
