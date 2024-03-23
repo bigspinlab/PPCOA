@@ -116,7 +116,7 @@ export default function ImageText() {
               {parse(`${imageText.widgets[5].content?.firstParagraph}`)}
             </div>
             <div className="text-xl max-w-96 md:ml-auto">
-              {parse(`${imageText.widgets[5].content?.firstParagraph}`)}
+              {parse(`${imageText.widgets[5].content?.secondParagraph}`)}
             </div>
           </div>
           <div className="w-full h-28 mt-32 ml-auto bg-yellow-100 col-start-7 col-end-13 row-start-2"></div>
