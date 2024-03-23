@@ -32,22 +32,32 @@ export default function Footer() {
             {footerData[1].content.gridColumns.map((column) => (
               <li key={column.id}>
                 {parse(`${column.text}`)}
-                
-                { column.id === '4' && !showLanguagesSelect ? (
+
+                {column.id === '4' && !showLanguagesSelect ? (
                   <Select>
-                  <SelectTrigger aria-label="change-language" className="justify-start gap-0.5 text-base font-bold mt-5">
-                    <Image className="h-5 w-5 mr-1" alt="language" src="/language.svg" width={34} height={34} unoptimized />
-                    <SelectValue placeholder="PT" />
-                  </SelectTrigger>
-                  <SelectContent className="max-w-40">
-                    {footerData[1].content.languages.content.items.map((language) => (
-                      <SelectItem key={language.id} value={language.value}>
-                        {language.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                ): null }
+                    <SelectTrigger
+                      aria-label="change-language"
+                      className="justify-start gap-0.5 text-base font-bold mt-5"
+                    >
+                      <Image
+                        className="h-5 w-5 mr-1"
+                        alt="language"
+                        src="/language.svg"
+                        width={34}
+                        height={34}
+                        unoptimized
+                      />
+                      <SelectValue placeholder="PT" />
+                    </SelectTrigger>
+                    <SelectContent className="max-w-40">
+                      {footerData[1].content.languages.content.items.map((language) => (
+                        <SelectItem key={language.id} value={language.value}>
+                          {language.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                ) : null}
               </li>
             ))}
           </ul>

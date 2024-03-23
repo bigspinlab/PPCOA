@@ -4,34 +4,6 @@ import { FilterItem } from '../FilterItem';
 import { usePathname } from 'next/navigation';
 import { useGetHeadlessMaster } from '@/hooks/useGetHeadlessMaster';
 
-// const categoryRoutes = [
-//   {
-//     path: '/',
-//     label: 'Todos',
-//     themeColor: '#fff'
-//   },
-//   {
-//     path: '/architecture',
-//     label: 'Arquitetura',
-//     themeColor: '#FABD5C'
-//   },
-//   {
-//     path: '/interiors',
-//     label: 'Interiores',
-//     themeColor: '#006AAD'
-//   },
-//   {
-//     path: '/urban',
-//     label: 'Urbano',
-//     themeColor: '#FA4647'
-//   },
-//   {
-//     path: '/contest',
-//     label: 'Concurso',
-//     themeColor: '#6C757D'
-//   }
-// ];
-
 const FilterList = () => {
   const { data: headerFilterList } = useGetHeadlessMaster();
 
@@ -44,8 +16,7 @@ const FilterList = () => {
   return (
     <ul className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
       {headerFilterList[0].content.navigation.content.categories.map((category) => {
-        //todo - refactor this
-        const isActive = category.url === '/categories/todos/' ? useLocation === category.url : useLocation.includes(category.url);
+        const isActive = useLocation.includes(category.url) || (useLocation === '/' && category.url === 'Todos');
 
         return (
           <li key={category.id} className="flex justify-center shrink-0">

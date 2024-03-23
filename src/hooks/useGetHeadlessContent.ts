@@ -7,8 +7,8 @@ interface IGetHeadlessContent {
   page: number;
 }
 
-export function useGetHeadlessContent({route, numberOfItems, page}: IGetHeadlessContent) {
-  const { ...props } = useQuery({ queryKey: ['content'], queryFn: () => getHeadless({route, numberOfItems, page}) });
+export function useGetHeadlessContent({ route, numberOfItems, page }: IGetHeadlessContent) {
+  const { ...props } = useQuery({ queryKey: ['content'], queryFn: () => getHeadless({ route, numberOfItems, page }) });
 
   return {
     ...props

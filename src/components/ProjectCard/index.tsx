@@ -2,16 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 interface ProjectCardProps {
-  id: string;
   imageSrc: string;
   imageAlt: string;
   projectName: string;
   category?: string;
 }
 
-export default function ProjectCard({ id, imageSrc, imageAlt, projectName, category }: ProjectCardProps) {
+export default function ProjectCard({ imageSrc, imageAlt, projectName, category }: ProjectCardProps) {
   return (
-    <Link href={`/${category}/${id}`} className="flex flex-col gap-1.5">
+    <Link href={`/${category}/${projectName}`} className="flex flex-col gap-1.5">
       <div className="relative aspect-square">
         <Image
           className="shrink-0 aspect-square object-cover min-w-72 min-h-72"

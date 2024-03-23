@@ -1,11 +1,12 @@
 interface GetHeadlessProps {
   route: string;
-  numberOfItems?: number;
-  page?: number;
+  perPage?: number;
+  pageNumber?: number;
+  category: string;
 }
 
-export const getHeadless = async ({ route, page, numberOfItems }: GetHeadlessProps) => {
-  const url = `http://danielribamar-001-site1.itempurl.com/api/v1/pages/${route}?page=${page}&numberOfItems=${numberOfItems}`;
+export const getHeadless = async ({ route, pageNumber, perPage, category }: GetHeadlessProps) => {
+  const url = `http://danielribamar-001-site1.itempurl.com/api/v1/pages/${route}?page=${pageNumber}&perPage=${perPage}&category=${category}`;
   const response = await fetch(url, {
     method: 'GET'
   });

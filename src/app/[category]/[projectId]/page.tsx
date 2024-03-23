@@ -35,7 +35,7 @@ import { Filter } from '@/components/Filter';
 
 export default async function ProjectDetails({ params }: { params: { category: string; projectId: number } }) {
   const { category, projectId } = params;
-  console.log('params', category, projectId);
+  // console.log('params', category, projectId);
 
   return (
     <>
@@ -79,7 +79,6 @@ export default async function ProjectDetails({ params }: { params: { category: s
             {Array.from({ length: 9 }).map((_, index) => (
               <li key={index}>
                 <ProjectCard
-                  id="1"
                   imageSrc="https://via.placeholder.com/550"
                   imageAlt="placeholder"
                   projectName="Project Name"

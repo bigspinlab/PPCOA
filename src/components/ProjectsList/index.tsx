@@ -4,21 +4,21 @@ import ProjectCard from '@/components/ProjectCard';
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { getHeadless } from '@/lib/getHeadless';
 import { IProject } from '@/types/home';
-//import { useParams } from 'next/navigation';
+import { getProjectList } from '@/lib/getProjectList';
 
-export default function ProjectsList() {
-  // const params = useParams();
+interface IProjectsListProps {
+  projectCategory: string;
+}
+
+export default function ProjectsList({ projectCategory }: IProjectsListProps) {
   const [ref, inView] = useInView();
 
-  //console.log('params', params);
   const { data, isLoading, fetchNextPage } = useInfiniteQuery({
     queryKey: ['projectsList'],
-    queryFn: () => getHeadless({route: 'home', numberOfItems: 2, page: 1}),
-    initialPageParam: 1,
-    getNextPageParam: (nextPage: any) => nextPage.nextId ?? undefined,
-    maxPages: 3
+    queryFn: () => getProjectList({ category: `${projectCategory}`, perPage: 3, pageNumber: 2 }),
+    initialPageParam: 2,
+    getNextPageParam: (nextPage: any) => nextPage[0].settings.next_page ?? undefined,
   });
 
   useEffect(() => {
@@ -27,12 +27,13 @@ export default function ProjectsList() {
     }
   }, [inView, fetchNextPage]);
 
-  
+  //console.log(data)
 
   // filter projectList by params category
   // const filteredProjectList = projectList?.pages..filter((project: any) => project.category === params.category);
   const projectList: IProject[] = data?.pages.reduce((acc, page) => {
-    return [...acc, ...page.widgets[0].content];
+    //console.log('page', page.content);
+    return [...acc, ...page[0].content];
   }, []);
 
   if (isLoading) {
@@ -59,7 +60,6 @@ export default function ProjectsList() {
       {projectList?.map((project: IProject) => (
         <li key={project.id}>
           <ProjectCard
-            id={project.id}
             imageSrc={project.image?.url}
             imageAlt={project.image?.alt}
             projectName={project.title}
@@ -67,7 +67,7 @@ export default function ProjectsList() {
           />
         </li>
       ))}
-      <li ref={ref}>loading spinner</li>
+      <li ref={ref}></li>
     </>
   );
 }
