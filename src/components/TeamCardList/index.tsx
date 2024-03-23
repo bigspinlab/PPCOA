@@ -1,12 +1,11 @@
-'use client'
+'use client';
 
 import TeamCard from '@/components/TeamCard';
 import { useGetHeadlessContent } from '@/hooks/useGetHeadlessContent';
 import { ITeamMember } from '@/types/home';
 
 export default function TeamCardList() {
-
-  const {data: teamList} = useGetHeadlessContent({ route: 'team', queryKey: 'teamList' });
+  const { data: teamList } = useGetHeadlessContent({ route: 'team', queryKey: 'teamList' });
 
   if (!teamList) {
     return null;
@@ -14,22 +13,19 @@ export default function TeamCardList() {
 
   return (
     <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-y-36 lg:gap-x-8">
-      {
-        teamList.widgets[0].content.map((team: ITeamMember) => (
-          <li key={team.id}>
-            <TeamCard
-              imageSrc={team.imageSrc.url}
-              imageAlt={team.imageSrc.alt}
-              teamName={team.name}
-              role={team.role}
-              description={team.description}
-              email={team.contact.email}
-              phoneNumber={team.contact.phone}
-            />
-          </li>
-        ))
-      }
-      
+      {teamList.widgets[0].content.map((team: ITeamMember) => (
+        <li key={team.id}>
+          <TeamCard
+            imageSrc={team.imageSrc.url}
+            imageAlt={team.imageSrc.alt}
+            teamName={team.name}
+            role={team.role}
+            description={team.description}
+            email={team.contact.email}
+            phoneNumber={team.contact.phone}
+          />
+        </li>
+      ))}
     </ul>
   );
 }

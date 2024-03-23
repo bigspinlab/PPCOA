@@ -7,14 +7,14 @@ import { Filter } from '@/components/Filter';
 import { getProjectList } from '@/lib/getProjectList';
 
 export default async function Home() {
-  const allCategoriesHome = 'todos'
+  const allCategoriesHome = 'todos';
   const queryClient = new QueryClient();
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ['projectsList'],
     queryFn: () => getProjectList({ category: allCategoriesHome, perPage: 7, pageNumber: 1 }),
     initialPageParam: 1,
-    getNextPageParam: (nextPage: any) => nextPage[0].settings.next_page ?? undefined,
+    getNextPageParam: (nextPage: any) => nextPage[0].settings.next_page ?? undefined
   });
 
   return (
@@ -25,7 +25,7 @@ export default async function Home() {
         <article className="pt-14 md:pt-44">
           <ul className="w-full max-w-[550px] grid grid-rows-1 m-auto gap-16 lg:gap-20">
             <HydrationBoundary state={dehydrate(queryClient)}>
-              <ProjectsList projectCategory={allCategoriesHome}/>
+              <ProjectsList projectCategory={allCategoriesHome} />
             </HydrationBoundary>
           </ul>
         </article>

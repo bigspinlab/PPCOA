@@ -1,4 +1,4 @@
-'use server'
+'use server';
 
 import ImageText from '@/components/ImageText';
 import { getHeadless } from '@/lib/getHeadless';

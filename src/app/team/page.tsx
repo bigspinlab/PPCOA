@@ -1,4 +1,4 @@
-'use server'
+'use server';
 
 import RootWrapper from '@/components/RootWrapper';
 import TeamCardList from '@/components/TeamCardList';
@@ -13,7 +13,6 @@ export default async function Team() {
     queryKey: ['teamList'],
     queryFn: () => getHeadless({ route: 'team' })
   });
-
 
   return (
     <RootWrapper>

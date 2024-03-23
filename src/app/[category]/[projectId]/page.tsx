@@ -1,7 +1,7 @@
 'use server';
 
 import RootWrapper from '@/components/RootWrapper';
-import ProjectCard from '@/components/ProjectCard';
+//import ProjectCard from '@/components/ProjectCard';
 import { BACKGROUND_COLOR, CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
 import { Filter } from '@/components/Filter';
@@ -75,17 +75,18 @@ export default async function ProjectDetails({ params }: { params: { category: s
         <h2 className="sr-only">Project list</h2>
         <article className="flex flex-col gap-10">
           <h3 className="font-bold">Outros Projetos Arquitetura</h3>
-          <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
+          {/* <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
             {Array.from({ length: 9 }).map((_, index) => (
               <li key={index}>
                 <ProjectCard
-                  imageSrc="https://via.placeholder.com/550"
-                  imageAlt="placeholder"
-                  projectName="Project Name"
+                  title={project.title}
+                  image={project.image}
+                  urlName={project.urlName}
+                  category={project.category}
                 />
               </li>
             ))}
-          </ul>
+          </ul> */}
         </article>
       </RootWrapper>
     </>
