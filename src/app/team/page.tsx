@@ -1,3 +1,5 @@
+'use server'
+
 import RootWrapper from '@/components/RootWrapper';
 import TeamCardList from '@/components/TeamCardList';
 import { getHeadless } from '@/lib/getHeadless';
