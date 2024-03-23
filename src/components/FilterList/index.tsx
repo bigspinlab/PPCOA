@@ -44,7 +44,8 @@ const FilterList = () => {
   return (
     <ul className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
       {headerFilterList[0].content.navigation.content.categories.map((category) => {
-        const isActive = category.url === '/' ? useLocation === category.url : useLocation.includes(category.url);
+        //todo - refactor this
+        const isActive = category.url === '/categories/todos/' ? useLocation === category.url : useLocation.includes(category.url);
 
         return (
           <li key={category.id} className="flex justify-center shrink-0">

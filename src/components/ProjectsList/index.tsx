@@ -2,18 +2,20 @@
 
 import ProjectCard from '@/components/ProjectCard';
 import React, { useEffect } from 'react';
-import { getProjectsList } from './actions';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
+import { getHeadless } from '@/lib/getHeadless';
+import { IProject } from '@/types/home';
 //import { useParams } from 'next/navigation';
 
 export default function ProjectsList() {
-  //const params = useParams();
+  // const params = useParams();
   const [ref, inView] = useInView();
 
+  //console.log('params', params);
   const { data, isLoading, fetchNextPage } = useInfiniteQuery({
     queryKey: ['projectsList'],
-    queryFn: () => getProjectsList({ page: 1 }),
+    queryFn: () => getHeadless({route: 'home', numberOfItems: 2, page: 1}),
     initialPageParam: 1,
     getNextPageParam: (nextPage: any) => nextPage.nextId ?? undefined,
     maxPages: 3
@@ -25,10 +27,12 @@ export default function ProjectsList() {
     }
   }, [inView, fetchNextPage]);
 
+  
+
   // filter projectList by params category
   // const filteredProjectList = projectList?.pages..filter((project: any) => project.category === params.category);
-  const projectList = data?.pages.reduce((acc, page) => {
-    return [...acc, ...page.data[0].content];
+  const projectList: IProject[] = data?.pages.reduce((acc, page) => {
+    return [...acc, ...page.widgets[0].content];
   }, []);
 
   if (isLoading) {
@@ -52,12 +56,12 @@ export default function ProjectsList() {
           ))}
         </React.Fragment>
       )} */}
-      {projectList?.map((project: any) => (
+      {projectList?.map((project: IProject) => (
         <li key={project.id}>
           <ProjectCard
             id={project.id}
-            imageSrc={project.imageSrc?.url}
-            imageAlt={project.imageSrc?.alt}
+            imageSrc={project.image?.url}
+            imageAlt={project.image?.alt}
             projectName={project.title}
             category={project.category}
           />

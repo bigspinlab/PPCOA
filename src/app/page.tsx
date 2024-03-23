@@ -3,15 +3,15 @@
 import RootWrapper from '@/components/RootWrapper';
 import ProjectsList from '@/components/ProjectsList';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
-import { getProjectsList } from '@/components/ProjectsList/actions';
 import { Filter } from '@/components/Filter';
+import { getHeadless } from '@/lib/getHeadless';
 
 export default async function Home() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ['projectsList'],
-    queryFn: () => getProjectsList({ page: 1 }),
+    queryFn: () => getHeadless({route: 'home', numberOfItems: 7, page: 1}),
     initialPageParam: 1,
     getNextPageParam: (nextPage: any) => nextPage.nextId ?? undefined,
     maxPages: 3
