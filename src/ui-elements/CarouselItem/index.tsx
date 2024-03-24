@@ -1,18 +1,9 @@
-/* eslint-disable no-unused-vars */
 import Image from 'next/image';
 import * as React from 'react';
 import parse from 'html-react-parser';
 import { ICarouselItem } from '@/types/home';
-import { mapColorToClassName } from '@/lib/utils';
+import { CAROUSEL_ITEM_TYPE, mapColorToClassName } from '@/lib/utils';
 
-export enum CAROUSEL_ITEM_TYPE {
-  FULL_IMAGE_LANDSCAPE = 'full-image',
-  FULL_IMAGE_SQUARE = 'full-image-square',
-  IMAGE_WITH_TEXT = 'image-with-text',
-  IMAGE_WITH_TEXT_REVERSED = 'image-with-text-reversed',
-  IMAGE_WITH_TEXT_SMALL_CONTAINER = 'image-with-text-small-container',
-  IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED = 'image-with-text-small-container-reversed'
-}
 
 const CarouselItemContent = ({ carouselItemType, content, settings, alias, id, categoryTheme }: ICarouselItem) => {
   const showContainerText =
@@ -23,8 +14,8 @@ const CarouselItemContent = ({ carouselItemType, content, settings, alias, id, c
 
   return (
     <div
-      data-testid={`carousel-item-${id}-${alias}`}
-      className={`flex shrink-0 ${carouselItemType === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_REVERSED || CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED ? 'flex-row-reverse' : ''} ${settings?.paddingLeft} ${settings?.paddingRight}`}
+      data-testid={`carousel-item-${id}-${alias}-${carouselItemType}`}
+      className={`flex shrink-0 ${carouselItemType === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_REVERSED || CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED ? 'flex-row-reverse' : ''} ${settings?.paddingLeft ? 'pl-8': ''} ${settings?.paddingRight ? 'pr-8' : ''}`}
     >
       <div
         className={`h-full min-h-96 relative shrink-0 lg:h-[700px] ${carouselItemType.includes(CAROUSEL_ITEM_TYPE.FULL_IMAGE_SQUARE) ? 'aspect-square w-full min-w-[500px]' : 'w-[768px] lg:w-[1024px]'}`}
