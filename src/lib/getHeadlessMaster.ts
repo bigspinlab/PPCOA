@@ -7,21 +7,25 @@ export interface IHeaderBrandlogo {
   };
 }
 
+export interface IHeaderNavigationItems {
+  id: number | string;
+  label: string;
+  url: string;
+}
+
+export interface IHeaderNavigationCategories {
+  id: number | string;
+  label: string;
+  themeColor: string;
+  url: string;
+}
+
 export interface IHeaderNavigation {
   id: number | string;
   alias: string;
   content: {
-    items: {
-      id: number | string;
-      label: string;
-      url: string;
-    }[];
-    categories: {
-      id: number | string;
-      label: string;
-      themeColor: string;
-      url: string;
-    }[];
+    items: IHeaderNavigationItems[];
+    categories: IHeaderNavigationCategories[];
   };
 }
 
