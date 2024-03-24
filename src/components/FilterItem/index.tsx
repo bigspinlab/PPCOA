@@ -7,7 +7,7 @@ interface FilterItemProps extends IHeaderNavigationCategories {
   isActive: boolean;
 }
 
-const FilterItem = ({ themeColor, id, label, url, isActive }: FilterItemProps) => {
+const FilterItem = ({ themeColor, id, label, url = '/', isActive }: FilterItemProps) => {
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(label);
 
   return (

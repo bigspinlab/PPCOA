@@ -6,7 +6,7 @@ interface NavRouteItemProps extends IHeaderNavigationItems {
   isActive: boolean;
 }
 
-export default function NavRouteItem({ onRouteClick, id, label, url, isActive }: NavRouteItemProps) {
+export default function NavRouteItem({ onRouteClick, id, label, url = '/', isActive }: NavRouteItemProps) {
   if (!url) {
     return null;
   }
