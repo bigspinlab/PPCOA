@@ -11,7 +11,7 @@ interface IProjectsListProps {
   projectCategory: string;
 }
 
-export default function ProjectsList({ projectCategory = 'todos' }: IProjectsListProps) {
+export default function ProjectsList({ projectCategory }: IProjectsListProps) {
   const [ref, inView] = useInView();
 
   const { data, isLoading, fetchNextPage } = useInfiniteQuery({
