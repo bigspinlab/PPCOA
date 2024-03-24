@@ -24,7 +24,7 @@ export default function Footer() {
             src={footerData[1].content.image.url}
             width={40}
             height={70}
-            unoptimized
+            className="w-auto h-auto"
           />
         </Link>
         {

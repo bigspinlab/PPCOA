@@ -30,8 +30,8 @@ export default function Header() {
             src={headerLogo[0].content.brandLogo.content.url}
             width={94}
             height={58}
-            unoptimized
             priority
+            className="w-auto h-auto"
           />
         </Link>
         <Button
