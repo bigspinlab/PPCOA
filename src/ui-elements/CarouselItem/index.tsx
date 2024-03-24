@@ -1,9 +1,18 @@
+/* eslint-disable no-unused-vars */
 import Image from 'next/image';
 import * as React from 'react';
 import parse from 'html-react-parser';
 import { ICarouselItem } from '@/types/home';
-import { CAROUSEL_ITEM_TYPE, mapColorToClassName } from '@/lib/utils';
+import { mapColorToClassName } from '@/lib/utils';
 
+export enum CAROUSEL_ITEM_TYPE {
+  FULL_IMAGE_LANDSCAPE = 'FULL_IMAGE_LANDSCAPE',
+  FULL_IMAGE_SQUARE = 'FULL_IMAGE_SQUARE',
+  IMAGE_WITH_TEXT = 'IMAGE_WITH_TEXT',
+  IMAGE_WITH_TEXT_REVERSED = 'IMAGE_WITH_TEXT_REVERSED',
+  IMAGE_WITH_TEXT_SMALL_CONTAINER = 'IMAGE_WITH_TEXT_SMALL_CONTAINER',
+  IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED = 'IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED'
+}
 
 const CarouselItemContent = ({ carouselItemType, content, settings, alias, id, categoryTheme }: ICarouselItem) => {
   const showContainerText =
