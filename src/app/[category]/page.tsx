@@ -10,7 +10,7 @@ export default async function Category({ params }: { params: { category: string 
   const queryClient = new QueryClient();
 
   await queryClient.prefetchInfiniteQuery({
-    queryKey: ['projectsList'],
+    queryKey: ['projectsList', category],
     queryFn: () => getProjectList({ category, perPage: 7, pageNumber: 1 }),
     initialPageParam: 1,
     getNextPageParam: (nextPage: any) => nextPage[0].settings.next_page ?? undefined

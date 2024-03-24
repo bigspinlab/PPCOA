@@ -15,7 +15,7 @@ export default function ProjectsList({ projectCategory = 'todos' }: IProjectsLis
   const [ref, inView] = useInView();
 
   const { data, isLoading, fetchNextPage } = useInfiniteQuery({
-    queryKey: ['projectsList'],
+    queryKey: ['projectsList', projectCategory],
     queryFn: () => getProjectList({ category: `${projectCategory}`, perPage: 3, pageNumber: 2 }),
     initialPageParam: 2,
     getNextPageParam: (nextPage: any) => nextPage[0].settings.next_page ?? undefined
