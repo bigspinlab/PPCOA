@@ -24,7 +24,7 @@ const CarouselItemContent = ({ carouselItemType, content, settings, alias, id, c
   return (
     <div
       data-testid={`carousel-item-${id}-${alias}-${carouselItemType}`}
-      className={`flex shrink-0 ${carouselItemType === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_REVERSED || CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED ? 'flex-row-reverse' : ''} ${settings?.paddingLeft ? 'pl-8': ''} ${settings?.paddingRight ? 'pr-8' : ''}`}
+      className={`flex shrink-0 ${carouselItemType === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_REVERSED || CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER_REVERSED ? 'flex-row-reverse' : ''} ${settings?.paddingLeft ? 'pl-8' : ''} ${settings?.paddingRight ? 'pr-8' : ''}`}
     >
       <div
         className={`h-full min-h-96 relative shrink-0 lg:h-[700px] ${carouselItemType.includes(CAROUSEL_ITEM_TYPE.FULL_IMAGE_SQUARE) ? 'aspect-square w-full min-w-[500px]' : 'w-[768px] lg:w-[1024px]'}`}

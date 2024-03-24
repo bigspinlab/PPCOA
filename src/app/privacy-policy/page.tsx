@@ -7,7 +7,6 @@ import Rectangle from '@/ui-elements/Rectangle';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 
 export default async function PrivacyPolicy() {
-
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
@@ -15,7 +14,6 @@ export default async function PrivacyPolicy() {
     queryFn: () => getHeadless({ route: 'privacy-policy' })
   });
 
-  
   return (
     <RootWrapper>
       <h2 className="sr-only">Privacy Policy</h2>

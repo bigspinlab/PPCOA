@@ -23,11 +23,7 @@ export default function NavRouteList({ onRouteClick }: NavRouteListProps) {
 
         return (
           <li key={route.id} className="text-right text-4xl font-extralight lg:text-3xl">
-            <NavRouteItem
-              {...route}
-              isActive={isActive}
-              onRouteClick={onRouteClick}
-            />
+            <NavRouteItem {...route} isActive={isActive} onRouteClick={onRouteClick} />
           </li>
         );
       })}

@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
 import { useGetHeadlessContent } from '@/hooks/useGetHeadlessContent';
 import parse from 'html-react-parser';
 
 export default function RichTextContent() {
   const { data: richText } = useGetHeadlessContent({ route: 'privacy-policy', queryKey: 'privacyPolicyContent' });
- 
+
   if (!richText) {
     return null;
   }
