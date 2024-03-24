@@ -10,12 +10,11 @@ interface FilterItemProps {
 
 const capitalizeFirstLetter = (label: string): string => {
   return label.charAt(0).toUpperCase() + label.slice(1);
-} 
-
+};
 
 const FilterItem = ({ themeColor, filterLabel, filterPath, isActive }: FilterItemProps) => {
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(filterLabel);
-  
+
   return (
     <Link
       href={`/${filterPath.toLowerCase()}`}
