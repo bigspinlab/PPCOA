@@ -9,8 +9,6 @@ interface FilterItemProps {
   isActive: boolean;
 }
 
-
-
 const FilterItem = ({ themeColor, filterLabel, filterPath, isActive }: FilterItemProps) => {
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(filterLabel);
 

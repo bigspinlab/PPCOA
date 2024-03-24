@@ -35,7 +35,7 @@ import FakeCarousel from '@/components/FakeCarousel';
 
 export default async function ProjectDetails({ params }: { params: { category: string; projectId: string } }) {
   const { category, projectId } = params;
-  
+
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({

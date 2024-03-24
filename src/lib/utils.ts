@@ -6,7 +6,6 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-
 // Define a union type for all possible widget types
 type WidgetType = ICarousel | IText | IImageText | ITeamList;
 
@@ -16,9 +15,8 @@ export const filterWidgetsByAlias = <T extends WidgetType>(data: IHeadlessConten
     return [];
   }
 
-  return data.widgets.filter(widget => widget.alias === alias) as T[];
+  return data.widgets.filter((widget) => widget.alias === alias) as T[];
 };
-
 
 export const capitalizeFirstLetter = (label: string): string => {
   return label.charAt(0).toUpperCase() + label.slice(1);

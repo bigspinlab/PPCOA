@@ -12,7 +12,6 @@ export default function ProjectsGrid({ params }: { params: { category: string; p
   const { category, projectId } = params;
   const categoryWithFirstLetterCapitalized = capitalizeFirstLetter(category);
 
-
   const { data: projectList } = useQuery({
     queryKey: ['projectDetail', projectId],
     queryFn: () => getProjectDetail({ projectName: projectId })
@@ -30,7 +29,7 @@ export default function ProjectsGrid({ params }: { params: { category: string; p
                 title={project.title}
                 image={project.image}
                 urlNameAlias={project.urlNameAlias}
-                category=''
+                category=""
               />
             </li>
           ))}
