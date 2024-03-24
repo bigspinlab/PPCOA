@@ -7,11 +7,18 @@ import React from 'react';
 import Providers from './providers';
 import { getHeadlessMaster } from '@/lib/getHeadlessMaster';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
+import { Metadata } from 'next';
 
-// export const metadata: Metadata = {
-//   title: 'PPCOA',
-//   description: 'PPCOA website'
-// };
+export const metadata: Metadata = {
+  title: 'PPCOA',
+  description: 'PPCOA website',
+  metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
+  openGraph: {
+    images: [
+      '/media/qpwjtshq/logo-about.png'
+    ]
+  }
+};
 
 // type IGenerateMetadata = {
 //   params: { category: string; projectId: string }
@@ -24,7 +31,7 @@ import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query
 //   // read route params
 
 //   // fetch data
-//   const seoData = await fetch(`http://danielribamar-001-site1.itempurl.com/api/v1/pages/${params.category}?page=1&perPage=10&category=${params.projectId}`).then((res) => res.json())
+//   const seoData = getHeadless({ route : params.})
 
 //   // optionally access and extend (rather than replace) parent metadata
 //   const previousImages = (await parent).openGraph?.images || []
