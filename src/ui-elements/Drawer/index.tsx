@@ -23,7 +23,7 @@ export default function Drawer({ children, isOpen, setIsOpen }: DrawerProps) {
           (isOpen ? ' translate-x-0 ' : ' translate-x-full ')
         }
       >
-        <article className="relative w-screen flex flex-col space-y-6 overflow-y-scroll h-dvh lg:h-auto">
+        <article className="relative w-screen flex flex-col space-y-6 h-dvh lg:h-auto">
           {isOpen ? children : null}
         </article>
       </section>

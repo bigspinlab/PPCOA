@@ -1,30 +1,53 @@
-'use server';
+'use client';
 
-import RootWrapper from '@/components/RootWrapper';
 import ProjectCard from '@/components/ProjectCard';
-import { projectsListMock } from '../../../mock/umbraco-home';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { IProject } from '@/types/home';
+import { getProjectList } from '@/lib/getProjectList';
 
-export default async function ProjectsList() {
-  //const umbracoContent = await getHeadless({ route: 'view' });
+interface IProjectsListProps {
+  projectCategory: string;
+}
+
+export default function ProjectsList({ projectCategory }: IProjectsListProps) {
+  const [ref, inView] = useInView();
+
+  const { data, isLoading, fetchNextPage } = useInfiniteQuery({
+    queryKey: ['projectsList'],
+    queryFn: () => getProjectList({ category: `${projectCategory}`, perPage: 3, pageNumber: 2 }),
+    initialPageParam: 2,
+    getNextPageParam: (nextPage: any) => nextPage[0].settings.next_page ?? undefined
+  });
+
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [inView, fetchNextPage]);
+
+  const projectList: IProject[] = data?.pages.reduce((acc, page) => {
+    return [...acc, ...page[0].content];
+  }, []);
+
+  if (isLoading) {
+    return <li>loading spinner</li>;
+  }
 
   return (
-    <RootWrapper customClassName="w-full">
-      <h2 className="sr-only">Project list</h2>
-      <article className="pt-14 md:pt-44">
-        <ul className="w-full max-w-[550px] grid grid-rows-1 m-auto gap-16 lg:gap-20">
-          {projectsListMock?.content.map((project: any) => (
-            <li key={project.id}>
-              <ProjectCard
-                id={project.id}
-                imageSrc={project.imageSrc.desktop}
-                imageAlt={project.imageSrc.alt}
-                projectName={project.title}
-                category={project.category}
-              />
-            </li>
-          ))}
-        </ul>
-      </article>
-    </RootWrapper>
+    <>
+      {projectList?.map((project: IProject) => (
+        <li key={project.id}>
+          <ProjectCard
+            title={project.title}
+            image={project.image}
+            urlName={project.urlName}
+            category={project.category}
+          />
+        </li>
+      ))}
+      <li ref={ref}></li>
+    </>
   );
 }

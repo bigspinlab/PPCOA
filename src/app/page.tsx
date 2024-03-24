@@ -1,46 +1,35 @@
-// import RootWrapper from '@/components/RootWrapper';
-// import ProjectCard from '@/components/ProjectCard';
-//import { useMediaQuery } from 'usehooks-ts';
-// import { GetStaticProps } from 'next';
-// import { getHeadless } from '@/lib/getHeadless';
+'use server';
+
+import RootWrapper from '@/components/RootWrapper';
 import ProjectsList from '@/components/ProjectsList';
+import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
+import { Filter } from '@/components/Filter';
+import { getProjectList } from '@/lib/getProjectList';
 
-export default function Home() {
-  // const umbracoContent = await getHeadless();
-  // console.log('umbracoContent', umbracoContent);
+export default async function Home() {
+  const allCategoriesHome = 'todos';
+  const queryClient = new QueryClient();
 
-  return <ProjectsList />;
+  await queryClient.prefetchInfiniteQuery({
+    queryKey: ['projectsList'],
+    queryFn: () => getProjectList({ category: allCategoriesHome, perPage: 7, pageNumber: 1 }),
+    initialPageParam: 1,
+    getNextPageParam: (nextPage: any) => nextPage[0].settings.next_page ?? undefined
+  });
+
+  return (
+    <>
+      <Filter />
+      <RootWrapper customClassName="w-full">
+        <h2 className="sr-only">Project list</h2>
+        <article className="pt-14 md:pt-44">
+          <ul className="w-full max-w-[550px] grid grid-rows-1 m-auto gap-16 lg:gap-20">
+            <HydrationBoundary state={dehydrate(queryClient)}>
+              <ProjectsList projectCategory={allCategoriesHome} />
+            </HydrationBoundary>
+          </ul>
+        </article>
+      </RootWrapper>
+    </>
+  );
 }
-
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-
-//   if (!params) {
-//     return {
-//       notFound: true
-//     };
-//   }
-
-//   try {
-//     const umbracoContent = await getHeadless();
-
-//     if (umbracoContent.meta?.Status === 404) {
-//       throw new Error('Error to fetch the Umbraco Content');
-//     }
-
-//     console.log('umbracoContent', umbracoContent);
-
-//     return {
-//       props: {
-//         umbracoContent
-//       },
-//       revalidate: 60
-//     };
-
-//   } catch (error) {
-//     console.error(error);
-//     return {
-//       notFound: true
-//     }
-//   }
-
-// }

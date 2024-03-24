@@ -7,9 +7,15 @@ import Drawer from '../../ui-elements/Drawer';
 import React from 'react';
 import { useState } from 'react';
 import { Button } from '@/ui-elements/Button';
+import { useGetHeadlessMaster } from '@/hooks/useGetHeadlessMaster';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const { data: headerLogo } = useGetHeadlessMaster();
+
+  if (!headerLogo) {
+    return null;
+  }
 
   const handleToggleMobileMenu = () => {
     setIsOpen(!isOpen);
@@ -19,7 +25,14 @@ export default function Header() {
     <header className={`w-full flex items-end fixed bg-white z-10 h-17 lg:h-21 ${isOpen ? 'z-20' : ''}`}>
       <div className="w-full h-full m-auto flex justify-between items-center gap-5 px-4 lg:pl-0 lg:pr-0">
         <Link className="z-20 shrink-0 lg:pl-8" href="/" onClick={() => setIsOpen(false)}>
-          <Image alt="logo-ppcoa" src="logo-ppcoa.svg" width={94} height={58} unoptimized />
+          <Image
+            alt={headerLogo[0].content.brandLogo.content.alt}
+            src={headerLogo[0].content.brandLogo.content.url}
+            width={94}
+            height={58}
+            unoptimized
+            priority
+          />
         </Link>
         <Button
           aria-label="toggle-menu"
