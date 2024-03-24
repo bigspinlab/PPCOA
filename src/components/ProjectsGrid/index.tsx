@@ -17,6 +17,10 @@ export default function ProjectsGrid({ params }: { params: { category: string; p
     queryFn: () => getProjectDetail({ projectName: projectId })
   });
 
+  if (!projectList) {
+    return null;
+  }
+
   return (
     <RootWrapper customClassName="w-full">
       <h2 className="sr-only">Project list</h2>
@@ -26,9 +30,7 @@ export default function ProjectsGrid({ params }: { params: { category: string; p
           {projectList.widgets.content?.map((project: IProject) => (
             <li key={project.id}>
               <ProjectCard
-                title={project.title}
-                image={project.image}
-                urlNameAlias={project.urlNameAlias}
+                {...project}
                 category=""
               />
             </li>

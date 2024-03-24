@@ -35,15 +35,16 @@ export default function ProjectsList({ projectCategory }: IProjectsListProps) {
     return <li>loading spinner</li>;
   }
 
+  if (!projectList) {
+    return null;
+  }
+
   return (
     <>
       {projectList?.map((project: IProject) => (
         <li key={project.id}>
           <ProjectCard
-            title={project.title}
-            image={project.image}
-            urlNameAlias={project.urlNameAlias}
-            category={project.category}
+            {...project}
           />
         </li>
       ))}

@@ -18,7 +18,6 @@ export default function FakeCarousel({ params }: { params: { category: string; p
 
   const filteredCarouselWidget = filterWidgetsByAlias<ICarousel>(data, UmbracoWidgets.carousel);
 
-  console.log('data', filteredCarouselWidget);
   return (
     <section className="overflow-hidden mb-17 md:mb-36">
       <h2 className="sr-only">
