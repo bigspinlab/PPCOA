@@ -17,7 +17,7 @@ export default function ProjectsGrid({ params }: { params: { category: string; p
     queryFn: () => getProjectDetail({ projectName: projectId })
   });
 
-  if (!projectList) {
+  if (!projectList || !projectList.widgets.content) {
     return null;
   }
 
