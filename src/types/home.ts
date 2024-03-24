@@ -1,3 +1,5 @@
+import { CAROUSEL_ITEM_TYPE } from '@/ui-elements/CarouselItem';
+
 export interface IProject {
   id?: string;
   title: string;
@@ -28,7 +30,8 @@ export interface IProjectList {
 export interface ICarouselItem {
   id: string;
   alias: string;
-  carouselItemType: string;
+  carouselItemType: CAROUSEL_ITEM_TYPE;
+  categoryTheme: string;
   content: {
     text: string;
     imageSrc: {
