@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { ICarousel, IText, IImageText, ITeamList, IHeadlessContentPage } from '@/types/home';
+import { ICarousel, IRichTextContent, IImageText, ITeamList, IHeadlessContentPage } from '@/types/home';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Define a union type for all possible widget types
-type WidgetType = ICarousel | IText | IImageText | ITeamList;
+type WidgetType = ICarousel | IRichTextContent | IImageText | ITeamList;
 
 // Utility function to filter widgets by alias
 export const filterWidgetsByAlias = <T extends WidgetType>(data: IHeadlessContentPage, alias: string): T[] => {

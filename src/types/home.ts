@@ -53,7 +53,7 @@ export interface ICarousel {
   content: ICarouselItem[];
 }
 
-export interface IText {
+export interface IRichTextContent {
   id: string;
   alias: string;
   content: {
@@ -111,6 +111,6 @@ export interface ISeo {
 }
 
 export interface IHeadlessContentPage {
-  widgets: (ICarousel | IText | IImageText | ITeamList)[];
+  widgets: (ICarousel | IRichTextContent | IImageText | ITeamList)[];
   seo: ISeo;
 }
