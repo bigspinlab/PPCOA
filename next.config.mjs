@@ -13,6 +13,10 @@ const nextConfig = {
       {
         protocol: 'http',
         hostname: 'danielribamar-001-site1.itempurl.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'danielribamar-001-site1.itempurl.com'
       }
     ],
     dangerouslyAllowSVG: true,
