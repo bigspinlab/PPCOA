@@ -2,7 +2,7 @@ import { IProject } from '@/types/home';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function ProjectCard({ image, title, urlNameAlias, category }: IProject) {
+export default function ProjectCard({ image, title, urlNameAlias = '/', category }: IProject) {
   return (
     <Link href={urlNameAlias} className="flex flex-col gap-1.5">
       <div className="relative aspect-square">
