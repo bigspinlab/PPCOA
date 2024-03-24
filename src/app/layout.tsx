@@ -56,7 +56,7 @@ export default async function RootLayout({
           <HydrationBoundary state={dehydrate(queryClient)}>
             <Header />
             <h1 className="sr-only">PPCOA website</h1>
-            <main className="w-full min-h-full flex flex-col m-auto pt-22">{children}</main>
+            <main className="w-full min-h-screen flex flex-col m-auto pt-22">{children}</main>
             <Footer />
           </HydrationBoundary>
         </Providers>
