@@ -25,7 +25,7 @@ export default function ProjectsGrid({ projectCategory }: { projectCategory: str
               <ProjectCard
                 title={project.title}
                 image={project.image}
-                urlName={project.urlName}
+                urlNameAlias={project.urlNameAlias}
                 category={project.category}
               />
             </li>
