@@ -16,9 +16,11 @@ export default function ProjectsList({ projectCategory = 'todos' }: IProjectsLis
 
   const { data, isLoading, fetchNextPage } = useInfiniteQuery({
     queryKey: ['projectsList', projectCategory],
-    queryFn: () => getProjectList({ category: `${projectCategory}`, perPage: 3, pageNumber: 2 }),
-    initialPageParam: 2,
-    getNextPageParam: (nextPage: any) => nextPage[0].settings.next_page ?? undefined
+    queryFn: () => getProjectList({ category: `${projectCategory}`, perPage: 1, pageNumber: 1 }),
+    initialPageParam: 0,
+    getNextPageParam: (lastPage: any) => {
+      return lastPage[0].settings.next_page;
+    } 
   });
 
   useEffect(() => {
