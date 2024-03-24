@@ -42,7 +42,7 @@ export default function ProjectsList({ projectCategory }: IProjectsListProps) {
           <ProjectCard
             title={project.title}
             image={project.image}
-            urlName={project.urlName}
+            urlNameAlias={project.urlNameAlias}
             category={project.category}
           />
         </li>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function ProjectCard({ image, title, urlNameAlias, category }: IProject) {
   return (
-    <Link href={urlNameAlias} className="flex flex-col gap-1.5">
+    <Link href={urlNameAlias.toLowerCase()} className="flex flex-col gap-1.5">
       <div className="relative aspect-square">
         <Image
           className="shrink-0 aspect-square object-cover min-w-72 min-h-72"
