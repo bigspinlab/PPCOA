@@ -17,7 +17,7 @@ export default function ProjectsGrid({ params }: { params: { category: string; p
     queryFn: () => getProjectDetail({ projectName: projectId })
   });
 
-  if (!projectList || !projectList.widgets.content) {
+  if (!projectList || !projectList.widgets[1]?.content) {
     return null;
   }
 
@@ -27,7 +27,7 @@ export default function ProjectsGrid({ params }: { params: { category: string; p
       <article className="flex flex-col gap-10">
         <h3 className="font-bold">Outros Projetos {categoryWithFirstLetterCapitalized}</h3>
         <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
-          {projectList.widgets.content?.map((project: IProject) => (
+          {projectList.widgets[1].content?.map((project: IProject) => (
             <li key={project.id}>
               <ProjectCard {...project} category="" />
             </li>
