@@ -1,20 +1,25 @@
 'use client';
 
+import { UmbracoWidgets } from '@/global/constants';
 import { getProjectDetail } from '@/lib/getProjectDetail';
+import { filterWidgetsByAlias } from '@/lib/utils';
+import { ICarousel } from '@/types/home';
 import { BACKGROUND_COLOR, CAROUSEL_ITEM_TYPE, CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
 import { useQuery } from '@tanstack/react-query';
 
 export default function FakeCarousel({ params }: { params: { category: string; projectId: string } }) {
   const { category, projectId } = params;
-  console.log('params', category, projectId);
 
   const { data } = useQuery({
-    queryKey: ['projectDetail'],
+    queryKey: ['projectDetail', projectId],
     queryFn: () => getProjectDetail({ projectName: projectId })
   });
 
-  console.log('data', data);
+  const filteredCarouselWidget = filterWidgetsByAlias<ICarousel>(data, UmbracoWidgets.carousel);
+
+
+  console.log('data', filteredCarouselWidget);
   return (
     <section className="overflow-hidden mb-17 md:mb-36">
       <h2 className="sr-only">

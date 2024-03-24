@@ -1,3 +1,4 @@
+import { capitalizeFirstLetter } from '@/lib/utils';
 import { FilterIcon } from '@/ui-elements/FilterIcon';
 import Link from 'next/link';
 
@@ -8,9 +9,7 @@ interface FilterItemProps {
   isActive: boolean;
 }
 
-const capitalizeFirstLetter = (label: string): string => {
-  return label.charAt(0).toUpperCase() + label.slice(1);
-};
+
 
 const FilterItem = ({ themeColor, filterLabel, filterPath, isActive }: FilterItemProps) => {
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(filterLabel);

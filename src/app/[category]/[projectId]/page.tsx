@@ -35,8 +35,7 @@ import FakeCarousel from '@/components/FakeCarousel';
 
 export default async function ProjectDetails({ params }: { params: { category: string; projectId: string } }) {
   const { category, projectId } = params;
-  console.log('params', category, projectId);
-
+  
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
@@ -49,7 +48,7 @@ export default async function ProjectDetails({ params }: { params: { category: s
       <Filter />
       <HydrationBoundary state={dehydrate(queryClient)}>
         <FakeCarousel params={{ category, projectId }} />
-        <ProjectsGrid projectCategory={category} />
+        <ProjectsGrid params={{ category, projectId }} />
       </HydrationBoundary>
     </>
   );
