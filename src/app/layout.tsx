@@ -11,11 +11,11 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'PPCOA',
-  description: 'PPCOA website',
+  description: 'PPCOA é uma oficina de arquitectura sediada em Lisboa e Luanda. Desenvolve um trabalho assente na relação entre a pessoa e o construído, oscilando  entre o espaço público e privado, na procura de uma experiência adaptável à envolvente social, económica e histórica.',
   metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
   openGraph: {
     images: [
-      '/media/qpwjtshq/logo-about.png'
+      '/media/mozj0bwn/seo-ppcoa.png'
     ]
   }
 };
