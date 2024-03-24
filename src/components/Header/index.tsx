@@ -31,7 +31,7 @@ export default function Header() {
             width={94}
             height={58}
             priority
-            className="w-auto h-auto"
+            className="w-24 h-auto"
           />
         </Link>
         <Button
