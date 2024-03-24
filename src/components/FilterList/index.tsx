@@ -17,8 +17,8 @@ const FilterList = () => {
     <ul className="w-full h-full whitespace-nowrap flex items-center justify-center sm:pl-0">
       {headerFilterList[0].content.navigation.content.categories.map((category) => {
         const isActive =
-          useLocation.includes(category.url.toLowerCase()) ||
-          (useLocation === '/' && category.url.toLowerCase() === 'todos');
+          useLocation.includes(category?.url?.toLowerCase()) ||
+          (useLocation === '/' && category?.url?.toLowerCase() === 'todos');
 
         return (
           <li key={category.id} className="flex justify-center shrink-0">
