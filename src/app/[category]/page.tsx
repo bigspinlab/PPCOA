@@ -11,11 +11,18 @@ export default async function Category({ params }: { params: { category: string 
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: ['projectsList', category],
-    queryFn: () => getProjectList({ category, perPage: 7, pageNumber: 1 }),
-    initialPageParam: 0,
+    queryFn: ({ pageParam }) => getProjectList({ category, perPage: 4, pageNumber: pageParam }),
+    initialPageParam: 1,
     getNextPageParam: (lastPage: any) => {
-      return lastPage[0].settings.next_page;
-    } 
+      const hasNextPage = lastPage[0].settings.next_page > lastPage[0].settings.current_page;
+      const isLastPage = lastPage[0].settings.current_page === lastPage[0].settings.total_pages;
+
+      if (hasNextPage && !isLastPage) {
+        return lastPage[0].settings.next_page;
+      } else {
+        return undefined;
+      }
+    }
   });
 
   return (

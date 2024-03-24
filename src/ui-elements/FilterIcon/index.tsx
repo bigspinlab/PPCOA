@@ -3,7 +3,14 @@ interface FilterIconProps {
 }
 
 const FilterIcon = ({ fillColor = '' }: FilterIconProps) => (
-  <svg className="h-[34px] w-full" width="20" height="34" viewBox="0 0 20 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    className="h-[34px] w-full"
+    width="20"
+    height="34"
+    viewBox="0 0 20 34"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
       d="M19.5883 3.01609L14.7526 0.228365L0.187197 8.60984C0.187113 15.9487 -0.000363214 30.3722 5.28617e-07 30.8125C0.000133395 30.9733 3.33914 32.893 5.17385 33.8104L9.90846 30.8231V25.319L19.5883 19.7938V3.01609Z"
       fill={fillColor}

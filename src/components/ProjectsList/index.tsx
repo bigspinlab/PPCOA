@@ -14,20 +14,27 @@ interface IProjectsListProps {
 export default function ProjectsList({ projectCategory }: IProjectsListProps) {
   const [ref, inView] = useInView();
 
-  const { data, isLoading, fetchNextPage } = useInfiniteQuery({
+  const { data, isLoading, fetchNextPage, hasNextPage } = useInfiniteQuery({
     queryKey: ['projectsList', projectCategory],
-    queryFn: () => getProjectList({ category: `${projectCategory}`, perPage: 1, pageNumber: 1 }),
-    initialPageParam: 0,
+    queryFn: ({ pageParam }) => getProjectList({ category: `${projectCategory}`, perPage: 1, pageNumber: pageParam }),
+    initialPageParam: 1,
     getNextPageParam: (lastPage: any) => {
-      return lastPage[0].settings.next_page;
-    } 
+      const hasNextPage = lastPage[0].settings.next_page > lastPage[0].settings.current_page;
+      const isLastPage = lastPage[0].settings.current_page === lastPage[0].settings.total_pages;
+
+      if (hasNextPage && !isLastPage) {
+        return lastPage[0].settings.next_page;
+      } else {
+        return undefined;
+      }
+    }
   });
 
   useEffect(() => {
-    if (inView) {
+    if (inView && hasNextPage) {
       fetchNextPage();
     }
-  }, [inView, fetchNextPage]);
+  }, [inView, fetchNextPage, hasNextPage]);
 
   const projectList: IProject[] = data?.pages.reduce((acc, page) => {
     return [...acc, ...page[0].content];

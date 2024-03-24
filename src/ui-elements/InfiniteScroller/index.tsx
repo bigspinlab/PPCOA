@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface InfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {
   fetchNextPage: () => void;
@@ -8,21 +8,8 @@ interface InfiniteScrollProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 // eslint-disable-next-line react/display-name
-export const InfiniteScroller = React.forwardRef<
-  HTMLDivElement,
-  InfiniteScrollProps
->(
-  (
-    {
-      fetchNextPage,
-      hasNextPage,
-      endingMessage,
-      loadingMessage,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+export const InfiniteScroller = React.forwardRef<HTMLDivElement, InfiniteScrollProps>(
+  ({ fetchNextPage, hasNextPage, endingMessage, loadingMessage, children, ...props }, ref) => {
     const observerTarget = React.useRef(null);
 
     React.useEffect(() => {
@@ -42,7 +29,7 @@ export const InfiniteScroller = React.forwardRef<
     }, []);
 
     return (
-      <div ref={ref} {...props} style={{ overflowAnchor: "none" }}>
+      <div ref={ref} {...props} style={{ overflowAnchor: 'none' }}>
         {children}
         <div ref={observerTarget} />
         {hasNextPage ? loadingMessage : endingMessage}
