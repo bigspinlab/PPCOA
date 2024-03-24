@@ -43,9 +43,7 @@ export default function ProjectsList({ projectCategory }: IProjectsListProps) {
     <>
       {projectList?.map((project: IProject) => (
         <li key={project.id}>
-          <ProjectCard
-            {...project}
-          />
+          <ProjectCard {...project} />
         </li>
       ))}
       <li ref={ref}></li>

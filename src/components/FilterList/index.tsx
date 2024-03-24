@@ -23,10 +23,7 @@ const FilterList = () => {
 
         return (
           <li key={category.id} className="flex justify-center shrink-0">
-            <FilterItem
-              {...category}
-              isActive={isActive}
-            />
+            <FilterItem {...category} isActive={isActive} />
           </li>
         );
       })}
