@@ -31,7 +31,7 @@ const CarouselItemContent = ({ carouselItemType, content, settings, alias, id, c
       >
         <Image
           className="data-[loaded=false]:animate-pulse data-[loaded=false]:bg-muted"
-          alt={content.imageSrc.alt}
+          alt={`carousel-figure-${id}-${content.imageSrc.alt}`}
           src={content.imageSrc.url}
           fill
           sizes="100vw"

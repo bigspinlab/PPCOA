@@ -22,7 +22,7 @@ export default function ImageText() {
           <div className="min-h-96 flex items-center justify-center bg-blue-100 lg:row-span-1 lg:col-start-6 lg:col-end-13 md:h-full">
             <Image
               src={imageText.widgets[0].content?.logo.url}
-              alt={imageText.widgets[0].content?.logo.alt}
+              alt={`about-01-${imageText.widgets[0].content?.logo.alt}`}
               width={272}
               height={150}
             />
@@ -31,7 +31,7 @@ export default function ImageText() {
             <Image
               className="w-full h-full object-cover"
               src={imageText.widgets[0].content?.image.url}
-              alt={imageText.widgets[0].content?.logo.alt}
+              alt={`about-02-${imageText.widgets[0].content?.logo.url}`}
               fill
               sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
             />
@@ -46,7 +46,7 @@ export default function ImageText() {
             <Image
               className="shrink-0 aspect-square object-contain px-4 lg:px-0"
               src={imageText.widgets[1].content?.image.url}
-              alt={imageText.widgets[1].content?.logo.alt}
+              alt={`about-03-${imageText.widgets[1].content?.logo.alt}`}
               fill
               sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 100vw"
             />
@@ -85,7 +85,7 @@ export default function ImageText() {
             <Image
               className="max-h-72 object-contain md:max-h-[490px]"
               src={imageText.widgets[3].content?.logo.url}
-              alt={imageText.widgets[3].content?.logo.alt}
+              alt={`about-04-${imageText.widgets[3].content?.logo.alt}`}
               width={90}
               height={530}
             />
@@ -101,7 +101,7 @@ export default function ImageText() {
             <Image
               className="object-cover"
               src={imageText.widgets[4].content?.image.url}
-              alt={imageText.widgets[4].content?.logo.alt}
+              alt={`about-05-${imageText.widgets[4].content?.logo.alt}`}
               fill
               sizes="(min-width: 64em) 33vw, (min-width: 48em) 50vw, 75vw"
             />

@@ -20,7 +20,7 @@ export default function Footer() {
       <div className="m-auto grid gap-6 md:grid-cols-12">
         <Link href="/" className="shrink-0 md:col-start-1 md:col-end-2">
           <Image
-            alt={footerData[1].content.image.alt}
+            alt={`footer-${footerData[1].content.image.alt}`}
             src={footerData[1].content.image.url}
             width={40}
             height={70}

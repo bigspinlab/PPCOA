@@ -26,7 +26,7 @@ export default function Header() {
       <div className="w-full h-full m-auto flex justify-between items-center gap-5 px-4 lg:pl-0 lg:pr-0">
         <Link className="z-20 shrink-0 lg:pl-8" href="/" onClick={() => setIsOpen(false)}>
           <Image
-            alt={headerLogo[0].content.brandLogo.content.alt}
+            alt={`header-brand-${headerLogo[0].content.brandLogo.content.alt}`}
             src={headerLogo[0].content.brandLogo.content.url}
             width={94}
             height={58}

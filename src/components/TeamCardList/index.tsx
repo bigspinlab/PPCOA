@@ -16,13 +16,7 @@ export default function TeamCardList() {
       {teamList.widgets[0].content.map((team: ITeamMember) => (
         <li key={team.id}>
           <TeamCard
-            imageSrc={team.imageSrc.url}
-            imageAlt={team.imageSrc.alt}
-            teamName={team.name}
-            role={team.role}
-            description={team.description}
-            email={team.contact.email}
-            phoneNumber={team.contact.phone}
+            {...team}
           />
         </li>
       ))}
