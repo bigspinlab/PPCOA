@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { CAROUSEL_ITEM_TYPE } from '@/ui-elements/CarouselItem';
 
 export interface IProject {
@@ -101,6 +102,37 @@ export interface ITeamList {
   content: ITeamMember[];
 }
 
+export enum FORM_TYPE_FIELDS {
+  checkbox = 'checkbox',
+  select = 'select',
+  textArea = 'textarea',
+  email = 'email'
+}
+
+export interface IFormOptions {
+  id: string;
+  value: string;
+  label: string;
+}
+
+export interface IFormFields {
+  id: string;
+  label: string;
+  placeholder: string;
+  type: FORM_TYPE_FIELDS;
+  required: boolean;
+  options?: IFormOptions[];
+  link?: string;
+}
+
+export interface IFormContact {
+  form: {
+    id: string;
+    alias: string;
+    title: string;
+    fields: IFormFields[];
+  };
+}
 export interface ISeo {
   title: string;
   description: string;
