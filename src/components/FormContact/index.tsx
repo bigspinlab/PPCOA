@@ -11,6 +11,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/ui-elements/TextArea';
 import { Checkbox } from '@/ui-elements/Checkbox';
 import Link from 'next/link';
+import { useGetHeadlessContent } from '@/hooks/useGetHeadlessContent';
+import { FORM_TYPE_FIELDS, IFormFields, IFormOptions } from '@/types/home';
 
 const formSchema = z.object({
   email: z
@@ -36,6 +38,8 @@ const defaultValues: Partial<z.infer<typeof formSchema>> = {
 };
 
 export default function FormContact() {
+  const { data: formContent } = useGetHeadlessContent({ route: 'contact', queryKey: 'contactContent' });
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -50,75 +54,103 @@ export default function FormContact() {
     console.log(values);
   }
 
+  if (!formContent) {
+    return null;
+  }
+
   return (
     <RootWrapper customClassName="w-full flex justify-start">
       <h2 className="sr-only">Contact form</h2>
       <article className="flex flex-col items-start grow">
-        <h3 className="font-bold mb-5">Fale conosco</h3>
+        <h3 className="font-bold mb-5">{formContent.widgets[0].content.form.title}</h3>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col space-y-8 w-full md:w-4/5 lg:w-1/2">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem className="relative">
-                  <FormControl>
-                    <Input placeholder="O seu email" {...field} />
-                  </FormControl>
-                  <FormMessage className="absolute bottom-[-24px]" />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="subject"
-              render={({ field }) => (
-                <FormItem className="relative">
-                  <FormControl>
-                    <Select onOpenChange={field.onChange}>
-                      <SelectTrigger className="justify-start gap-0.5 text-xl font-normal">
-                        <SelectValue placeholder="Escolha o assunto" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="assunto-a">assunto-a</SelectItem>
-                        <SelectItem value="assunto-b">assunto-b</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                  <FormMessage className="absolute bottom-[-24px]" />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="message"
-              render={({ field }) => (
-                <FormItem className="relative">
-                  <FormControl>
-                    <Textarea placeholder="Escreva a sua mensagem" {...field} />
-                  </FormControl>
-                  <FormMessage className="absolute bottom-[-24px]" />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="policies"
-              render={({ field }) => (
-                <FormItem className="space-y-0 relative flex items-center gap-2">
-                  <FormControl>
-                    <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                  </FormControl>
-                  <FormLabel className="mt-0">
-                    Confirmo que li e aceito a{' '}
-                    <Link href="/privacy-policy" className="font-bold">
-                      Política de Privacidade
-                    </Link>
-                  </FormLabel>
-                  <FormMessage className="absolute bottom-[-24px]" />
-                </FormItem>
-              )}
-            />
+            {formContent.widgets[0].content.form.fields.map((fieldItem: IFormFields) => {
+              {
+                fieldItem.type === FORM_TYPE_FIELDS.email ? (
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="relative">
+                        <FormControl>
+                          <Input placeholder={fieldItem.placeholder} {...field} />
+                        </FormControl>
+                        <FormMessage className="absolute bottom-[-24px]" />
+                      </FormItem>
+                    )}
+                  />
+                ) : null;
+              }
+
+              {
+                fieldItem.type === FORM_TYPE_FIELDS.select ? (
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem className="relative">
+                        <FormControl>
+                          <Select onOpenChange={field.onChange}>
+                            <SelectTrigger className="justify-start gap-0.5 text-xl font-normal">
+                              <SelectValue placeholder={fieldItem.placeholder} />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {fieldItem?.options?.map((option: IFormOptions) => (
+                                <SelectItem key={option.id} value={option.value}>
+                                  {option.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                        </FormControl>
+                        <FormMessage className="absolute bottom-[-24px]" />
+                      </FormItem>
+                    )}
+                  />
+                ) : null;
+              }
+
+              {
+                fieldItem.type === FORM_TYPE_FIELDS.textArea ? (
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem className="relative">
+                        <FormControl>
+                          <Textarea placeholder={fieldItem.placeholder} {...field} />
+                        </FormControl>
+                        <FormMessage className="absolute bottom-[-24px]" />
+                      </FormItem>
+                    )}
+                  />
+                ) : null;
+              }
+
+              {
+                fieldItem.type === FORM_TYPE_FIELDS.checkbox ? (
+                  <FormField
+                    control={form.control}
+                    name="policies"
+                    render={({ field }) => (
+                      <FormItem className="space-y-0 relative flex items-center gap-2">
+                        <FormControl>
+                          <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+                        </FormControl>
+                        <FormLabel className="mt-0">
+                          {fieldItem.label}{' '}
+                          <Link href="/privacy-policy" className="font-bold">
+                            {fieldItem.link}
+                          </Link>
+                        </FormLabel>
+                        <FormMessage className="absolute bottom-[-24px]" />
+                      </FormItem>
+                    )}
+                  />
+                ) : null;
+              }
+            })}
             <Button
               aria-label="form submit"
               type="submit"
