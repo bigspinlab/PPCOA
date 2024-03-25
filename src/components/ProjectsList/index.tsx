@@ -6,6 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { IProject } from '@/types/home';
 import { getProjectList } from '@/lib/getProjectList';
+import { Skeleton } from '@/ui-elements/Skeleton';
 
 interface IProjectsListProps {
   projectCategory: string;
@@ -14,7 +15,7 @@ interface IProjectsListProps {
 export default function ProjectsList({ projectCategory }: IProjectsListProps) {
   const [ref, inView] = useInView();
 
-  const { data, isLoading, fetchNextPage, hasNextPage } = useInfiniteQuery({
+  const { data, isFetchingNextPage, isFetching, fetchNextPage, hasNextPage } = useInfiniteQuery({
     queryKey: ['projectsList', projectCategory],
     queryFn: ({ pageParam }) => getProjectList({ category: `${projectCategory}`, perPage: 1, pageNumber: pageParam }),
     initialPageParam: 1,
@@ -40,10 +41,6 @@ export default function ProjectsList({ projectCategory }: IProjectsListProps) {
     return [...acc, ...page[0].content];
   }, []);
 
-  if (isLoading) {
-    return <li>loading spinner</li>;
-  }
-
   if (!projectList) {
     return null;
   }
@@ -56,6 +53,17 @@ export default function ProjectsList({ projectCategory }: IProjectsListProps) {
         </li>
       ))}
       <li ref={ref}></li>
+      {isFetchingNextPage || isFetching ? (
+        <li>
+          <div className="flex flex-col gap-1.5">
+            <Skeleton className="h-[550px] w-[550px]" />
+            <div className="flex flex-col gap-2">
+              <Skeleton className="h-7 w-full" />
+              <Skeleton className="h-6 w-full " />
+            </div>
+          </div>
+        </li>
+      ) : null}
     </>
   );
 }
