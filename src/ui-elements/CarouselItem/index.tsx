@@ -29,7 +29,17 @@ const CarouselItemContent = ({ carouselItemType, content, settings, alias, id, c
       <div
         className={`h-full min-h-96 relative shrink-0 lg:h-[700px] ${carouselItemType.includes(CAROUSEL_ITEM_TYPE.FULL_IMAGE_SQUARE) ? 'aspect-square w-full min-w-[500px]' : 'w-[768px] lg:w-[1024px]'}`}
       >
-        <Image alt={content.imageSrc.alt} src={content.imageSrc.url} fill sizes="100vw" />
+        <Image
+          className="data-[loaded=false]:animate-pulse data-[loaded=false]:bg-muted"
+          alt={content.imageSrc.alt}
+          src={content.imageSrc.url}
+          fill
+          sizes="100vw"
+          data-loaded="false"
+          onLoad={(event) => {
+            event.currentTarget.setAttribute('data-loaded', 'true');
+          }}
+        />
       </div>
       {showContainerText ? (
         <div
