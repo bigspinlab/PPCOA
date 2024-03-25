@@ -22,7 +22,7 @@ export default function NavRouteList({ onRouteClick }: NavRouteListProps) {
         const isActive = route?.url === '/' ? useLocation === route?.url : useLocation.includes(route?.url);
 
         return (
-          <li key={route.id} className="text-right text-4xl font-extralight lg:text-3xl">
+          <li key={route.id} className="text-right text-4xl font-extralight lg:text-2xl">
             <NavRouteItem {...route} isActive={isActive} onRouteClick={onRouteClick} />
           </li>
         );
