@@ -24,15 +24,6 @@ export default function Loading() {
               </div>
             </div>
           </li>
-          <li>
-            <div className="flex flex-col gap-1.5">
-              <Skeleton className="h-[550px] w-[550px]" />
-              <div className="flex flex-col gap-2">
-                <Skeleton className="h-7 w-full" />
-                <Skeleton className="h-6 w-full " />
-              </div>
-            </div>
-          </li>
         </ul>
       </div>
     </RootWrapper>
