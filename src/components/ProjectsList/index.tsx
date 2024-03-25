@@ -52,7 +52,6 @@ export default function ProjectsList({ projectCategory }: IProjectsListProps) {
           <ProjectCard {...project} />
         </li>
       ))}
-      <li ref={ref}></li>
       {isFetchingNextPage || isFetching ? (
         <li>
           <div className="flex flex-col gap-1.5">
@@ -64,6 +63,7 @@ export default function ProjectsList({ projectCategory }: IProjectsListProps) {
           </div>
         </li>
       ) : null}
+      <li ref={ref}></li>
     </>
   );
 }
