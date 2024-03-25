@@ -11,7 +11,7 @@ export default async function Contact() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['aboutContent'],
+    queryKey: ['contactContent'],
     queryFn: () => getHeadless({ route: 'contact' })
   });
 
