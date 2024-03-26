@@ -13,6 +13,7 @@ import { Checkbox } from '@/ui-elements/Checkbox';
 import Link from 'next/link';
 import { useGetHeadlessContent } from '@/hooks/useGetHeadlessContent';
 import { FORM_TYPE_FIELDS, IFormFields, IFormOptions } from '@/types/home';
+import { useToast } from '@/hooks/useToast';
 
 const formSchema = z.object({
   email: z
@@ -26,24 +27,16 @@ const formSchema = z.object({
     })
   ),
   message: z.string().max(240).min(10),
-  policies: z.boolean().default(false)
+  policies: z.boolean({ required_error: 'You forgot to accept the policies' }).default(false)
 });
 
-// This can come from your database or API.
-const defaultValues: Partial<z.infer<typeof formSchema>> = {
-  email: '',
-  subject: [],
-  message: '',
-  policies: false
-};
-
 export default function FormContact() {
+  const { toast } = useToast();
   const { data: formContent } = useGetHeadlessContent({ route: 'contact', queryKey: 'contactContent' });
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues,
     mode: 'onSubmit'
   });
 
@@ -51,6 +44,14 @@ export default function FormContact() {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
+    toast({
+      title: 'You submitted the following values:',
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
+        </pre>
+      )
+    });
     console.log(values);
   }
 
@@ -63,7 +64,7 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="relative">
             <FormControl>
-              <Input placeholder={fieldItem.placeholder} {...field} />
+              <Input placeholder={fieldItem.placeholder} {...field} required={fieldItem.required} />
             </FormControl>
             <FormMessage className="absolute bottom-[-24px]" />
           </FormItem>
@@ -104,7 +105,7 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="relative">
             <FormControl>
-              <Textarea placeholder={fieldItem.placeholder} {...field} />
+              <Textarea placeholder={fieldItem.placeholder} {...field} required={fieldItem.required} />
             </FormControl>
             <FormMessage className="absolute bottom-[-24px]" />
           </FormItem>
@@ -119,7 +120,7 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="space-y-0 relative flex items-center gap-2">
             <FormControl>
-              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+              <Checkbox checked={field.value} onCheckedChange={field.onChange} required={fieldItem.required} />
             </FormControl>
             <FormLabel className="mt-0">
               <Link href={`${fieldItem.link}`} className="font-bold">
@@ -143,7 +144,11 @@ export default function FormContact() {
       <article className="flex flex-col items-start grow">
         <h3 className="font-bold mb-5">{formContent.widgets[0].content.form.title}</h3>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col space-y-8 w-full md:w-4/5 lg:w-1/2">
+          <form
+            noValidate
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="flex flex-col space-y-8 w-full md:w-4/5 lg:w-1/2"
+          >
             {formContent.widgets[0].content.form.fields.map((fieldItem: IFormFields) => {
               return formFieldContent[fieldItem.type](fieldItem);
             })}
