@@ -70,7 +70,10 @@ export interface IHeadlessMaster {
 export const getHeadlessMaster = async () => {
   const url = `https://danielribamar-001-site1.itempurl.com/api/v1/content/master`;
   const response = await fetch(url, {
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      'x-content-culture': 'en-US'
+    }
   });
 
   const umbracoContent = await response.json();

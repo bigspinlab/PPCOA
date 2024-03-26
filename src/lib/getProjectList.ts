@@ -9,7 +9,10 @@ interface GetProjectListProps {
 export const getProjectList = async ({ pageNumber, perPage, category = 'todos' }: GetProjectListProps) => {
   const url = `https://danielribamar-001-site1.itempurl.com/api/v1/categories/${category}?page=${pageNumber}&perPage=${perPage}`;
   const response = await fetch(url, {
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      'x-content-culture': 'en-US'
+    }
   });
 
   const umbracoContent = await response.json();
