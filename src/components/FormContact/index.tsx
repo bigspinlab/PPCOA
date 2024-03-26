@@ -16,13 +16,14 @@ import { FORM_TYPE_FIELDS, IFormFields, IFormOptions } from '@/types/home';
 import { useToast } from '@/hooks/useToast';
 
 const formSchema = z.object({
-  email: z.string({
+  email: z
+    .string({
       required_error: 'Please type your email.'
     })
     .email(),
   subject: z.string(),
   message: z.string().max(240).min(10),
-  policies: z.boolean({ required_error: 'You forgot to accept the policies' }).default(false)
+  policies: z.boolean().default(false)
 });
 
 // This can come from your database or API.
@@ -70,7 +71,7 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="relative">
             <FormControl>
-              <Input type='email' placeholder={fieldItem.placeholder} {...field} required={fieldItem.required} />
+              <Input type="email" placeholder={fieldItem.placeholder} {...field} required={fieldItem.required} />
             </FormControl>
             <FormMessage className="absolute bottom-[-24px]" />
           </FormItem>
@@ -86,7 +87,7 @@ export default function FormContact() {
           <FormItem className="relative">
             <FormControl>
               <Select onValueChange={field.onChange}>
-                <SelectTrigger className="justify-start gap-0.5 text-xl font-normal">
+                <SelectTrigger className="justify-between gap-0.5 text-xl font-normal">
                   <SelectValue placeholder={fieldItem.placeholder.toString()} />
                 </SelectTrigger>
                 <SelectContent>
@@ -95,7 +96,7 @@ export default function FormContact() {
                       <SelectItem key={option.id} value={option.value.toString()}>
                         {option.label.toString()}
                       </SelectItem>
-                    )
+                    );
                   })}
                 </SelectContent>
               </Select>
@@ -128,7 +129,7 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="space-y-0 relative flex items-center gap-2">
             <FormControl>
-              <Checkbox checked={field.value} onCheckedChange={field.onChange} required={fieldItem.required} />
+              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
             </FormControl>
             <FormLabel className="mt-0">
               <Link href={`${fieldItem.link}`} className="font-bold">
@@ -153,7 +154,7 @@ export default function FormContact() {
         <h3 className="font-bold mb-5">{formContent.widgets[0].content.form.title}</h3>
         <Form {...form}>
           <form
-            autoComplete='off'
+            autoComplete="off"
             noValidate
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col space-y-8 w-full md:w-4/5 lg:w-1/2"
