@@ -51,13 +51,15 @@ export default function FormContact() {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     toast({
-      title: 'You submitted the following values:',
+      className: 'fixed bottom-4 right-4 lg:right-16]',
       description: (
-        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(values, null, 2)}</code>
+        <pre className="mt-2 w-[300px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">Thank you for contacting us!</code>
         </pre>
       )
     });
+
+    form.reset();
     console.log(values);
   }
 
@@ -151,11 +153,12 @@ export default function FormContact() {
         <h3 className="font-bold mb-5">{formContent.widgets[0].content.form.title}</h3>
         <Form {...form}>
           <form
+            autoComplete='off'
             noValidate
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col space-y-8 w-full md:w-4/5 lg:w-1/2"
           >
-            {formContent.widgets[0].content.form.fields.map((fieldItem: IFormFields) => {
+            {formContent.widgets[0].content?.form?.fields?.map((fieldItem: IFormFields) => {
               return formFieldContent[fieldItem.type](fieldItem);
             })}
             <Button
