@@ -48,20 +48,38 @@ export default function FormContact() {
   });
 
   // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    toast({
-      className: 'fixed bottom-4 right-4 lg:right-16]',
-      description: (
-        <pre className="mt-2 w-[300px] rounded-md bg-slate-950 p-4">
-          <code className="text-white">Thank you for contacting us!</code>
-        </pre>
-      )
-    });
+    try {
+      await fetch('https://danielribamar-001-site1.itempurl.com/api/v1/form', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(values)
+      });
+
+      toast({
+        className: 'fixed bottom-4 right-4 lg:right-16]',
+        description: (
+          <pre className="mt-2 w-[300px] rounded-md bg-slate-950 p-4">
+            <code className="text-white">Thank you for contacting us!</code>
+          </pre>
+        )
+      });
+    } catch (error) {
+      toast({
+        className: 'fixed bottom-4 right-4 lg:right-16',
+        description: (
+          <pre className="mt-2 w-[300px] rounded-m bg-red-500 p-4">
+            <code className="text-white">Ops! Something went wrong.</code>
+          </pre>
+        )
+      });
+    }
 
     form.reset();
-    console.log(values);
   }
 
   const formFieldContent = {
@@ -73,7 +91,13 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="relative">
             <FormControl>
-              <Input autoComplete='off' type="email" placeholder={fieldItem.placeholder} {...field} required={fieldItem.required} />
+              <Input
+                autoComplete="off"
+                type="email"
+                placeholder={fieldItem.placeholder}
+                {...field}
+                required={fieldItem.required}
+              />
             </FormControl>
             <FormMessage className="absolute bottom-[-24px]" />
           </FormItem>
