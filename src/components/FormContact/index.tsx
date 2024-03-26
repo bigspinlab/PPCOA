@@ -20,9 +20,7 @@ const formSchema = z.object({
       required_error: 'Please type your email.'
     })
     .email(),
-  subject: z.string({
-    required_error: 'Please select a subject.'
-  }),
+  subject: z.string(),
   message: z.string().max(240).min(10),
   policies: z.boolean({ required_error: 'You forgot to accept the policies' }).default(false)
 });
@@ -87,16 +85,18 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="relative">
             <FormControl>
-              <Select onOpenChange={field.onChange}>
+              <Select onValueChange={field.onChange}>
                 <SelectTrigger className="justify-start gap-0.5 text-xl font-normal">
-                  <SelectValue placeholder={fieldItem.placeholder} />
+                  <SelectValue placeholder={fieldItem.placeholder.toString()} />
                 </SelectTrigger>
                 <SelectContent>
-                  {fieldItem?.options?.map((option: IFormOptions) => (
-                    <SelectItem key={option.id} value={option.value.toString()}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
+                  {fieldItem?.options?.map((option: IFormOptions) => {
+                    return (
+                      <SelectItem key={option.id} value={option.value.toString()}>
+                        {option.label.toString()}
+                      </SelectItem>
+                    )
+                  })}
                 </SelectContent>
               </Select>
             </FormControl>
