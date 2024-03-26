@@ -71,7 +71,7 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="relative">
             <FormControl>
-              <Input type="email" placeholder={fieldItem.placeholder} {...field} required={fieldItem.required} />
+              <Input autoComplete='off' type="email" placeholder={fieldItem.placeholder} {...field} required={fieldItem.required} />
             </FormControl>
             <FormMessage className="absolute bottom-[-24px]" />
           </FormItem>
