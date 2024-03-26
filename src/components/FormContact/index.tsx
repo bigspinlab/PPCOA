@@ -70,7 +70,7 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="relative">
             <FormControl>
-              <Input placeholder={fieldItem.placeholder} {...field} required={fieldItem.required} />
+              <Input type='email' placeholder={fieldItem.placeholder} {...field} required={fieldItem.required} />
             </FormControl>
             <FormMessage className="absolute bottom-[-24px]" />
           </FormItem>
