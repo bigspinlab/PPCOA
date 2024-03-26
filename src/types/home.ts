@@ -131,6 +131,7 @@ export interface IFormContact {
     alias: string;
     title: string;
     fields: IFormFields[];
+    submitText: string;
   };
 }
 export interface ISeo {

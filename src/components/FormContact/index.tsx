@@ -44,7 +44,7 @@ export default function FormContact() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues,
-    mode: 'onChange'
+    mode: 'onSubmit'
   });
 
   // 2. Define a submit handler.
@@ -153,7 +153,7 @@ export default function FormContact() {
               variant="outline"
               className="ml-auto border-black text-xl px-5 py-2 h-auto"
             >
-              Enviar
+              {formContent.widgets[0].content.form.submitText}
             </Button>
           </form>
         </Form>
