@@ -16,8 +16,7 @@ import { FORM_TYPE_FIELDS, IFormFields, IFormOptions } from '@/types/home';
 import { useToast } from '@/hooks/useToast';
 
 const formSchema = z.object({
-  email: z
-    .string({
+  email: z.string({
       required_error: 'Please type your email.'
     })
     .email(),
