@@ -21,14 +21,20 @@ const formSchema = z.object({
       required_error: 'Please type your email.'
     })
     .email(),
-  subject: z.array(
-    z.object({
-      value: z.string().url({ message: 'Please enter a subject.' })
-    })
-  ),
+  subject: z.string({
+    required_error: 'Please select a subject.'
+  }),
   message: z.string().max(240).min(10),
   policies: z.boolean({ required_error: 'You forgot to accept the policies' }).default(false)
 });
+
+// This can come from your database or API.
+const defaultValues: Partial<z.infer<typeof formSchema>> = {
+  email: '',
+  subject: '',
+  message: '',
+  policies: false
+};
 
 export default function FormContact() {
   const { toast } = useToast();
@@ -37,6 +43,7 @@ export default function FormContact() {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues,
     mode: 'onSubmit'
   });
 
@@ -85,7 +92,7 @@ export default function FormContact() {
                 </SelectTrigger>
                 <SelectContent>
                   {fieldItem?.options?.map((option: IFormOptions) => (
-                    <SelectItem key={option.id} value={option.value}>
+                    <SelectItem key={option.id} value={option.value.toString()}>
                       {option.label}
                     </SelectItem>
                   ))}
