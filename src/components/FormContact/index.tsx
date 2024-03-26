@@ -23,7 +23,9 @@ const formSchema = z.object({
     .email(),
   subject: z.string(),
   message: z.string().max(240).min(10),
-  policies: z.boolean().default(false)
+  policies: z.boolean().refine((value) => value === true, {
+    message: 'You must accept the policies.'
+  })
 });
 
 // This can come from your database or API.
@@ -129,7 +131,7 @@ export default function FormContact() {
         render={({ field }) => (
           <FormItem className="space-y-0 relative flex items-center gap-2">
             <FormControl>
-              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+              <Checkbox checked={field.value} onCheckedChange={field.onChange} required />
             </FormControl>
             <FormLabel className="mt-0">
               <Link href={`${fieldItem.link}`} className="font-bold">
