@@ -1,14 +1,7 @@
 import { ITeamMember } from '@/types/home';
 import Image from 'next/image';
 
-export default function TeamCard({
- contact,
- description,
- id,
- imageSrc,
- name,
- role
-}: ITeamMember) {
+export default function TeamCard({ contact, description, id, imageSrc, name, role }: ITeamMember) {
   return (
     <div className="flex flex-col gap-4 md:gap-8 xl:grid xl:grid-cols-2">
       <div className="relative aspect-square">

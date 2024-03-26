@@ -15,9 +15,7 @@ export default function TeamCardList() {
     <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-y-36 lg:gap-x-8">
       {teamList.widgets[0].content.map((team: ITeamMember) => (
         <li key={team.id}>
-          <TeamCard
-            {...team}
-          />
+          <TeamCard {...team} />
         </li>
       ))}
     </ul>

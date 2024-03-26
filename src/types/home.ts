@@ -146,3 +146,11 @@ export interface IHeadlessContentPage {
   widgets: (ICarousel | IRichTextContent | IImageText | ITeamList)[];
   seo: ISeo;
 }
+
+export enum FILTER_ICON {
+  all = 'FilterIconAll',
+  architecture = 'FilterIconArchitecture',
+  contest = 'FilterIconContest',
+  interior = 'FilterIconInterior',
+  urban = 'FilterIconUrban'
+}

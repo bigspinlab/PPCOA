@@ -1,3 +1,5 @@
+import { FILTER_ICON } from '@/types/home';
+
 export interface IHeaderBrandlogo {
   id: number | string;
   alias: string;
@@ -18,6 +20,7 @@ export interface IHeaderNavigationCategories {
   label: string;
   themeColor: string;
   url: string;
+  type?: FILTER_ICON;
 }
 
 export interface IHeaderNavigation {
