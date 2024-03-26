@@ -8,6 +8,7 @@ import Providers from './providers';
 import { getHeadlessMaster } from '@/lib/getHeadlessMaster';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import { Metadata } from 'next';
+import { Toaster } from '@/ui-elements/Toast/Toaster';
 
 export const metadata: Metadata = {
   title: 'PPCOA',
@@ -63,6 +64,7 @@ export default async function RootLayout({
             <Header />
             <h1 className="sr-only">PPCOA website</h1>
             <main className="w-full min-h-screen flex flex-col m-auto pt-22">{children}</main>
+            <Toaster />
             <Footer />
           </HydrationBoundary>
         </Providers>
