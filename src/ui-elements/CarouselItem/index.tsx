@@ -43,7 +43,7 @@ const CarouselItemContent = ({ carouselItemType, content, settings, alias, id, c
       </div>
       {showContainerText ? (
         <div
-          className={`whitespace-normal py-5 px-4  md:py-7 md:px-9 ${tailwindClassName} ${carouselItemType === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER ? 'max-w-[166px] md:max-w-[300px]' : 'max-w-72 md:max-w-[400px]'}`}
+          className={`whitespace-normal py-5 px-4  md:py-7 md:px-9 ${tailwindClassName} ${carouselItemType === CAROUSEL_ITEM_TYPE.IMAGE_WITH_TEXT_SMALL_CONTAINER ? 'w-[166px] md:w-[300px]' : 'w-72 md:w-[400px]'}`}
         >
           {parse(`${content?.text}`)}
         </div>
