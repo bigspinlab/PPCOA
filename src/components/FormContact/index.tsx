@@ -54,6 +54,85 @@ export default function FormContact() {
     console.log(values);
   }
 
+  const formFieldContent = {
+    [FORM_TYPE_FIELDS.email]: (fieldItem: IFormFields) => (
+      <FormField
+        key={fieldItem.id}
+        control={form.control}
+        name="email"
+        render={({ field }) => (
+          <FormItem className="relative">
+            <FormControl>
+              <Input placeholder={fieldItem.placeholder} {...field} />
+            </FormControl>
+            <FormMessage className="absolute bottom-[-24px]" />
+          </FormItem>
+        )}
+      />
+    ),
+    [FORM_TYPE_FIELDS.select]: (fieldItem: IFormFields) => (
+      <FormField
+        key={fieldItem.id}
+        control={form.control}
+        name="subject"
+        render={({ field }) => (
+          <FormItem className="relative">
+            <FormControl>
+              <Select onOpenChange={field.onChange}>
+                <SelectTrigger className="justify-start gap-0.5 text-xl font-normal">
+                  <SelectValue placeholder={fieldItem.placeholder} />
+                </SelectTrigger>
+                <SelectContent>
+                  {fieldItem?.options?.map((option: IFormOptions) => (
+                    <SelectItem key={option.id} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </FormControl>
+            <FormMessage className="absolute bottom-[-24px]" />
+          </FormItem>
+        )}
+      />
+    ),
+    [FORM_TYPE_FIELDS.textArea]: (fieldItem: IFormFields) => (
+      <FormField
+        key={fieldItem.id}
+        control={form.control}
+        name="message"
+        render={({ field }) => (
+          <FormItem className="relative">
+            <FormControl>
+              <Textarea placeholder={fieldItem.placeholder} {...field} />
+            </FormControl>
+            <FormMessage className="absolute bottom-[-24px]" />
+          </FormItem>
+        )}
+      />
+    ),
+    [FORM_TYPE_FIELDS.checkbox]: (fieldItem: IFormFields) => (
+      <FormField
+        key={fieldItem.id}
+        control={form.control}
+        name="policies"
+        render={({ field }) => (
+          <FormItem className="space-y-0 relative flex items-center gap-2">
+            <FormControl>
+              <Checkbox checked={field.value} onCheckedChange={field.onChange} />
+            </FormControl>
+            <FormLabel className="mt-0">
+              <Link href={`${fieldItem.link}`} className="font-bold">
+                {fieldItem.label}{' '}
+              </Link>
+            </FormLabel>
+            <FormMessage className="absolute bottom-[-24px]" />
+          </FormItem>
+        )}
+      />
+    )
+  };
+
   if (!formContent) {
     return null;
   }
@@ -66,86 +145,7 @@ export default function FormContact() {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col space-y-8 w-full md:w-4/5 lg:w-1/2">
             {formContent.widgets[0].content.form.fields.map((fieldItem: IFormFields) => {
-              switch (fieldItem.type) {
-                case FORM_TYPE_FIELDS.email:
-                  return (
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem className="relative">
-                          <FormControl>
-                            <Input placeholder={fieldItem.placeholder} {...field} />
-                          </FormControl>
-                          <FormMessage className="absolute bottom-[-24px]" />
-                        </FormItem>
-                      )}
-                    />
-                  );
-                case FORM_TYPE_FIELDS.select:
-                  return (
-                    <FormField
-                      control={form.control}
-                      name="subject"
-                      render={({ field }) => (
-                        <FormItem className="relative">
-                          <FormControl>
-                            <Select onOpenChange={field.onChange}>
-                              <SelectTrigger className="justify-start gap-0.5 text-xl font-normal">
-                                <SelectValue placeholder={fieldItem.placeholder} />
-                              </SelectTrigger>
-                              <SelectContent>
-                                {fieldItem?.options?.map((option: IFormOptions) => (
-                                  <SelectItem key={option.id} value={option.value}>
-                                    {option.label}
-                                  </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
-                          </FormControl>
-                          <FormMessage className="absolute bottom-[-24px]" />
-                        </FormItem>
-                      )}
-                    />
-                  );
-                case FORM_TYPE_FIELDS.textArea:
-                  return (
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem className="relative">
-                          <FormControl>
-                            <Textarea placeholder={fieldItem.placeholder} {...field} />
-                          </FormControl>
-                          <FormMessage className="absolute bottom-[-24px]" />
-                        </FormItem>
-                      )}
-                    />
-                  );
-                case FORM_TYPE_FIELDS.checkbox:
-                  return (
-                    <FormField
-                      control={form.control}
-                      name="policies"
-                      render={({ field }) => (
-                        <FormItem className="space-y-0 relative flex items-center gap-2">
-                          <FormControl>
-                            <Checkbox checked={field.value} onCheckedChange={field.onChange} />
-                          </FormControl>
-                          <FormLabel className="mt-0">
-                            <Link href={`${fieldItem.link}`} className="font-bold">
-                              {fieldItem.label}{' '}
-                            </Link>
-                          </FormLabel>
-                          <FormMessage className="absolute bottom-[-24px]" />
-                        </FormItem>
-                      )}
-                    />
-                  );
-                default:
-                  return null;
-              }
+              return formFieldContent[fieldItem.type](fieldItem);
             })}
             <Button
               aria-label="form submit"

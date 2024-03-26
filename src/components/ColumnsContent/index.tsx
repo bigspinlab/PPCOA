@@ -1,6 +1,7 @@
 'use client';
 
 import { useGetHeadlessContent } from '@/hooks/useGetHeadlessContent';
+import { IContactColumnsItems } from '@/types/home';
 import parse from 'html-react-parser';
 
 export default function ColumnsContent() {
@@ -17,7 +18,7 @@ export default function ColumnsContent() {
       </div>
       <div className="w-full mb-24 ">
         <ul className="w-full grid grid-cols-1 gap-y-28 gap-x-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-20">
-          {columnsContent.widgets[0].content.columns.items.map((column: any) => (
+          {columnsContent.widgets[0].content.columns.items.map((column: IContactColumnsItems) => (
             <li key={column.id}>
               <h2>{column.title}</h2>
               <div>{parse(`${column.text}`)}</div>

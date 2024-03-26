@@ -154,3 +154,15 @@ export enum FILTER_ICON {
   interior = 'FilterIconInterior',
   urban = 'FilterIconUrban'
 }
+
+export interface IContactColumnsItems {
+  id: string;
+  title: string;
+  text: string;
+}
+
+export interface IContactColumns {
+  id: string;
+  alias: string;
+  items: IContactColumnsItems[];
+}
