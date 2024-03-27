@@ -3,8 +3,30 @@
 import RichTextContent from '@/components/RichTextContent';
 import RootWrapper from '@/components/RootWrapper';
 import { getHeadless } from '@/lib/getHeadless';
+import { IHeadlessContentPage } from '@/types/home';
 import Rectangle from '@/ui-elements/Rectangle';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
+
+export async function generateMetadata() {
+  const url = `https://danielribamar-001-site1.itempurl.com/api/v1/pages/privacy-policy`;
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'x-content-culture': 'en-US'
+    }
+  });
+
+  const seoData: IHeadlessContentPage = await response.json();
+
+  return {
+    title: `PPCOA :: ${seoData?.seo?.title}`,
+    description: seoData?.seo?.description,
+    metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
+    openGraph: {
+      images: [seoData?.seo?.imageSrc?.url]
+    }
+  };
+}
 
 export default async function PrivacyPolicy() {
   const queryClient = new QueryClient();
