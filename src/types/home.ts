@@ -134,6 +134,16 @@ export interface IFormContact {
     submitText: string;
   };
 }
+
+export interface IContactPage {
+  id: string;
+  alias: string;
+  content: {
+    headline: string;
+    columns: IContactColumns;
+    form: IFormContact;
+  };
+}
 export interface ISeo {
   title: string;
   description: string;
@@ -144,7 +154,7 @@ export interface ISeo {
 }
 
 export interface IHeadlessContentPage {
-  widgets: (ICarousel | IRichTextContent | IImageText | ITeamList)[];
+  widgets: (ICarousel | IRichTextContent | IImageText | ITeamList | IContactPage | IProjectList)[];
   seo: ISeo;
 }
 
