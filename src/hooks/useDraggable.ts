@@ -6,7 +6,6 @@ export const useDraggable = (containerRef: React.RefObject<HTMLDivElement>) => {
 
   const handleMouseDown = React.useCallback(
     (e: React.MouseEvent) => {
-
       const ele = containerRef.current;
       if (!ele) {
         return;
@@ -40,7 +39,6 @@ export const useDraggable = (containerRef: React.RefObject<HTMLDivElement>) => {
 
   const handleTouchStart = React.useCallback(
     (e: React.TouchEvent) => {
-
       const ele = containerRef.current;
       if (!ele) {
         return;

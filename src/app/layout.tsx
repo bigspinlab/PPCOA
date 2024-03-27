@@ -9,7 +9,7 @@ import { getHeadlessMaster } from '@/lib/getHeadlessMaster';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import { Metadata } from 'next';
 import { Toaster } from '@/ui-elements/Toast/Toaster';
-import {Outfit} from 'next/font/google'
+import { Outfit } from 'next/font/google';
 
 export const metadata: Metadata = {
   title: 'PPCOA',
@@ -49,7 +49,7 @@ const outFit = Outfit({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-outfit'
-})
+});
 
 export default async function RootLayout({
   children
