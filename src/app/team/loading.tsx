@@ -6,7 +6,7 @@ export default function Loading() {
     <RootWrapper customClassName="w-full">
       <div className="flex flex-col pt-44">
         <Skeleton className="h-10 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
-        <div className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-y-36 lg:gap-x-8">
+        <div className="w-full">
           <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-y-36 lg:gap-x-8">
             {Array.from({ length: 9 }).map((_, index) => (
               <li key={index}>
