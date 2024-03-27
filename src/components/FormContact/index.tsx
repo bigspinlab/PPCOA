@@ -24,7 +24,7 @@ const formSchema = z.object({
   subject: z.string(),
   message: z.string().max(240).min(10),
   policies: z.boolean().refine((value) => value === true, {
-    message: 'You must accept the policies.'
+    message: 'You forgot to accept the policies.'
   })
 });
 

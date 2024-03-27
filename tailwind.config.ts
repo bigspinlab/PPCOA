@@ -75,7 +75,7 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)'
       },
       fontFamily: {
-        sans: ['var(--font-family-din)', ...fontFamily.sans]
+        sans: ['var(--font-outfit)', ...fontFamily.sans]
       }
     }
   },
