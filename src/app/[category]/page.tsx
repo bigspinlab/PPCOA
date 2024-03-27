@@ -26,6 +26,23 @@ export async function generateMetadata({ params }: { params: { category: string 
   };
 }
 
+// Generate segments for both [category] and [product]
+export async function generateStaticParams() {
+  const url = `https://danielribamar-001-site1.itempurl.com/api/v1/content/master`;
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'x-content-culture': 'en-US'
+    }
+  });
+
+  const staticParams = await response.json();
+
+  return staticParams?.widget[0]?.content?.navigation?.content?.categories?.map((categoryItem: any) => ({
+    category: categoryItem.url,
+  }))
+}
+
 export default async function Category({ params }: { params: { category: string } }) {
   const { category } = params;
   const queryClient = new QueryClient();

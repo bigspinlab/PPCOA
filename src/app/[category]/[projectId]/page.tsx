@@ -28,6 +28,24 @@ export async function generateMetadata({ params }: { params: { category: string;
   };
 }
 
+// Generate segments for both [category] and [product]
+export async function generateStaticParams() {
+  const url = `http://danielribamar-001-site1.itempurl.com/api/v1/categories/todos`;
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'x-content-culture': 'en-US'
+    }
+  });
+
+  const staticParams = await response.json();
+
+  return staticParams?.widgets[0]?.content?.map((project: any) => ({
+    category: project?.urlNameAlias?.split('/')[1],
+    projectId: project?.urlNameAlias?.split('/')[2]
+  }))
+}
+
 export default async function ProjectDetails({ params }: { params: { category: string; projectId: string } }) {
   const { category, projectId } = params;
 
