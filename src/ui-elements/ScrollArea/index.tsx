@@ -6,6 +6,7 @@ import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Button } from '../Button';
+import { useDraggable } from '@/hooks/useDraggable';
 
 interface ScrollAreaProps extends React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> {
   showArrowButtons?: boolean;
@@ -14,6 +15,8 @@ interface ScrollAreaProps extends React.ComponentPropsWithoutRef<typeof ScrollAr
 const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
   ({ showArrowButtons = false, className, children, ...props }, ref) => {
     const scrollAreaRef = React.useRef<HTMLDivElement>(null);
+
+    const { handleMouseDown, handleTouchStart } = useDraggable(scrollAreaRef);
 
     const handleScroll = (scrollOffset: number) => {
       if (scrollAreaRef.current) {
@@ -43,7 +46,12 @@ const ScrollArea = React.forwardRef<HTMLDivElement, ScrollAreaProps>(
             </Button>
           </div>
         ) : null}
-        <ScrollAreaPrimitive.Viewport ref={scrollAreaRef} className="h-full w-full rounded-[inherit]">
+        <ScrollAreaPrimitive.Viewport
+          ref={scrollAreaRef}
+          className="h-full w-full rounded-[inherit]"
+          onMouseDown={handleMouseDown}
+          onTouchStart={handleTouchStart}
+        >
           {children}
         </ScrollAreaPrimitive.Viewport>
         <ScrollBar />
