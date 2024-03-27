@@ -18,7 +18,6 @@ export async function generateMetadata() {
 
   const seoData: IHeadlessContentPage = await response.json();
 
-  console.log(seoData);
   return {
     title: `PPCOA :: ${seoData?.seo?.title}`,
     description: seoData?.seo?.description,
