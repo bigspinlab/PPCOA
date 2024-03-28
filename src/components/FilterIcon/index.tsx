@@ -10,23 +10,16 @@ type PickIHeaderNavigation = Pick<IHeaderNavigationCategories, 'id' | 'themeColo
 interface FilterIconProps extends PickIHeaderNavigation {
   isActive: boolean;
 }
-
 const FilterIcon = ({ id, themeColor, isActive }: FilterIconProps) => {
-  const filterIconMap: { id: number; themeColor: string; icon: ReactNode }[] = [
-    { id: 1066, themeColor: '#ffffff', icon: <FilterIconAll fillColor={`${isActive ? themeColor : '#fff'}`} /> },
-    {
-      id: 1067,
-      themeColor: '#fabd5c',
-      icon: <FilterIconArchitecture fillColor={`${isActive ? themeColor : '#fff'}`} />
-    },
-    { id: 1070, themeColor: '#6c757d', icon: <FilterIconContest fillColor={`${isActive ? themeColor : '#fff'}`} /> },
-    { id: 1068, themeColor: '#006aad', icon: <FilterIconInteriors fillColor={`${isActive ? themeColor : '#fff'}`} /> },
-    { id: 1069, themeColor: '#fa4647', icon: <FilterIconUrban fillColor={`${isActive ? themeColor : '#fff'}`} /> }
-  ];
+  const filterIcon: { [key: string]: ReactNode } = {
+    [1066]: <FilterIconAll fillColor={`${isActive ? themeColor : '#fff'}`} />,
+    [1067]: <FilterIconArchitecture fillColor={`${isActive ? themeColor : '#fff'}`} />,
+    [1070]: <FilterIconContest fillColor={`${isActive ? themeColor : '#fff'}`} />,
+    [1068]: <FilterIconInteriors fillColor={`${isActive ? themeColor : '#fff'}`} />,
+    [1069]: <FilterIconUrban fillColor={`${isActive ? themeColor : '#fff'}`} />
+  };
 
-  const filteredIcon = filterIconMap.find((item) => item.id === id && item.themeColor === themeColor);
-
-  return <>{filteredIcon?.icon}</>;
+  return <>{filterIcon[id]}</>;
 };
 
 export { FilterIcon };
