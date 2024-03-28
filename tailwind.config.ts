@@ -9,6 +9,7 @@ const config: Config = {
     './src/ui-elements/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
+  safelist: ['bg-red-100', 'bg-blue-100', 'bg-gray-100', 'bg-yellow-100'],
   theme: {
     container: {
       center: true,
@@ -53,16 +54,16 @@ const config: Config = {
           foreground: 'hsl(var(--card-foreground))'
         },
         red: {
-          100: '#FA4647'
+          100: '#fa4647'
         },
         blue: {
-          100: '#006AAD'
-        },
-        yellow: {
-          100: '#FABD5C'
+          100: '#006aad'
         },
         gray: {
-          100: '#6C757D'
+          100: '#6c757d'
+        },
+        yellow: {
+          100: '#fabd5c'
         }
       },
       spacing: {

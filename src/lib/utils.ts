@@ -26,26 +26,21 @@ export const capitalizeFirstLetter = (label: string): string => {
 export enum BACKGROUND_COLOR {
   RED = 'bg-red-100',
   BLUE = 'bg-blue-100',
-  GREEN = 'bg-green-100',
+  GRAY = 'bg-gray-100',
   YELLOW = 'bg-yellow-100'
 }
 
 // Helper function to map color to Tailwind CSS class name
 export const mapColorToClassName = (color: string): BACKGROUND_COLOR => {
-  switch (color) {
-    case '#fabd5c':
-      return BACKGROUND_COLOR.YELLOW;
-    case '#fa4647':
-      return BACKGROUND_COLOR.RED;
-    case '#006aad':
-      return BACKGROUND_COLOR.BLUE;
-    case '#6c757d':
-      return BACKGROUND_COLOR.GREEN;
-    default:
-      return BACKGROUND_COLOR.YELLOW; // Return yellow for unknown colors
-  }
-};
+  const bgColor = {
+    ['#fa4647']: BACKGROUND_COLOR.RED,
+    ['#006aad']: BACKGROUND_COLOR.BLUE,
+    ['#6c757d']: BACKGROUND_COLOR.GRAY,
+    ['#fabd5c']: BACKGROUND_COLOR.YELLOW
+  };
 
+  return bgColor[color as keyof typeof bgColor];
+};
 
 export function removeBaseUrl(fullUrl: string) {
   const baseUrl = 'https://danielribamar-001-site1.itempurl.com/';
