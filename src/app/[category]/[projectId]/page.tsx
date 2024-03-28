@@ -6,6 +6,7 @@ import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query
 import ProjectsGrid from '@/components/ProjectsGrid';
 import FakeCarousel from '@/components/FakeCarousel';
 import { IHeadlessContentPage } from '@/types/home';
+import { removeBaseUrl } from '@/lib/utils';
 
 export async function generateMetadata({ params }: { params: { category: string; projectId: string } }) {
   const url = `https://danielribamar-001-site1.itempurl.com/api/v1/projects?route=/projects/${params.category}/${params.projectId}`;
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: { params: { category: string;
     description: seoData?.seo?.description,
     metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
     openGraph: {
-      images: [seoData?.seo?.imageSrc?.url]
+      images: [removeBaseUrl(seoData?.seo?.imageSrc?.url)]
     }
   };
 }

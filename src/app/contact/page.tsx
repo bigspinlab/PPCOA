@@ -4,6 +4,7 @@ import ColumnsContent from '@/components/ColumnsContent';
 import FormContact from '@/components/FormContact';
 import RootWrapper from '@/components/RootWrapper';
 import { getHeadless } from '@/lib/getHeadless';
+import { removeBaseUrl } from '@/lib/utils';
 import { IHeadlessContentPage } from '@/types/home';
 import Rectangle from '@/ui-elements/Rectangle';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
@@ -24,7 +25,7 @@ export async function generateMetadata() {
     description: seoData?.seo?.description,
     metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
     openGraph: {
-      images: [seoData?.seo?.imageSrc?.url]
+      images: [removeBaseUrl(seoData?.seo?.imageSrc?.url)]
     }
   };
 }

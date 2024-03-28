@@ -2,6 +2,7 @@
 
 import ImageText from '@/components/ImageText';
 import { getHeadless } from '@/lib/getHeadless';
+import { removeBaseUrl } from '@/lib/utils';
 import { IHeadlessContentPage } from '@/types/home';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 
@@ -21,7 +22,7 @@ export async function generateMetadata() {
     description: seoData?.seo?.description,
     metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
     openGraph: {
-      images: [seoData?.seo?.imageSrc?.url]
+      images: [removeBaseUrl(seoData?.seo?.imageSrc?.url)]
     }
   };
 }

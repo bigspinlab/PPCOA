@@ -3,6 +3,7 @@ import { Filter } from '@/components/Filter';
 import ProjectsList from '@/components/ProjectsList';
 import RootWrapper from '@/components/RootWrapper';
 import { getProjectList } from '@/lib/getProjectList';
+import { removeBaseUrl } from '@/lib/utils';
 import { IHeadlessContentPage } from '@/types/home';
 import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
 
@@ -21,7 +22,7 @@ export async function generateMetadata({ params }: { params: { category: string 
     description: seoData?.seo?.description,
     metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
     openGraph: {
-      images: [seoData?.seo?.imageSrc?.url]
+      images: [removeBaseUrl(seoData?.seo?.imageSrc?.url)]
     }
   };
 }
