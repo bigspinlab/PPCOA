@@ -2,13 +2,13 @@ import { IHeaderNavigationCategories } from '@/lib/getHeadlessMaster';
 import { capitalizeFirstLetter } from '@/lib/utils';
 import Link from 'next/link';
 import { FilterIcon } from '../FilterIcon';
+import { usePathname } from 'next/navigation';
 
-export interface FilterItemProps extends IHeaderNavigationCategories {
-  isActive: boolean;
-}
-
-const FilterItem = ({ themeColor, id, label, url = '/', isActive }: FilterItemProps) => {
+const FilterItem = ({ themeColor, id, label, url = '/' }: IHeaderNavigationCategories) => {
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(label);
+  const useLocation = usePathname();
+
+  const isActive = useLocation.includes(url?.toLowerCase()) || (useLocation === '/' && url?.toLowerCase() === 'todos');
 
   return (
     <Link

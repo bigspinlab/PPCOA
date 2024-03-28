@@ -4,10 +4,12 @@ import { FilterIconContest } from '@/ui-elements/FilterIcon/FilterIconContest';
 import { FilterIconInteriors } from '@/ui-elements/FilterIcon/FilterIconInteriors';
 import { FilterIconUrban } from '@/ui-elements/FilterIcon/FilterIconUrban';
 import { ReactNode } from 'react';
-import { FilterItemProps } from '../FilterItem';
+import { IHeaderNavigationCategories } from '@/lib/getHeadlessMaster';
 
-type FilterIconProps = Pick<FilterItemProps, 'themeColor' | 'isActive'>;
-
+type PickIHeaderNavigation = Pick<IHeaderNavigationCategories, 'themeColor'>;
+interface FilterIconProps extends PickIHeaderNavigation {
+  isActive: boolean;
+}
 const FilterIcon = ({ themeColor, isActive }: FilterIconProps) => {
   const filterIcon: { [key: string]: ReactNode } = {
     ['#ffffff']: <FilterIconAll fillColor={`${isActive ? themeColor : '#fff'}`} />,
