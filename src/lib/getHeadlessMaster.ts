@@ -18,7 +18,7 @@ export interface IHeaderNavigationItems {
 export interface IHeaderNavigationCategories {
   id: number | string;
   label: string;
-  themeColor: string;
+  themeColor?: string;
   url: string;
   type?: FILTER_ICON;
 }
