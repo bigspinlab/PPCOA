@@ -4,7 +4,6 @@ import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query
 import React from 'react';
 
 export default async function CategoriesLayout({ children }: { children: React.ReactNode }) {
-  
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
