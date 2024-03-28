@@ -40,10 +40,3 @@ export default function FakeCarousel({ params }: { params: { category: string; p
     </section>
   );
 }
-
-// Return a list of `params` to populate the [slug] dynamic segment
-// export async function generateStaticParams() {
-//   const posts = await fetch('http://localhost:8000/projectDetail').then((res) => res.json())
-
-//   return posts
-// }

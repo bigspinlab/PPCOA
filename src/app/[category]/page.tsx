@@ -40,8 +40,8 @@ export async function generateStaticParams() {
   const staticParams = await response.json();
 
   return staticParams?.widget[0]?.content?.navigation?.content?.categories?.map((categoryItem: any) => ({
-    category: categoryItem.url,
-  }))
+    category: categoryItem.url
+  }));
 }
 
 export default async function Category({ params }: { params: { category: string } }) {

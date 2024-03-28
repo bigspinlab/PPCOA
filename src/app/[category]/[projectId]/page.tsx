@@ -44,7 +44,7 @@ export async function generateStaticParams() {
   return staticParams?.widgets[0]?.content?.map((project: any) => ({
     category: project?.urlNameAlias?.split('/')[1],
     projectId: project?.urlNameAlias?.split('/')[2]
-  }))
+  }));
 }
 
 export default async function ProjectDetails({ params }: { params: { category: string; projectId: string } }) {
