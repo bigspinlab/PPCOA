@@ -8,7 +8,7 @@ export default function Loading() {
         <Skeleton className="h-10 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
         <div className="w-full">
           <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-y-36 lg:gap-x-8">
-            {Array.from({ length: 9 }).map((_, index) => (
+            {Array.from({ length: 6 }).map((_, index) => (
               <li key={index}>
                 <div className="flex flex-col gap-4 md:gap-8 xl:grid xl:grid-cols-2">
                   <div className="relative aspect-square">
