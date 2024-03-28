@@ -16,11 +16,11 @@ const FilterItem = ({ themeColor, id, label, url = '/', isActive }: FilterItemPr
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(label);
 
   const filterIcon: { [key: string]: ReactNode } = {
-    ['1066']: <FilterIconAll fillColor={`${isActive ? themeColor : '#fff'}`} />,
-    ['1067']: <FilterIconArchitecture fillColor={`${isActive ? themeColor : '#fff'}`} />,
-    ['1070']: <FilterIconContest fillColor={`${isActive ? themeColor : '#fff'}`} />,
-    ['1068']: <FilterIconInteriors fillColor={`${isActive ? themeColor : '#fff'}`} />,
-    ['1069']: <FilterIconUrban fillColor={`${isActive ? themeColor : '#fff'}`} />
+    ['#ffffff']: <FilterIconAll fillColor={`${isActive ? themeColor : '#fff'}`} />,
+    ['#fabd5c']: <FilterIconArchitecture fillColor={`${isActive ? themeColor : '#fff'}`} />,
+    ['#6c757d']: <FilterIconContest fillColor={`${isActive ? themeColor : '#fff'}`} />,
+    ['#006aad']: <FilterIconInteriors fillColor={`${isActive ? themeColor : '#fff'}`} />,
+    ['#fa4647']: <FilterIconUrban fillColor={`${isActive ? themeColor : '#fff'}`} />
   };
 
   return (
@@ -29,7 +29,7 @@ const FilterItem = ({ themeColor, id, label, url = '/', isActive }: FilterItemPr
       data-testid={`filter-item-${id}`}
       className="w-auto h-auto flex flex-col justify-center items-center shrink-0 p-0 px-3 md:px-4"
     >
-      {filterIcon[id.toString()]}
+      {filterIcon[themeColor]}
       <p className={`${isActive ? 'font-bold' : null} whitespace-nowrap`}>{labelWithFirstLetterCapitalized}</p>
     </Link>
   );
