@@ -1,6 +1,5 @@
 const FilterIconUrban = ({ fillColor = '' }: { fillColor: string }) => (
   <svg
-    className="h-[34px] w-full"
     width="20"
     height="34"
     viewBox="0 0 20 34"
