@@ -1,6 +1,5 @@
 'use server';
 
-import { Filter } from '@/components/Filter';
 import { getProjectDetail } from '@/lib/getProjectDetail';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import ProjectsGrid from '@/components/ProjectsGrid';
@@ -58,12 +57,9 @@ export default async function ProjectDetails({ params }: { params: { category: s
   });
 
   return (
-    <>
-      <Filter />
-      <HydrationBoundary state={dehydrate(queryClient)}>
-        <FakeCarousel params={{ category, projectId }} />
-        <ProjectsGrid params={{ category, projectId }} />
-      </HydrationBoundary>
-    </>
+    <HydrationBoundary state={dehydrate(queryClient)}>
+      <FakeCarousel params={{ category, projectId }} />
+      <ProjectsGrid params={{ category, projectId }} />
+    </HydrationBoundary>
   );
 }

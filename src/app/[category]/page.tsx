@@ -1,5 +1,4 @@
 'use server';
-import { Filter } from '@/components/Filter';
 import ProjectsList from '@/components/ProjectsList';
 import RootWrapper from '@/components/RootWrapper';
 import { getProjectList } from '@/lib/getProjectList';
@@ -65,18 +64,15 @@ export default async function Category({ params }: { params: { category: string 
   });
 
   return (
-    <>
-      <Filter />
-      <RootWrapper customClassName="w-full">
-        <h2 className="sr-only">Project list {category}</h2>
-        <article className="pt-14 md:pt-44">
-          <ul className="w-full max-w-[550px] flex flex-col m-auto gap-16 lg:gap-20">
-            <HydrationBoundary state={dehydrate(queryClient)}>
-              <ProjectsList projectCategory={category} />
-            </HydrationBoundary>
-          </ul>
-        </article>
-      </RootWrapper>
-    </>
+    <RootWrapper customClassName="w-full">
+      <h2 className="sr-only">Project list {category}</h2>
+      <article className="pt-14 md:pt-44">
+        <ul className="w-full max-w-[550px] flex flex-col m-auto gap-16 lg:gap-20">
+          <HydrationBoundary state={dehydrate(queryClient)}>
+            <ProjectsList projectCategory={category} />
+          </HydrationBoundary>
+        </ul>
+      </article>
+    </RootWrapper>
   );
 }
