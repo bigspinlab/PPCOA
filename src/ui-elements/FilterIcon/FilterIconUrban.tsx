@@ -1,11 +1,5 @@
 const FilterIconUrban = ({ fillColor = '' }: { fillColor: string }) => (
-  <svg
-    width="20"
-    height="34"
-    viewBox="0 0 20 34"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg width="20" height="34" viewBox="0 0 20 34" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="m5.135 33.853 14.595-8.427-4.865-2.808L.27 31.044l4.865 2.81z" fill={fillColor} />
     <path
       d="M14.792 22.49a.147.147 0 0 1 .147 0l4.865 2.81a.147.147 0 0 1 0 .254L5.208 33.98a.146.146 0 0 1-.147 0L.196 31.172a.147.147 0 0 1 0-.255l14.596-8.426zm.073.297L.564 31.044l4.57 2.64 14.303-8.257-4.572-2.64z"
