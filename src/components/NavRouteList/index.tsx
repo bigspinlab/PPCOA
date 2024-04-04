@@ -8,7 +8,7 @@ interface NavRouteListProps {
 }
 
 export default function NavRouteList({ onRouteClick }: NavRouteListProps) {
-  const { data: headerNavList } = useGetHeadlessMaster();
+  const { data: headerNavList } = useGetHeadlessMaster({ lang: 'en'});
 
   const useLocation = usePathname();
 
