@@ -40,7 +40,7 @@ export default async function Team({ params }: { params: { category: string, lan
   });
 
   return (
-    <RootWrapper>
+    <RootWrapper customClassName='w-full'>
       <h2 className="sr-only">Team list</h2>
       <article className="pt-44">
         <Rectangle customStyles="bg-red-100 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
