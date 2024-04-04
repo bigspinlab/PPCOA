@@ -1,15 +1,4 @@
 /* eslint-disable no-unused-vars */
-export enum UmbracoWidgets {
-  header = 'header',
-  brandLogo = 'brandLogo',
-  navigation = 'navigation',
-  footer = 'footer',
-  languages = 'languages',
-  contactColumns = 'contact-columns',
-  contactForm = 'contact-form',
-  projectCard = 'projectCard',
-  carousel = 'carousel'
-}
 
 export const breakpointSize = {
   xsmall: '23.43em', // 375px
@@ -28,3 +17,15 @@ export const breakpointDevice = {
   xlarge: `(min-width: ${breakpointSize.xlarge})`,
   xxlarge: `(min-width: ${breakpointSize.xxlarge})`
 };
+
+export const ROUTES = {
+  home: {name: 'Home', path: '/', queryKey: 'homeContent'},
+  about: {name: 'About', path: '/about', queryKey: 'aboutContent'},
+  team: {name: 'Team', path: '/team', queryKey: 'teamList'},
+  projects: {name: 'Projects', path: '/:category', queryKey: 'projectsContent'},
+  projectDetails: {name: 'Project Details', path: '/:category/:projectId', queryKey: 'projectDetails'},
+  contact: {name: 'Contact', path: '/contact', queryKey: 'contactContent'},
+  privacyPolicy: {name: 'Privacy Policy', path: '/privacy-policy', queryKey: 'privacyPolicyContent'}
+}
+
+
