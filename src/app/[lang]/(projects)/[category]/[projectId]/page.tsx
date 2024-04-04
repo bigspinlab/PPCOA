@@ -1,11 +1,12 @@
 'use server';
 
-import { getProjectDetail } from '@/lib/getProjectDetail';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import ProjectsGrid from '@/components/ProjectsGrid';
 import FakeCarousel from '@/components/FakeCarousel';
-import { IHeadlessContentPage } from '@/types/home';
-import { removeBaseUrl } from '@/lib/utils';
+import { IHeadlessContentPage } from '@/types';
+import { removeBaseUrl } from '@/global/utils';
+import { getProjectDetail } from '@/api';
+import { ROUTES } from '@/global/constants';
 
 export async function generateMetadata({ params }: { params: { category: string; projectId: string } }) {
   const url = `https://danielribamar-001-site1.itempurl.com/api/v1/projects?route=/projects/${params.category}/${params.projectId}`;
@@ -46,20 +47,20 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function ProjectDetails({ params }: { params: { category: string; projectId: string } }) {
+export default async function ProjectDetails({ params }: { params: { category: string; projectId: string; lang: string } }) {
   const { category, projectId } = params;
 
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['projectDetail', projectId],
-    queryFn: () => getProjectDetail({ projectName: projectId })
+    queryKey: [ROUTES.projectDetails.queryKey, projectId, params.lang],
+    queryFn: () => getProjectDetail({ projectName: projectId, lang: params.lang})
   });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <FakeCarousel params={{ category, projectId }} />
-      <ProjectsGrid params={{ category, projectId }} />
+      <FakeCarousel params={{ category, projectId, lang: params.lang }} />
+      <ProjectsGrid params={{ category, projectId, lang: params.lang }} />
     </HydrationBoundary>
   );
 }

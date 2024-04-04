@@ -2,8 +2,8 @@
 import ProjectsList from '@/components/ProjectsList';
 import RootWrapper from '@/components/RootWrapper';
 import { getProjectList } from '@/lib/getProjectList';
-import { removeBaseUrl } from '@/lib/utils';
-import { IHeadlessContentPage } from '@/types/home';
+import { removeBaseUrl } from '@/global/utils';
+import { IHeadlessContentPage } from '@/types';
 import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
 
 export async function generateMetadata({ params }: { params: { category: string } }) {

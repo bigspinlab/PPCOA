@@ -1,11 +1,12 @@
 'use serve';
 
+import { getHeadless } from '@/api';
 import ColumnsContent from '@/components/ColumnsContent';
 import FormContact from '@/components/FormContact';
 import RootWrapper from '@/components/RootWrapper';
-import { getHeadless } from '@/lib/getHeadless';
-import { removeBaseUrl } from '@/lib/utils';
-import { IHeadlessContentPage } from '@/types/home';
+import { ROUTES } from '@/global/constants';
+import { removeBaseUrl } from '@/global/utils';
+import { IHeadlessContentPage } from '@/types';
 import Rectangle from '@/ui-elements/Rectangle';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 
@@ -30,12 +31,12 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Contact() {
+export default async function Contact({ params }: { params: { category: string, lang: string } }) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['contactContent'],
-    queryFn: () => getHeadless({ route: 'contact' })
+    queryKey: [ROUTES.contact.queryKey],
+    queryFn: () => getHeadless({ route: ROUTES.contact.path, lang: params.lang})
   });
 
   return (
@@ -44,7 +45,7 @@ export default async function Contact() {
         <h2 className="sr-only">Contact</h2>
         <article className="pt-44 flex flex-col">
           <Rectangle customStyles="bg-red-100 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
-          <ColumnsContent />
+          <ColumnsContent params={params}/>
         </article>
       </RootWrapper>
       <FormContact />

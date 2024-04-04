@@ -1,9 +1,10 @@
 'use server';
 
+import { getHeadless } from '@/api';
 import ImageText from '@/components/ImageText';
-import { getHeadless } from '@/lib/getHeadless';
-import { removeBaseUrl } from '@/lib/utils';
-import { IHeadlessContentPage } from '@/types/home';
+import { ROUTES } from '@/global/constants';
+import { removeBaseUrl } from '@/global/utils';
+import { IHeadlessContentPage } from '@/types';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 
 export async function generateMetadata() {
@@ -27,17 +28,17 @@ export async function generateMetadata() {
   };
 }
 
-export default async function About() {
+export default async function About({ params }: { params: { category: string, lang: string } }) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['aboutContent'],
-    queryFn: () => getHeadless({ route: 'about' })
+    queryKey: [ROUTES.about.queryKey],
+    queryFn: () => getHeadless({ route: ROUTES.about.path, lang: params.lang})
   });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ImageText />
+      <ImageText params={params}/>
     </HydrationBoundary>
   );
 }

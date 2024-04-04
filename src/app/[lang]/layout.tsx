@@ -1,14 +1,13 @@
-// import type { Metadata } from 'next';
-//import { Metadata, ResolvingMetadata } from 'next'
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import './styles/globals.css';
 import React from 'react';
 import Providers from './providers';
-import { getHeadlessMaster } from '@/lib/getHeadlessMaster';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import { Toaster } from '@/ui-elements/Toast/Toaster';
 import { Outfit } from 'next/font/google';
+import { getHeadlessMaster } from '@/api';
+import { IHeadlessMaster } from '@/types';
 
 const outFit = Outfit({
   subsets: ['latin'],
@@ -17,26 +16,27 @@ const outFit = Outfit({
 });
 
 export default async function RootLayout({
+  params,
   children
 }: Readonly<{
+  params:  { lang: string}
   children: React.ReactNode;
 }>) {
   const queryClient = new QueryClient();
-
   await queryClient.prefetchQuery({
     queryKey: ['masterPage'],
-    queryFn: getHeadlessMaster
+    queryFn: () => getHeadlessMaster<IHeadlessMaster>({ lang: params.lang })
   });
 
   return (
-    <html lang="en" className={outFit.variable}>
+    <html lang={params.lang} className={outFit.variable}>
       <body>
         <Providers>
           <HydrationBoundary state={dehydrate(queryClient)}>
-            <Header />
+            <Header lang={params.lang} />
             <h1 className="sr-only">PPCOA website</h1>
             <main className="w-full min-h-screen flex flex-col m-auto pt-22">{children}</main>
-            <Footer />
+            <Footer lang={params.lang}/>
             <Toaster />
           </HydrationBoundary>
         </Providers>

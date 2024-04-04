@@ -1,15 +1,16 @@
 'use server';
 
-import RichTextContent from '@/components/RichTextContent';
+import { getHeadless } from '@/api';
 import RootWrapper from '@/components/RootWrapper';
-import { getHeadless } from '@/lib/getHeadless';
-import { removeBaseUrl } from '@/lib/utils';
-import { IHeadlessContentPage } from '@/types/home';
+import TeamCardList from '@/components/TeamCardList';
+import { ROUTES } from '@/global/constants';
+import { removeBaseUrl } from '@/global/utils';
+import { IHeadlessContentPage } from '@/types';
 import Rectangle from '@/ui-elements/Rectangle';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 
 export async function generateMetadata() {
-  const url = `https://danielribamar-001-site1.itempurl.com/api/v1/pages/privacy-policy`;
+  const url = `https://danielribamar-001-site1.itempurl.com/api/v1/pages/team`;
   const response = await fetch(url, {
     method: 'GET',
     headers: {
@@ -29,22 +30,24 @@ export async function generateMetadata() {
   };
 }
 
-export default async function PrivacyPolicy() {
+export default async function Team({ params }: { params: { category: string, lang: string } }) {
+  console.log(params);
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: ['privacyPolicyContent'],
-    queryFn: () => getHeadless({ route: 'privacy-policy' })
+    queryKey: [ROUTES.team.queryKey],
+    queryFn: () => getHeadless({ route: ROUTES.team.path, lang: params.lang})
   });
 
   return (
     <RootWrapper>
-      <h2 className="sr-only">Privacy Policy</h2>
+      <h2 className="sr-only">Team list</h2>
       <article className="pt-44">
-        <Rectangle customStyles="bg-blue-100 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
+        <Rectangle customStyles="bg-red-100 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
         <HydrationBoundary state={dehydrate(queryClient)}>
-          <RichTextContent />
+          <TeamCardList params={params}/>
         </HydrationBoundary>
+        <Rectangle customStyles="bg-red-100 w-2/4 mt-9 ml-auto sm:w-64 sm:mr-9 md:mt-20 md:mr-28 lg:mt-28 lg:mr-72" />
       </article>
     </RootWrapper>
   );
