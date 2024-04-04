@@ -1,4 +1,4 @@
-import { ITeamMember } from '@/types/home';
+import { ITeamMember } from '@/types';
 import Image from 'next/image';
 
 export default function TeamCard({ contact, description, id, imageSrc, name, role }: ITeamMember) {
