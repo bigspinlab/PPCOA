@@ -7,7 +7,7 @@ export const getProjectDetail = async ({ projectName }: GetProjectDetailProps) =
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'x-content-culture': 'pt'
+      'x-content-culture': 'en-US'
     }
   });
 

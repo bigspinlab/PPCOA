@@ -11,7 +11,7 @@ export const getProjectList = async ({ pageNumber, perPage, category = 'todos' }
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'x-content-culture': 'pt'
+      'x-content-culture': 'en-US'
     }
   });
 

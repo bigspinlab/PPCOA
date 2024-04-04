@@ -7,7 +7,7 @@ export const getHeadless = async ({ route }: GetHeadlessProps) => {
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'x-content-culture': 'pt'
+      'x-content-culture': 'en-US'
     }
   });
 
