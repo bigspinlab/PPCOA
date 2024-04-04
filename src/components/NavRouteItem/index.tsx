@@ -1,4 +1,4 @@
-import { IHeaderNavigationItems } from '@/lib/getHeadlessMaster';
+import { IHeaderNavigationItems } from '@/types';
 import Link from 'next/link';
 
 interface NavRouteItemProps extends IHeaderNavigationItems {
