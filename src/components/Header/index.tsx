@@ -7,13 +7,16 @@ import Drawer from '../../ui-elements/Drawer';
 import React from 'react';
 import { useState } from 'react';
 import { Button } from '@/ui-elements/Button';
-import { useGetHeadlessMaster } from '@/hooks/useGetHeadlessMaster';
+import { useQuery } from '@tanstack/react-query';
+import { getHeadlessMaster } from '@/api';
+import { IHeader, IHeadlessMaster } from '@/types';
 
-export default function Header() {
+export default function Header({lang}: {lang: string}) {
   const [isOpen, setIsOpen] = useState(false);
-  const { data: headerLogo } = useGetHeadlessMaster();
+  const { data: headerLogo } = useQuery<IHeadlessMaster>({ queryKey: ['masterPage'], queryFn: () => getHeadlessMaster({lang}) });
+  const logo = headerLogo?.widget[0] as IHeader;
 
-  if (!headerLogo) {
+  if (!headerLogo?.widget?.length) {
     return null;
   }
 
@@ -26,8 +29,8 @@ export default function Header() {
       <div className="w-full h-full m-auto flex justify-between items-center gap-5 px-4 lg:pl-0 lg:pr-0">
         <Link className="z-20 shrink-0 lg:pl-8" href="/" onClick={() => setIsOpen(false)}>
           <Image
-            alt={`header-brand-${headerLogo[0].content.brandLogo.content.alt}`}
-            src={headerLogo[0].content.brandLogo.content.url}
+            alt={`header-brand-${logo.header?.content?.brandLogo?.content?.alt}`}
+            src={logo.header?.content?.brandLogo?.content?.url}
             width={94}
             height={58}
             priority
