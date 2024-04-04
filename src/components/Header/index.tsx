@@ -51,7 +51,7 @@ export default function Header({lang}: {lang: string}) {
           <span className="block absolute h-px w-full text-black bg-current rotate-90"></span>
         </Button>
         <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-          <Nav onRouteClick={handleToggleMobileMenu} />
+          <Nav onRouteClick={handleToggleMobileMenu} lang={lang} />
         </Drawer>
       </div>
     </header>

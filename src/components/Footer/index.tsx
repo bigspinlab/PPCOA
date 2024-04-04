@@ -16,15 +16,15 @@ export default function Footer({lang}: {lang: string}) {
     return null;
   }
 
-  const showLanguagesSelect = footerContent.footer.content.languages.content.items.length > 1;
+  const showLanguagesSelect = footerContent?.footer?.content?.languages?.content?.items?.length > 1;
 
   return (
     <footer className="w-full mt-16 border-t border-solid border-Black py-16 px-4 lg:p-16 lg:mt-24">
       <div className="m-auto grid gap-6 md:grid-cols-12">
         <Link href="/" className="shrink-0 md:col-start-1 md:col-end-2">
           <Image
-            alt={`footer-${footerContent.footer.content.image.alt}`}
-            src={footerContent.footer.content.image.url}
+            alt={`footer-${footerContent?.footer?.content?.image.alt}`}
+            src={footerContent?.footer?.content?.image?.url}
             width={40}
             height={70}
             className="w-auto h-auto"
@@ -32,7 +32,7 @@ export default function Footer({lang}: {lang: string}) {
         </Link>
         {
           <ul className="flex flex-col justify-between gap-5 md:w-full md:flex-row md:flex-wrap md:col-start-2 md:col-end-13">
-            {footerContent.footer.content.gridColumns.map((column) => (
+            {footerContent?.footer?.content?.gridColumns?.map((column) => (
               <li key={column.id}>
                 {parse(`${column.text}`)}
 
@@ -53,7 +53,7 @@ export default function Footer({lang}: {lang: string}) {
                       <SelectValue placeholder="PT" />
                     </SelectTrigger>
                     <SelectContent className="max-w-40">
-                      {footerContent.footer.content.languages.content.items.map((language) => (
+                      {footerContent?.footer?.content?.languages?.content?.items.map((language) => (
                         <SelectItem key={language.id} value={language.value}>
                           {language.name}
                         </SelectItem>
