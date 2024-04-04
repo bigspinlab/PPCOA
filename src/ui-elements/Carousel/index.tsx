@@ -3,7 +3,7 @@
 import * as React from 'react';
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/global/utils';
 import { Button } from '@/ui-elements/Button';
 import Image from 'next/image';
 

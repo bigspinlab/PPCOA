@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as ScrollAreaPrimitive from '@radix-ui/react-scroll-area';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/global/utils';
 import Image from 'next/image';
 import { Button } from '../Button';
 import { useDraggable } from '@/hooks/useDraggable';

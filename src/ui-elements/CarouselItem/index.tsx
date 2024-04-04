@@ -2,8 +2,8 @@
 import Image from 'next/image';
 import * as React from 'react';
 import parse from 'html-react-parser';
-import { ICarouselItem } from '@/types/home';
-import { mapColorToClassName } from '@/lib/utils';
+import { ICarouselItem } from '@/types';
+import { mapColorToClassName } from '@/global/utils';
 
 export enum CAROUSEL_ITEM_TYPE {
   FULL_IMAGE_LANDSCAPE = 'FULL_IMAGE_LANDSCAPE',
