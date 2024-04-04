@@ -4,20 +4,18 @@ import ProjectCard from '@/components/ProjectCard';
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { IProject } from '@/types/home';
-import { getProjectList } from '@/lib/getProjectList';
+import { IProject, IProjectList } from '@/types';
 import ProjectCardSkeleton from '../ProjectCardSkeleton';
+import { getProjectList } from '@/api';
+import { ROUTES } from '@/global/constants';
 
-interface IProjectsListProps {
-  projectCategory: string;
-}
 
-export default function ProjectsList({ projectCategory }: IProjectsListProps) {
+export default function ProjectsList({ params }: { params: { category: string; lang: string } } ) {
   const [ref, inView] = useInView();
 
   const { data, isFetchingNextPage, isFetching, fetchNextPage, hasNextPage } = useInfiniteQuery({
-    queryKey: ['projectsList', projectCategory],
-    queryFn: ({ pageParam }) => getProjectList({ category: `${projectCategory}`, perPage: 4, pageNumber: pageParam }),
+    queryKey: [ROUTES.projects.queryKey, params.category, params.lang],
+    queryFn: ({ pageParam }) => getProjectList<IProjectList>({ category: `${params.category}`, perPage: 4, pageNumber: pageParam, lang: params.lang }),
     initialPageParam: 1,
     getNextPageParam: (lastPage: any) => {
       const hasNextPage = lastPage[0].settings.next_page > lastPage[0].settings.current_page;

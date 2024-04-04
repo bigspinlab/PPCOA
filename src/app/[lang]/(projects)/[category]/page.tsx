@@ -1,7 +1,8 @@
 'use server';
+import { getProjectList } from '@/api';
 import ProjectsList from '@/components/ProjectsList';
 import RootWrapper from '@/components/RootWrapper';
-import { getProjectList } from '@/lib/getProjectList';
+import { ROUTES } from '@/global/constants';
 import { removeBaseUrl } from '@/global/utils';
 import { IHeadlessContentPage } from '@/types';
 import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
@@ -43,13 +44,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Category({ params }: { params: { category: string } }) {
+export default async function Category({ params }: { params: { category: string; lang: string } }) {
   const { category } = params;
   const queryClient = new QueryClient();
 
   await queryClient.prefetchInfiniteQuery({
-    queryKey: ['projectsList', category],
-    queryFn: ({ pageParam }) => getProjectList({ category, perPage: 4, pageNumber: pageParam }),
+    queryKey: [ROUTES.projects.queryKey, category],
+    queryFn: ({ pageParam }) => getProjectList({ category, perPage: 4, pageNumber: pageParam, lang: params.lang}),
     initialPageParam: 1,
     getNextPageParam: (lastPage: any) => {
       const hasNextPage = lastPage[0].settings.next_page > lastPage[0].settings.current_page;
@@ -69,7 +70,7 @@ export default async function Category({ params }: { params: { category: string 
       <article className="pt-14 md:pt-44">
         <ul className="w-full max-w-[550px] flex flex-col m-auto gap-16 lg:gap-20">
           <HydrationBoundary state={dehydrate(queryClient)}>
-            <ProjectsList projectCategory={category} />
+            <ProjectsList params={params}/>
           </HydrationBoundary>
         </ul>
       </article>
