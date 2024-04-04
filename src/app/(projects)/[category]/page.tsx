@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: { category: string 
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'x-content-culture': 'en-US'
+      'x-content-culture': 'pt'
     }
   });
 
@@ -32,7 +32,7 @@ export async function generateStaticParams() {
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'x-content-culture': 'en-US'
+      'x-content-culture': 'pt'
     }
   });
 

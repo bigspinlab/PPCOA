@@ -14,7 +14,7 @@ export async function generateMetadata() {
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'x-content-culture': 'en-US'
+      'x-content-culture': 'pt'
     }
   });
 
