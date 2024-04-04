@@ -126,13 +126,11 @@ export interface IFormFields {
 }
 
 export interface IFormContact {
-  form: {
-    id: string;
-    alias: string;
-    title: string;
-    fields: IFormFields[];
-    submitText: string;
-  };
+  id: string;
+  alias: string;
+  title: string;
+  fields: IFormFields[];
+  submitText: string;
 }
 
 export interface IContactPage {
