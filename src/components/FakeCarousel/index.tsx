@@ -1,22 +1,26 @@
 'use client';
 
-import { UmbracoWidgets } from '@/global/constants';
-import { getProjectDetail } from '@/lib/getProjectDetail';
-import { filterWidgetsByAlias } from '@/lib/utils';
-import { ICarousel, ICarouselItem } from '@/types/home';
+import { getProjectDetail } from '@/api';
+import { ROUTES } from '@/global/constants';
+import { filterWidgetsByAlias } from '@/global/utils';
+import { ICarousel, ICarouselItem, IHeadlessContentPage, UmbracoWidgets } from '@/types';
 import { CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
 import { useQuery } from '@tanstack/react-query';
 
-export default function FakeCarousel({ params }: { params: { category: string; projectId: string } }) {
+export default function FakeCarousel({ params }: { params: { category: string; projectId: string; lang: string } }) {
   const { category, projectId } = params;
 
-  const { data } = useQuery({
-    queryKey: ['projectDetail', projectId],
-    queryFn: () => getProjectDetail({ projectName: projectId })
+  const { data:projectDetailData } = useQuery<IHeadlessContentPage>({
+    queryKey: [ROUTES.projectDetails.queryKey, projectId],
+    queryFn: () => getProjectDetail({ projectName: projectId, lang: params.lang})
   });
 
-  const filteredCarouselWidget = filterWidgetsByAlias<ICarousel>(data, UmbracoWidgets.carousel);
+  if (!projectDetailData) {
+    return null;
+  }
+
+  const filteredCarouselWidget = filterWidgetsByAlias<ICarousel>(projectDetailData, UmbracoWidgets.carousel);
 
   return (
     <section className="overflow-hidden mb-17 md:mb-36">
