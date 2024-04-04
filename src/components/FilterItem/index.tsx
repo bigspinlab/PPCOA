@@ -1,8 +1,8 @@
-import { IHeaderNavigationCategories } from '@/lib/getHeadlessMaster';
-import { capitalizeFirstLetter } from '@/lib/utils';
+import { capitalizeFirstLetter } from '@/global/utils';
 import Link from 'next/link';
 import { FilterIcon } from '../FilterIcon';
 import { usePathname } from 'next/navigation';
+import { IHeaderNavigationCategories } from '@/types';
 
 const FilterItem = ({ id, label, url = '/' }: IHeaderNavigationCategories) => {
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(label);
