@@ -48,7 +48,7 @@ export default async function Contact({ params }: { params: { category: string, 
           <ColumnsContent params={params}/>
         </article>
       </RootWrapper>
-      <FormContact />
+      <FormContact params={params}/>
     </HydrationBoundary>
   );
 }
