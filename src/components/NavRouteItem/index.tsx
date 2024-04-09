@@ -10,9 +10,15 @@ export default function NavRouteItem({ onRouteClick, id, label, url = '/', isAct
   if (!url) {
     return null;
   }
+  const urlWithoutLanguageCode = url.replace(/\/(pt|en)/, '');
 
   return (
-    <Link data-testid={id} className={isActive ? 'font-bold' : ''} href={url} onClick={onRouteClick}>
+    <Link
+      data-testid={id}
+      className={isActive ? 'font-bold' : ''}
+      href={`${urlWithoutLanguageCode}`}
+      onClick={onRouteClick}
+    >
       {label}
     </Link>
   );
