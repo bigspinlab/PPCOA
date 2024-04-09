@@ -27,7 +27,7 @@ const makeApiCall = async <T>(url: string, headers: Record<string, string>, meth
 
 // Function to get umbraco content with specified culture
 export const getHeadless = async <T>({ route, lang }: { route: string, lang: string }): Promise<T> => {
-  const url = `${apiUrl}/pages/${route}`;
+  const url = `${apiUrl}/pages/${lang}${route}`;
   return await makeApiCall<T>(url, { 'x-content-culture': lang });
 };
 
