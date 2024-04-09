@@ -8,8 +8,11 @@ import { useQuery } from '@tanstack/react-query';
 import { IFooter, IHeadlessMaster } from '@/types';
 import { getHeadlessMaster } from '@/api';
 
-export default function Footer({lang}: {lang: string}) {
-  const { data: footerData } = useQuery<IHeadlessMaster>({ queryKey: ['masterPage'], queryFn: () => getHeadlessMaster({lang}) });
+export default function Footer({ lang }: { lang: string }) {
+  const { data: footerData } = useQuery<IHeadlessMaster>({
+    queryKey: ['masterPage'],
+    queryFn: () => getHeadlessMaster({ lang })
+  });
   const footerContent = footerData?.widget[1] as IFooter;
 
   if (!footerData) {

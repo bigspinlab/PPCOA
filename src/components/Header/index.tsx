@@ -11,9 +11,12 @@ import { useQuery } from '@tanstack/react-query';
 import { getHeadlessMaster } from '@/api';
 import { IHeader, IHeadlessMaster } from '@/types';
 
-export default function Header({lang}: {lang: string}) {
+export default function Header({ lang }: { lang: string }) {
   const [isOpen, setIsOpen] = useState(false);
-  const { data: headerLogo } = useQuery<IHeadlessMaster>({ queryKey: ['masterPage'], queryFn: () => getHeadlessMaster({lang}) });
+  const { data: headerLogo } = useQuery<IHeadlessMaster>({
+    queryKey: ['masterPage'],
+    queryFn: () => getHeadlessMaster({ lang })
+  });
   const logo = headerLogo?.widget[0] as IHeader;
 
   if (!headerLogo?.widget?.length) {

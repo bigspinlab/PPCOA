@@ -188,7 +188,6 @@ export interface IHeaderNavigation {
   };
 }
 
-
 export interface IHeader {
   id: string;
   alias: string;
@@ -233,7 +232,6 @@ export interface IFooter {
   };
 }
 
-
 export interface IHeadlessMaster {
   widget: (IHeader | IFooter)[];
 }
@@ -257,7 +255,6 @@ export interface IContactColumns {
   alias: string;
   items: IContactColumnsItems[];
 }
-
 
 export enum UmbracoWidgets {
   header = 'header',

@@ -15,7 +15,7 @@ export default function ProjectsGrid({ params }: { params: { category: string; p
 
   const { data: projectGridData } = useQuery({
     queryKey: [ROUTES.projectDetails.queryKey, projectId, params.lang],
-    queryFn: () => getProjectDetail<IHeadlessContentPage>({ projectName: projectId, lang: params.lang})
+    queryFn: () => getProjectDetail<IHeadlessContentPage>({ projectName: projectId, lang: params.lang })
   });
 
   const projectGrid = projectGridData?.widgets[1] as IProjectList;

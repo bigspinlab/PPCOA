@@ -11,9 +11,9 @@ import { useQuery } from '@tanstack/react-query';
 export default function FakeCarousel({ params }: { params: { category: string; projectId: string; lang: string } }) {
   const { category, projectId } = params;
 
-  const { data:projectDetailData } = useQuery<IHeadlessContentPage>({
+  const { data: projectDetailData } = useQuery<IHeadlessContentPage>({
     queryKey: [ROUTES.projectDetails.queryKey, projectId],
-    queryFn: () => getProjectDetail({ projectName: projectId, lang: params.lang})
+    queryFn: () => getProjectDetail({ projectName: projectId, lang: params.lang })
   });
 
   if (!projectDetailData) {

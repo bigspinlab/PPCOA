@@ -7,8 +7,11 @@ import { useQuery } from '@tanstack/react-query';
 import parse from 'html-react-parser';
 
 export default function RichTextContent({ params }: { params: { lang: string } }) {
-  const { data: richTextData } = useQuery<IHeadlessContentPage>({ queryKey: [ROUTES.privacyPolicy.queryKey], queryFn: () => getHeadless({ route: ROUTES.privacyPolicy.path, lang: params.lang }) });
-  const richText = richTextData?.widgets[0] as IRichTextContent
+  const { data: richTextData } = useQuery<IHeadlessContentPage>({
+    queryKey: [ROUTES.privacyPolicy.queryKey],
+    queryFn: () => getHeadless({ route: ROUTES.privacyPolicy.path, lang: params.lang })
+  });
+  const richText = richTextData?.widgets[0] as IRichTextContent;
 
   if (!richText) {
     return null;

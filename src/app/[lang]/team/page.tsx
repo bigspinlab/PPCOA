@@ -30,21 +30,21 @@ import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query
 //   };
 // }
 
-export default async function Team({ params }: { params: { category: string, lang: string } }) {
+export default async function Team({ params }: { params: { category: string; lang: string } }) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
     queryKey: [ROUTES.team.queryKey],
-    queryFn: () => getHeadless({ route: ROUTES.team.path, lang: params.lang})
+    queryFn: () => getHeadless({ route: ROUTES.team.path, lang: params.lang })
   });
 
   return (
-    <RootWrapper customClassName='w-full'>
+    <RootWrapper customClassName="w-full">
       <h2 className="sr-only">Team list</h2>
       <article className="pt-44">
         <Rectangle customStyles="bg-red-100 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
         <HydrationBoundary state={dehydrate(queryClient)}>
-          <TeamCardList params={params}/>
+          <TeamCardList params={params} />
         </HydrationBoundary>
         <Rectangle customStyles="bg-red-100 w-2/4 mt-9 ml-auto sm:w-64 sm:mr-9 md:mt-20 md:mr-28 lg:mt-28 lg:mr-72" />
       </article>

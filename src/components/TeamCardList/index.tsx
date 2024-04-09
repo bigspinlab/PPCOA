@@ -7,7 +7,10 @@ import { IHeadlessContentPage, ITeamList, ITeamMember } from '@/types';
 import { useQuery } from '@tanstack/react-query';
 
 export default function TeamCardList({ params }: { params: { lang: string } }) {
-  const { data: teamListData } = useQuery<IHeadlessContentPage>({ queryKey: [ROUTES.team.queryKey], queryFn: () => getHeadless({ route: ROUTES.team.path, lang: params.lang }) });
+  const { data: teamListData } = useQuery<IHeadlessContentPage>({
+    queryKey: [ROUTES.team.queryKey],
+    queryFn: () => getHeadless({ route: ROUTES.team.path, lang: params.lang })
+  });
   const teamList = teamListData?.widgets[0] as ITeamList;
 
   if (!teamListData) {

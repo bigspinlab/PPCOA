@@ -28,17 +28,17 @@ import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query
 //   };
 // }
 
-export default async function About({ params }: { params: { category: string, lang: string } }) {
+export default async function About({ params }: { params: { category: string; lang: string } }) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
     queryKey: [ROUTES.about.queryKey],
-    queryFn: () => getHeadless({ route: ROUTES.about.path, lang: params.lang})
+    queryFn: () => getHeadless({ route: ROUTES.about.path, lang: params.lang })
   });
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ImageText params={params}/>
+      <ImageText params={params} />
     </HydrationBoundary>
   );
 }

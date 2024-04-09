@@ -40,7 +40,10 @@ const defaultValues: Partial<z.infer<typeof formSchema>> = {
 
 export default function FormContact({ params }: { params: { lang: string } }) {
   const { toast } = useToast();
-  const { data: formContentData } = useQuery<IHeadlessContentPage>({ queryKey: [ROUTES.contact.queryKey], queryFn: () => getHeadless({ route: ROUTES.contact.path, lang: params.lang }) });
+  const { data: formContentData } = useQuery<IHeadlessContentPage>({
+    queryKey: [ROUTES.contact.queryKey],
+    queryFn: () => getHeadless({ route: ROUTES.contact.path, lang: params.lang })
+  });
   const formContent = formContentData?.widgets[0] as IContactPage;
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({

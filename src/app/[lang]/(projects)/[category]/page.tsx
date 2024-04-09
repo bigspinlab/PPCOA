@@ -50,7 +50,7 @@ export default async function Category({ params }: { params: { category: string;
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: [ROUTES.projects.queryKey, category],
-    queryFn: ({ pageParam }) => getProjectList({ category, perPage: 4, pageNumber: pageParam, lang: params.lang}),
+    queryFn: ({ pageParam }) => getProjectList({ category, perPage: 4, pageNumber: pageParam, lang: params.lang }),
     initialPageParam: 1,
     getNextPageParam: (lastPage: any) => {
       const hasNextPage = lastPage[0].settings.next_page > lastPage[0].settings.current_page;
@@ -70,7 +70,7 @@ export default async function Category({ params }: { params: { category: string;
       <article className="pt-14 md:pt-44">
         <ul className="w-full max-w-[550px] flex flex-col m-auto gap-16 lg:gap-20">
           <HydrationBoundary state={dehydrate(queryClient)}>
-            <ProjectsList params={params}/>
+            <ProjectsList params={params} />
           </HydrationBoundary>
         </ul>
       </article>

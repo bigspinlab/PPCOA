@@ -9,8 +9,11 @@ interface NavRouteListProps {
   lang: string;
 }
 
-export default function NavRouteList({ onRouteClick,lang }: NavRouteListProps) {
-  const { data: headerNavListData } = useQuery<IHeadlessMaster>({ queryKey: ['masterPage'], queryFn: () => getHeadlessMaster({lang}) });
+export default function NavRouteList({ onRouteClick, lang }: NavRouteListProps) {
+  const { data: headerNavListData } = useQuery<IHeadlessMaster>({
+    queryKey: ['masterPage'],
+    queryFn: () => getHeadlessMaster({ lang })
+  });
   const headerNavList = headerNavListData?.widget[0] as IHeader;
   const useLocation = usePathname();
 

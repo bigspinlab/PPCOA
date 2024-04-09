@@ -47,14 +47,18 @@ import { ROUTES } from '@/global/constants';
 //   }));
 // }
 
-export default async function ProjectDetails({ params }: { params: { category: string; projectId: string; lang: string } }) {
+export default async function ProjectDetails({
+  params
+}: {
+  params: { category: string; projectId: string; lang: string };
+}) {
   const { category, projectId } = params;
 
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
     queryKey: [ROUTES.projectDetails.queryKey, projectId, params.lang],
-    queryFn: () => getProjectDetail({ projectName: projectId, lang: params.lang})
+    queryFn: () => getProjectDetail({ projectName: projectId, lang: params.lang })
   });
 
   return (

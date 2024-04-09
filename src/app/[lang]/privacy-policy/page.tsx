@@ -30,12 +30,12 @@ import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query
 //   };
 // }
 
-export default async function PrivacyPolicy({ params }: { params: { lang: string}}) {
+export default async function PrivacyPolicy({ params }: { params: { lang: string } }) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
     queryKey: [ROUTES.privacyPolicy.queryKey],
-    queryFn: () => getHeadless({ route: ROUTES.privacyPolicy.path, lang: params.lang})
+    queryFn: () => getHeadless({ route: ROUTES.privacyPolicy.path, lang: params.lang })
   });
 
   return (
@@ -44,7 +44,7 @@ export default async function PrivacyPolicy({ params }: { params: { lang: string
       <article className="pt-44">
         <Rectangle customStyles="bg-blue-100 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
         <HydrationBoundary state={dehydrate(queryClient)}>
-          <RichTextContent params={params}/>
+          <RichTextContent params={params} />
         </HydrationBoundary>
       </article>
     </RootWrapper>

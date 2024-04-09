@@ -19,13 +19,11 @@ export const breakpointDevice = {
 };
 
 export const ROUTES = {
-  home: {name: 'Home', path: '/', queryKey: 'homeContent'},
-  about: {name: 'About', path: '/about', queryKey: 'aboutContent'},
-  team: {name: 'Team', path: '/team', queryKey: 'teamList'},
-  projects: {name: 'Projects', path: '/:category', queryKey: 'projectsContent'},
-  projectDetails: {name: 'Project Details', path: '/:category/:projectId', queryKey: 'projectDetails'},
-  contact: {name: 'Contact', path: '/contact', queryKey: 'contactContent'},
-  privacyPolicy: {name: 'Privacy Policy', path: '/privacy-policy', queryKey: 'privacyPolicyContent'}
-}
-
-
+  home: { name: 'Home', path: '/', queryKey: 'homeContent' },
+  about: { name: 'About', path: '/about', queryKey: 'aboutContent' },
+  team: { name: 'Team', path: '/team', queryKey: 'teamList' },
+  projects: { name: 'Projects', path: '/:category', queryKey: 'projectsContent' },
+  projectDetails: { name: 'Project Details', path: '/:category/:projectId', queryKey: 'projectDetails' },
+  contact: { name: 'Contact', path: '/contact', queryKey: 'contactContent' },
+  privacyPolicy: { name: 'Privacy Policy', path: '/privacy-policy', queryKey: 'privacyPolicyContent' }
+};

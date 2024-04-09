@@ -19,7 +19,7 @@ export default async function RootLayout({
   params,
   children
 }: Readonly<{
-  params:  { lang: string}
+  params: { lang: string };
   children: React.ReactNode;
 }>) {
   const queryClient = new QueryClient();
@@ -36,7 +36,7 @@ export default async function RootLayout({
             <Header lang={params.lang} />
             <h1 className="sr-only">PPCOA website</h1>
             <main className="w-full min-h-screen flex flex-col m-auto pt-22">{children}</main>
-            <Footer lang={params.lang}/>
+            <Footer lang={params.lang} />
             <Toaster />
           </HydrationBoundary>
         </Providers>

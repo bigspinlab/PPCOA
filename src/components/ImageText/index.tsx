@@ -7,17 +7,18 @@ import { ROUTES } from '@/global/constants';
 import { getHeadless } from '@/api';
 import { IHeadlessContentPage, IImageText } from '@/types';
 
-export default function ImageText({ params }: { params: { category: string, lang: string } }) {
+export default function ImageText({ params }: { params: { category: string; lang: string } }) {
+  const { data: imageTextData } = useQuery<IHeadlessContentPage>({
+    queryKey: [ROUTES.about.queryKey],
+    queryFn: () => getHeadless({ route: ROUTES.about.path, lang: params.lang })
+  });
 
-  const { data: imageTextData } = useQuery<IHeadlessContentPage>({ queryKey: [ROUTES.about.queryKey], queryFn: () => getHeadless({ route: ROUTES.about.path, lang: params.lang }) });
-  
   const imageTextZero = imageTextData?.widgets[0] as IImageText;
   const imageTextFirst = imageTextData?.widgets[1] as IImageText;
   const imageTextSecond = imageTextData?.widgets[2] as IImageText;
   const imageTextThird = imageTextData?.widgets[3] as IImageText;
   const imageTextFourth = imageTextData?.widgets[4] as IImageText;
   const imageTextFifth = imageTextData?.widgets[5] as IImageText;
-
 
   if (!imageTextData) {
     return null;
@@ -89,9 +90,7 @@ export default function ImageText({ params }: { params: { category: string, lang
         <article className="w-full px-4 grid gap-y-36 md:px-0 md:gap-0 lg:grid-cols-12">
           <div className="flex flex-col gap-36 justify-self-center md:col-start-2 md:w-full md:col-end-9 md:justify-self-start">
             <div className="text-xl max-w-96">{parse(`${imageTextThird.content?.firstParagraph}`)}</div>
-            <div className="text-xl max-w-96 md:ml-auto">
-              {parse(`${imageTextThird.content?.secondParagraph}`)}
-            </div>
+            <div className="text-xl max-w-96 md:ml-auto">{parse(`${imageTextThird.content?.secondParagraph}`)}</div>
           </div>
           <div className="flex items-center justify-center py-24 px-16 bg-yellow-100 max-w-56 row-start-1 md:col-start-9 md:col-end-12 md:justify-self-end md:max-w-72">
             <Image
@@ -126,9 +125,7 @@ export default function ImageText({ params }: { params: { category: string, lang
         <article className="w-full grid grid-cols-12 grid-rows-2">
           <div className="flex flex-col gap-36 justify-self-center px-4 md:px-0 col-span-full md:col-start-4 md:w-full md:col-end-12 md:justify-self-start lg:col-start-6">
             <div className="text-xl max-w-96">{parse(`${imageTextFifth.content?.firstParagraph}`)}</div>
-            <div className="text-xl max-w-96 md:ml-auto">
-              {parse(`${imageTextFifth.content?.secondParagraph}`)}
-            </div>
+            <div className="text-xl max-w-96 md:ml-auto">{parse(`${imageTextFifth.content?.secondParagraph}`)}</div>
           </div>
           <div className="w-full h-28 mt-32 ml-auto bg-yellow-100 col-start-7 col-end-13 row-start-2"></div>
         </article>

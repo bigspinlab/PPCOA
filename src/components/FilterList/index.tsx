@@ -5,8 +5,11 @@ import { FilterItem } from '../FilterItem';
 import { IHeader, IHeaderNavigationCategories, IHeadlessMaster } from '@/types';
 import { getHeadlessMaster } from '@/api';
 
-const FilterList = ({lang}: {lang: string}) => {
-  const { data: headerLogo } = useQuery<IHeadlessMaster>({ queryKey: ['masterPage'], queryFn: () => getHeadlessMaster({lang}) });
+const FilterList = ({ lang }: { lang: string }) => {
+  const { data: headerLogo } = useQuery<IHeadlessMaster>({
+    queryKey: ['masterPage'],
+    queryFn: () => getHeadlessMaster({ lang })
+  });
   const headerFilterList = headerLogo?.widget[0] as IHeader;
   if (!headerFilterList) {
     return null;

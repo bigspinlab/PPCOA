@@ -7,7 +7,10 @@ import { useQuery } from '@tanstack/react-query';
 import parse from 'html-react-parser';
 
 export default function ColumnsContent({ params }: { params: { lang: string } }) {
-  const { data: columnsContentData } = useQuery<IHeadlessContentPage>({ queryKey: [ROUTES.contact.queryKey], queryFn: () => getHeadless({ route: ROUTES.contact.path, lang: params.lang}) });
+  const { data: columnsContentData } = useQuery<IHeadlessContentPage>({
+    queryKey: [ROUTES.contact.queryKey],
+    queryFn: () => getHeadless({ route: ROUTES.contact.path, lang: params.lang })
+  });
   const columnsContent = columnsContentData?.widgets[0] as IContactPage;
 
   if (!columnsContentData) {

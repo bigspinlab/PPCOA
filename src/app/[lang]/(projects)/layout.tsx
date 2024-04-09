@@ -7,7 +7,7 @@ export default async function CategoriesLayout({
   params,
   children
 }: Readonly<{
-  params:  { lang: string}
+  params: { lang: string };
   children: React.ReactNode;
 }>) {
   const queryClient = new QueryClient();
