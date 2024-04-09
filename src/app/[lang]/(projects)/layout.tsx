@@ -11,7 +11,6 @@ export default async function CategoriesLayout({
   children: React.ReactNode;
 }>) {
   const queryClient = new QueryClient();
-  console.log('params layout', params);
 
   await queryClient.prefetchQuery({
     queryKey: ['masterPage'],
