@@ -3,46 +3,46 @@ import { getProjectList } from '@/api';
 import ProjectsList from '@/components/ProjectsList';
 import RootWrapper from '@/components/RootWrapper';
 import { ROUTES } from '@/global/constants';
-import { removeBaseUrl } from '@/global/utils';
-import { IHeadlessContentPage } from '@/types';
+// import { removeBaseUrl } from '@/global/utils';
+// import { IHeadlessContentPage } from '@/types';
 import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
 
-export async function generateMetadata({ params }: { params: { category: string } }) {
-  const url = `https://danielribamar-001-site1.itempurl.com/api/v1/categories/${params.category}`;
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'x-content-culture': 'en-US'
-    }
-  });
+// export async function generateMetadata({ params }: { params: { category: string; lang: string } }) {
+//   const url = `https://danielribamar-001-site1.itempurl.com/api/v1/categories/${params.category}`;
+//   const response = await fetch(url, {
+//     method: 'GET',
+//     headers: {
+//       'x-content-culture': params.lang
+//     }
+//   });
 
-  const seoData: IHeadlessContentPage = await response.json();
-  return {
-    title: `PPCOA :: ${seoData?.seo?.title}`,
-    description: seoData?.seo?.description,
-    metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
-    openGraph: {
-      images: [removeBaseUrl(seoData?.seo?.imageSrc?.url)]
-    }
-  };
-}
+//   const seoData: IHeadlessContentPage = await response.json();
+//   return {
+//     title: `PPCOA :: ${seoData?.seo?.title}`,
+//     description: seoData?.seo?.description,
+//     metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
+//     openGraph: {
+//       images: [removeBaseUrl(seoData?.seo?.imageSrc?.url)]
+//     }
+//   };
+// }
 
 // Generate segments for both [category] and [product]
-export async function generateStaticParams() {
-  const url = `https://danielribamar-001-site1.itempurl.com/api/v1/content/master`;
-  const response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'x-content-culture': 'en-US'
-    }
-  });
+// export async function generateStaticParams() {
+//   const url = `https://danielribamar-001-site1.itempurl.com/api/v1/content/master`;
+//   const response = await fetch(url, {
+//     method: 'GET',
+//     headers: {
+//       'x-content-culture': 'en-US'
+//     }
+//   });
 
-  const staticParams = await response.json();
+//   const staticParams = await response.json();
 
-  return staticParams?.widget[0]?.content?.navigation?.content?.categories?.map((categoryItem: any) => ({
-    category: categoryItem.url
-  }));
-}
+//   return staticParams?.widget[0]?.content?.navigation?.content?.categories?.map((categoryItem: any) => ({
+//     category: categoryItem.url
+//   }));
+// }
 
 export default async function Category({ params }: { params: { category: string; lang: string } }) {
   const { category } = params;
