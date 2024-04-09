@@ -18,8 +18,8 @@ export default function ProjectsList({ params }: { params: { category: string; l
     queryFn: ({ pageParam }) => getProjectList<IProjectList>({ category: `${params.category}`, perPage: 4, pageNumber: pageParam, lang: params.lang }),
     initialPageParam: 1,
     getNextPageParam: (lastPage: any) => {
-      const hasNextPage = lastPage[0].settings.next_page > lastPage[0].settings.current_page;
-      const isLastPage = lastPage[0].settings.current_page === lastPage[0].settings.total_pages;
+      const hasNextPage = lastPage[0]?.settings?.next_page > lastPage[0]?.settings?.current_page;
+      const isLastPage = lastPage[0]?.settings?.current_page === lastPage[0].settings.total_pages;
 
       if (hasNextPage && !isLastPage) {
         return lastPage[0].settings.next_page;
