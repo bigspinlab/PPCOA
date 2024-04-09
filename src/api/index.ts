@@ -52,7 +52,7 @@ export const getProjectDetail = async <T>({ projectName, lang }: { projectName: 
 export const getProjectList = async <T>({
   pageNumber,
   perPage,
-  category = 'todos',
+  category,
   lang
 }: {
   pageNumber: number;
