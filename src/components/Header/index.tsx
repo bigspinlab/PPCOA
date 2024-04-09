@@ -29,8 +29,8 @@ export default function Header({lang}: {lang: string}) {
       <div className="w-full h-full m-auto flex justify-between items-center gap-5 px-4 lg:pl-0 lg:pr-0">
         <Link className="z-20 shrink-0 lg:pl-8" href="/" onClick={() => setIsOpen(false)}>
           <Image
-            alt={`header-brand-${logo.header?.content?.brandLogo?.content?.alt}`}
-            src={logo.header?.content?.brandLogo?.content?.url}
+            alt={`header-brand-${logo.content?.brandLogo?.content?.alt}`}
+            src={logo.content?.brandLogo?.content?.url}
             width={94}
             height={58}
             priority

@@ -10,7 +10,6 @@ interface NavRouteListProps {
 }
 
 export default function NavRouteList({ onRouteClick,lang }: NavRouteListProps) {
-  //const { data: headerNavList } = useGetHeadlessMaster({ lang: 'en'});
   const { data: headerNavListData } = useQuery<IHeadlessMaster>({ queryKey: ['masterPage'], queryFn: () => getHeadlessMaster({lang}) });
   const headerNavList = headerNavListData?.widget[0] as IHeader;
   const useLocation = usePathname();
@@ -21,7 +20,7 @@ export default function NavRouteList({ onRouteClick,lang }: NavRouteListProps) {
 
   return (
     <ul className="flex flex-col px-4 py-3 lg:flex-row lg:items-center gap-5 lg:p-0">
-      {headerNavList?.header.content.navigation.content.items.map((route: IHeaderNavigationItems) => {
+      {headerNavList?.content?.navigation?.content?.items?.map((route: IHeaderNavigationItems) => {
         const isActive = route?.url === '/' ? useLocation === route?.url : useLocation.includes(route?.url);
 
         return (

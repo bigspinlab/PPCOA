@@ -190,14 +190,12 @@ export interface IHeaderNavigation {
 
 
 export interface IHeader {
-  header: {
-    id: string;
-    alias: string;
-    content: {
-      brandLogo: IHeaderBrandLogo;
-      navigation: IHeaderNavigation;
-    };
-  }
+  id: string;
+  alias: string;
+  content: {
+    brandLogo: IHeaderBrandLogo;
+    navigation: IHeaderNavigation;
+  };
 }
 
 export interface IFooterImage {
@@ -226,15 +224,13 @@ export interface IFooterLanguages {
 }
 
 export interface IFooter {
-  footer: {
-    id: string;
-    alias: string;
-    content: {
-      image: IFooterImage;
-      gridColumns: IFooterGridColumns[];
-      languages: IFooterLanguages;
-    };
-  }
+  id: string;
+  alias: string;
+  content: {
+    image: IFooterImage;
+    gridColumns: IFooterGridColumns[];
+    languages: IFooterLanguages;
+  };
 }
 
 
