@@ -11,8 +11,8 @@ const nextConfig = {
         source: '/',
         has: [
           {
-            type: 'header',
-            key: 'x-content-culture',
+            type: 'cookie',
+            key: 'NEXT_LOCALE',
             value: 'pt'
           }
         ],
@@ -23,8 +23,8 @@ const nextConfig = {
         source: '/',
         has: [
           {
-            type: 'header',
-            key: 'x-content-culture',
+            type: 'cookie',
+            key: 'NEXT_LOCALE',
             value: 'en'
           }
         ],
