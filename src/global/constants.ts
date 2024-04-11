@@ -27,3 +27,9 @@ export const ROUTES = {
   contact: { name: 'Contact', path: '/contact', queryKey: 'contactContent' },
   privacyPolicy: { name: 'Privacy Policy', path: '/privacy-policy', queryKey: 'privacyPolicyContent' }
 };
+
+const locales = [{ locale: 'pt' }, { locale: 'en' }];
+
+const defaultLocale = 'pt';
+
+export { defaultLocale, locales };
