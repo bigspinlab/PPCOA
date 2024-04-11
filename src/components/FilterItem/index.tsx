@@ -4,7 +4,7 @@ import { FilterIcon } from '../FilterIcon';
 import { usePathname } from 'next/navigation';
 import { IHeaderNavigationCategories } from '@/types';
 
-const FilterItem = ({ id, label, url = '/' }: IHeaderNavigationCategories) => {
+const FilterItem = ({ id, label, url }: IHeaderNavigationCategories) => {
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(label);
   const useLocation = usePathname();
 
@@ -15,7 +15,7 @@ const FilterItem = ({ id, label, url = '/' }: IHeaderNavigationCategories) => {
 
   return (
     <Link
-      href={`/${url}`}
+      href={url}
       data-testid={`filter-item-${id}`}
       className="w-auto h-auto flex flex-col justify-center items-center shrink-0 p-0 px-3 md:px-4"
     >
