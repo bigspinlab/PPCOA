@@ -1,5 +1,48 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      // Basic redirect
+      {
+        source: '/',
+        has: [
+          {
+            type: 'header',
+            key: 'x-content-culture',
+            value: 'pt'
+          }
+        ],
+        destination: '/pt/todos',
+        permanent: true
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'header',
+            key: 'x-content-culture',
+            value: 'en'
+          }
+        ],
+        destination: '/en/all',
+        permanent: true
+      },
+      {
+        source: '/pt/all',
+        destination: '/pt/todos',
+        permanent: true
+      },
+      {
+        source: '/en/todos',
+        destination: '/en/all',
+        permanent: true
+      }
+    ];
+  },
   images: {
     remotePatterns: [
       {
@@ -25,4 +68,4 @@ const nextConfig = {
   }
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
