@@ -50,7 +50,8 @@ export default async function Category({ params }: { params: { category: string;
 
   await queryClient.prefetchInfiniteQuery({
     queryKey: [ROUTES.projects.queryKey, params.category, params.lang],
-    queryFn: ({ pageParam }) => getProjectList<IProjectList>({ category: params.category, perPage: 4, pageNumber: pageParam, lang: params.lang }),
+    queryFn: ({ pageParam }) =>
+      getProjectList<IProjectList>({ category: params.category, perPage: 4, pageNumber: pageParam, lang: params.lang }),
     initialPageParam: 1,
     getNextPageParam: (lastPage: any) => {
       const hasNextPage = lastPage.widgets[0].settings.next_page > lastPage.widgets[0].settings.current_page;
