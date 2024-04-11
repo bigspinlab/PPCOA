@@ -2,11 +2,11 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/ui-elements/Select';
 import parse from 'html-react-parser';
 import { useQuery } from '@tanstack/react-query';
 import { IFooter, IHeadlessMaster } from '@/types';
 import { getHeadlessMaster } from '@/api';
+import SelectLanguage from '../SelectLanguage';
 
 export default function Footer({ lang }: { lang: string }) {
   const { data: footerData } = useQuery<IHeadlessMaster>({
@@ -40,29 +40,7 @@ export default function Footer({ lang }: { lang: string }) {
                 {parse(`${column.text}`)}
 
                 {column.id === '4' && showLanguagesSelect ? (
-                  <Select>
-                    <SelectTrigger
-                      aria-label="change-language"
-                      className="justify-start gap-0.5 text-base font-bold mt-5"
-                    >
-                      <Image
-                        className="h-5 w-5 mr-1"
-                        alt="language"
-                        src="/language.svg"
-                        width={34}
-                        height={34}
-                        unoptimized
-                      />
-                      <SelectValue placeholder="PT" />
-                    </SelectTrigger>
-                    <SelectContent className="max-w-40">
-                      {footerContent?.content?.languages?.content?.items.map((language) => (
-                        <SelectItem key={language.id} value={language.value}>
-                          {language.name}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <SelectLanguage languages={footerContent?.content?.languages} currentLanguage={lang} />
                 ) : null}
               </li>
             ))}
