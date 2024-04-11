@@ -8,7 +8,10 @@ const FilterItem = ({ id, label, url = '/' }: IHeaderNavigationCategories) => {
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(label);
   const useLocation = usePathname();
 
-  const isActive = useLocation.includes(url?.toLowerCase()) || (useLocation === '/' && url?.toLowerCase() === 'todos') || (useLocation === '/' && url?.toLowerCase() === 'all');
+  const isActive =
+    useLocation.includes(url?.toLowerCase()) ||
+    (useLocation === '/' && url?.toLowerCase() === 'todos') ||
+    (useLocation === '/' && url?.toLowerCase() === 'all');
 
   return (
     <Link
