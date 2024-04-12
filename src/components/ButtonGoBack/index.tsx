@@ -18,7 +18,14 @@ export default function ButtonGoBack() {
       className="hover:bg-transparent bg-transparent mb-5 z-10 md:mb-0 md:pl-0 md:absolute md:left-16 xl:left-32"
       onClick={handleGoBack}
     >
-      <Image className="h-8 w-8" alt="arrow-left-go-back-button" src="/arrow-left.svg" width={34} height={34} unoptimized />
+      <Image
+        className="h-8 w-8"
+        alt="arrow-left-go-back-button"
+        src="/arrow-left.svg"
+        width={34}
+        height={34}
+        unoptimized
+      />
     </Button>
   );
 }
