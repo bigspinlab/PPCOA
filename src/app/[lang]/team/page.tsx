@@ -13,6 +13,13 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   return metadata;
 }
 
+// Generate segments for [lang]
+export async function generateStaticParams({ params }:  { params: { lang: string }}) {
+  return [{
+    lang: params.lang
+  }]
+}
+
 export default async function Team({ params }: { params: { category: string; lang: string } }) {
   const queryClient = new QueryClient();
 
