@@ -15,7 +15,7 @@ export default function ButtonGoBack() {
     <Button
       aria-label="go-back"
       variant="ghost"
-      className="hover:bg-transparent bg-transparent mb-5 z-10 md:mb-0 md:pl-0 md:absolute md:left-16 xl:left-32"
+      className="hover:bg-transparent bg-transparent mb-5 z-[5] md:mb-0 md:pl-0 md:absolute md:left-16 xl:left-32"
       onClick={handleGoBack}
     >
       <Image
