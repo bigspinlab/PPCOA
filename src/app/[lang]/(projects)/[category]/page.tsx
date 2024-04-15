@@ -1,5 +1,6 @@
 'use server';
 import { getProjectList } from '@/api';
+import { getCategoryMetadata } from '@/api/getCategoryMetadata';
 import ProjectsList from '@/components/ProjectsList';
 import RootWrapper from '@/components/RootWrapper';
 import { ROUTES } from '@/global/constants';
@@ -8,25 +9,11 @@ import { IProjectList } from '@/types';
 // import { IHeadlessContentPage } from '@/types';
 import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
 
-// export async function generateMetadata({ params }: { params: { category: string; lang: string } }) {
-//   const url = `https://danielribamar-001-site1.itempurl.com/api/v1/categories/${params.category}`;
-//   const response = await fetch(url, {
-//     method: 'GET',
-//     headers: {
-//       'x-content-culture': params.lang
-//     }
-//   });
+export async function generateMetadata({ params }:  { params: { category: string; lang: string }}) {
+  const metadata = await getCategoryMetadata({ params });
+  return metadata;
+}
 
-//   const seoData: IHeadlessContentPage = await response.json();
-//   return {
-//     title: `PPCOA :: ${seoData?.seo?.title}`,
-//     description: seoData?.seo?.description,
-//     metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
-//     openGraph: {
-//       images: [removeBaseUrl(seoData?.seo?.imageSrc?.url)]
-//     }
-//   };
-// }
 
 // Generate segments for both [category] and [product]
 // export async function generateStaticParams() {

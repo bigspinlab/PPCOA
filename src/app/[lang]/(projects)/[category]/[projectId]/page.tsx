@@ -7,27 +7,12 @@ import FakeCarousel from '@/components/FakeCarousel';
 // import { removeBaseUrl } from '@/global/utils';
 import { getProjectDetail } from '@/api';
 import { ROUTES } from '@/global/constants';
+import { getProjectIdMetadata } from '@/api/getProjectIdMetadata';
 
-// export async function generateMetadata({ params }: { params: { category: string; projectId: string } }) {
-//   const url = `https://danielribamar-001-site1.itempurl.com/api/v1/projects?route=/projects/${params.category}/${params.projectId}`;
-//   const response = await fetch(url, {
-//     method: 'GET',
-//     headers: {
-//       'x-content-culture': 'en-US'
-//     }
-//   });
-
-//   const seoData: IHeadlessContentPage = await response.json();
-
-//   return {
-//     title: `PPCOA :: ${seoData?.seo?.title}`,
-//     description: seoData?.seo?.description,
-//     metadataBase: new URL('https://danielribamar-001-site1.itempurl.com/'),
-//     openGraph: {
-//       images: [removeBaseUrl(seoData?.seo?.imageSrc?.url)]
-//     }
-//   };
-// }
+export async function generateMetadata({ params }:  { params: { category: string; projectId: string; lang: string }}) {
+  const metadata = await getProjectIdMetadata({ params });
+  return metadata;
+}
 
 // // Generate segments for both [category] and [product]
 // export async function generateStaticParams() {
