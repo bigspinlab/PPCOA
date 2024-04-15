@@ -28,8 +28,9 @@ export const ROUTES = {
   privacyPolicy: { name: 'Privacy Policy', path: '/privacy-policy', queryKey: 'privacyPolicyContent' }
 };
 
-const locales = [{ locale: 'pt' }, { locale: 'en' }];
+export const websiteDomain = 'https://ppcoa.org';
 
+const locales = [{ locale: 'pt' }, { locale: 'en' }];
 const defaultLocale = 'pt';
 
 export { defaultLocale, locales };
