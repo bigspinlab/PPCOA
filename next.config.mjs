@@ -16,7 +16,7 @@ const nextConfig = {
             value: 'pt'
           }
         ],
-        destination: '/pt/todos',
+        destination: '/pt/all',
         permanent: true
       },
       {
@@ -32,8 +32,8 @@ const nextConfig = {
         permanent: true
       },
       {
-        source: '/pt/all',
-        destination: '/pt/todos',
+        source: '/pt/todos',
+        destination: '/pt/all',
         permanent: true
       },
       {
