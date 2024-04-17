@@ -24,7 +24,10 @@ export default function NavRouteList({ onRouteClick, lang }: NavRouteListProps) 
   return (
     <ul className="flex flex-col px-4 py-3 lg:flex-row lg:items-center gap-5 lg:p-0">
       {headerNavList?.content?.navigation?.content?.items?.map((route: IHeaderNavigationItems) => {
-        const isActive = useLocation.startsWith(route.url) || route.url.startsWith(useLocation) || (useLocation === '/' && route?.url === 'all');
+        const isActive =
+          useLocation.startsWith(route.url) ||
+          route.url.startsWith(useLocation) ||
+          (useLocation === '/' && route?.url === 'all');
 
         return (
           <li key={route.id} className="text-right text-4xl font-extralight lg:text-2xl">
