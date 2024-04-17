@@ -75,7 +75,7 @@ export const getHeadlessMaster = async () => {
   const response = await fetch(url, {
     method: 'GET',
     headers: {
-      'x-content-culture': 'pt'
+      'x-content-culture': 'en-US'
     }
   });
 

@@ -67,7 +67,7 @@ export default function ImageText() {
         <article className="w-full pl-4 grid md:pl-0 lg:grid-cols-12">
           <Rectangle customStyles="w-5/6 justify-self-end bg-red-100 mb-48 md:mb-20 lg:mb-28 lg:col-start-2 lg:w-full lg:justify-self-start lg:col-end-8" />
           <div className="pr-4 max-w-96 justify-self-center lg:col-start-9 lg:col-end-12 lg:pr-0">
-            <div className="text-xl">{parse(`${imageText.widgets[2].content?.firstParagraph}`)}</div>
+            <div className="text-xl">{parse(`${imageText.widgets[2].content?.richText}`)}</div>
           </div>
         </article>
       </section>

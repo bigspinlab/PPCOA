@@ -7,15 +7,12 @@ import { usePathname } from 'next/navigation';
 const FilterItem = ({ id, label, url = '/' }: IHeaderNavigationCategories) => {
   const labelWithFirstLetterCapitalized = capitalizeFirstLetter(label);
   const useLocation = usePathname();
-  const urlWithoutLanguageCode = url.replace(/\/(pt|en)/, '');
 
-  const isActive =
-    useLocation.includes(urlWithoutLanguageCode?.toLowerCase()) ||
-    (useLocation === '/' && url?.toLowerCase() === 'todos');
+  const isActive = useLocation.includes(url?.toLowerCase()) || (useLocation === '/' && url?.toLowerCase() === 'todos');
 
   return (
     <Link
-      href={`${urlWithoutLanguageCode}`}
+      href={`/${url}`}
       data-testid={`filter-item-${id}`}
       className="w-auto h-auto flex flex-col justify-center items-center shrink-0 p-0 px-3 md:px-4"
     >

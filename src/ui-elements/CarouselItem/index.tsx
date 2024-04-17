@@ -34,7 +34,7 @@ const CarouselItemContent = ({ carouselItemType, content, settings, alias, id, c
           alt={`carousel-figure-${id}-${content.imageSrc.alt}`}
           src={content.imageSrc.url}
           fill
-          sizes="(min-width: 48em) 100vw, 100vw"
+          sizes="100vw"
           data-loaded="false"
           onLoad={(event) => {
             event.currentTarget.setAttribute('data-loaded', 'true');
