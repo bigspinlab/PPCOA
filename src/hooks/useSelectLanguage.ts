@@ -17,10 +17,8 @@ export const useSelectLanguage = (currentLanguage: string) => {
 
     // redirect to the new locale path
     if (currentLanguage !== newLocale) {
-      router.push(currentPathname.replace(`/${currentLanguage}`, `/${newLocale}`));
-      router.refresh()
+      router.replace(currentPathname.replace(`/${currentLanguage}`, `/${newLocale}`));
     }
-   
   };
 
   return {
