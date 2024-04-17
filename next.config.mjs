@@ -9,6 +9,16 @@ const nextConfig = {
       // Basic redirect
       {
         source: '/',
+        destination: '/pt/all',
+        permanent: true
+      },
+      {
+        source: '/',
+        destination: '/en/all',
+        permanent: true
+      },
+      {
+        source: '/',
         has: [
           {
             type: 'cookie',
@@ -60,6 +70,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'danielribamar-001-site1.itempurl.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'ppcoa.org'
       }
     ],
     dangerouslyAllowSVG: true,
