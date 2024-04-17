@@ -9,9 +9,23 @@ const nextConfig = {
       // Basic redirect
       {
         source: '/',
-        destination: '/all',
+        destination: '/pt/all',
         permanent: true,
-        locale: false
+      },
+      {
+        source: '/',
+        destination: '/en/all',
+        permanent: true
+      },
+      {
+        source: '/pt',
+        destination: '/pt/all',
+        permanent: true
+      },
+      {
+        source: '/en',
+        destination: '/en/all',
+        permanent: true
       },
       {
         source: '/',
