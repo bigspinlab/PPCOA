@@ -8,7 +8,7 @@ import { ROUTES } from '@/global/constants';
 import { getProjectIdMetadata } from '@/api/getProjectIdMetadata';
 // import { IProject, IProjectList } from '@/types';
 
-export async function generateMetadata({ params }:  { params: { category: string; projectId: string; lang: string }}) {
+export async function generateMetadata({ params }: { params: { category: string; projectId: string; lang: string } }) {
   const metadata = await getProjectIdMetadata({ params });
   return metadata;
 }

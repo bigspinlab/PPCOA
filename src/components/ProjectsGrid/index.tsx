@@ -32,7 +32,7 @@ export default function ProjectsGrid({ params }: { params: { category: string; p
         <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
           {projectGrid?.content?.map((project: IProject) => (
             <li key={project.id}>
-              <ProjectCard {...project} category="" />
+              <ProjectCard {...project} showCategoryText={false} />
             </li>
           ))}
         </ul>

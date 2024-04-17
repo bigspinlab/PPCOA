@@ -52,7 +52,7 @@ export default function ProjectsList({ params }: { params: { category: string; l
     <>
       {projectList?.map((project: IProject) => (
         <li key={project.id}>
-          <ProjectCard {...project} />
+          <ProjectCard {...project} showCategoryText />
         </li>
       ))}
       {isFetchingNextPage || isFetching ? (

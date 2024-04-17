@@ -10,7 +10,7 @@ type SelectLanguageProps = Pick<IFooter['content'], 'languages'> & { currentLang
 
 export default function SelectLanguage({ languages, currentLanguage }: SelectLanguageProps) {
   const { handleChangeLanguage } = useSelectLanguage(currentLanguage);
-  
+
   return (
     <Select onValueChange={(e) => handleChangeLanguage(e)}>
       <SelectTrigger aria-label="change-language" className="justify-start gap-0.5 text-base font-bold mt-5">

@@ -1,13 +1,18 @@
-import { IHeadlessContentPage, ISeo } from "@/types";
-import { getProjectList } from ".";
-import { Metadata } from "next";
-import { websiteDomain } from "@/global/constants";
+import { IHeadlessContentPage, ISeo } from '@/types';
+import { getProjectList } from '.';
+import { Metadata } from 'next';
+import { websiteDomain } from '@/global/constants';
 
-export const getCategoryMetadata = async ({ params }: { params: { lang: string, category: string; }}) => {
-  const response = getProjectList<IHeadlessContentPage>({ lang: params.lang, category: params.category, pageNumber: 1, perPage: 1})
+export const getCategoryMetadata = async ({ params }: { params: { lang: string; category: string } }) => {
+  const response = getProjectList<IHeadlessContentPage>({
+    lang: params.lang,
+    category: params.category,
+    pageNumber: 1,
+    perPage: 1
+  });
 
   const seoData: ISeo = (await response).seo;
-  
+
   return {
     title: `PPCOA::${seoData?.title}`,
     description: seoData?.description,
@@ -16,12 +21,12 @@ export const getCategoryMetadata = async ({ params }: { params: { lang: string, 
     alternates: {
       canonical: `${websiteDomain}/${params.lang}/${params.category}`,
       languages: {
-        'pt': `${websiteDomain}/pt/${params.category}`,
-        'en': `${websiteDomain}/en/${params.category}`
+        pt: `${websiteDomain}/pt/${params.category}`,
+        en: `${websiteDomain}/en/${params.category}`
       }
     },
     openGraph: {
       images: [seoData?.imageSrc?.url]
     }
   } as Metadata;
-}
+};

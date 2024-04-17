@@ -8,11 +8,10 @@ import { ROUTES } from '@/global/constants';
 //import { IHeader, IHeaderNavigationCategories, IHeadlessMaster, IProjectList } from '@/types';
 import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
 
-export async function generateMetadata({ params }:  { params: { category: string; lang: string }}) {
+export async function generateMetadata({ params }: { params: { category: string; lang: string } }) {
   const metadata = await getCategoryMetadata({ params });
   return metadata;
 }
-
 
 // Generate segments for [category]
 // export async function generateStaticParams({ params }:  { params: { lang: string }}) {
@@ -20,7 +19,7 @@ export async function generateMetadata({ params }:  { params: { category: string
 //   const headerNavigation = staticParams?.widget[0] as IHeader;
 
 //   console.log('headerNavigation', headerNavigation)
-  
+
 //   return headerNavigation?.content?.navigation?.content?.categories?.map((categoryItem: IHeaderNavigationCategories) => ({
 //     lang: params.lang,
 //     category: categoryItem.url
