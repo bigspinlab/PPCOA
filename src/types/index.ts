@@ -5,8 +5,8 @@ export interface IProject {
   id?: string;
   title: string;
   category?: string;
-  urlName?: string;
-  urlNameAlias: string;
+  urlName: string;
+  urlNameAlias?: string;
   image: {
     url: string;
     alt: string;
