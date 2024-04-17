@@ -3,31 +3,22 @@
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import ProjectsGrid from '@/components/ProjectsGrid';
 import FakeCarousel from '@/components/FakeCarousel';
-// import { IHeadlessContentPage } from '@/types';
-// import { removeBaseUrl } from '@/global/utils';
 import { getProjectDetail } from '@/api';
 import { ROUTES } from '@/global/constants';
 import { getProjectIdMetadata } from '@/api/getProjectIdMetadata';
+// import { IProject, IProjectList } from '@/types';
 
 export async function generateMetadata({ params }:  { params: { category: string; projectId: string; lang: string }}) {
   const metadata = await getProjectIdMetadata({ params });
   return metadata;
 }
 
-// // Generate segments for both [category] and [product]
-// export async function generateStaticParams() {
-//   const url = `http://danielribamar-001-site1.itempurl.com/api/v1/categories/todos`;
-//   const response = await fetch(url, {
-//     method: 'GET',
-//     headers: {
-//       'x-content-culture': 'en-US'
-//     }
-//   });
+// Generate segments for both [category] and [projectId]
+// export async function generateStaticParams({ params }:  { params: { category: string; lang: string }}) {
+//   console.log('projectId', params)
+//   const staticParams = await getProjectList<IProjectList>({ category: params.category, perPage: 4, pageNumber: 1, lang: params.lang })
 
-//   const staticParams = await response.json();
-
-//   return staticParams?.widgets[0]?.content?.map((project: any) => ({
-//     category: project?.urlNameAlias?.split('/')[1],
+//   return staticParams?.content?.map((project: IProject) => ({
 //     projectId: project?.urlNameAlias?.split('/')[2]
 //   }));
 // }

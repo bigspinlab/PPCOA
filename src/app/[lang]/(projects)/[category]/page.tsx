@@ -4,9 +4,8 @@ import { getCategoryMetadata } from '@/api/getCategoryMetadata';
 import ProjectsList from '@/components/ProjectsList';
 import RootWrapper from '@/components/RootWrapper';
 import { ROUTES } from '@/global/constants';
-import { IProjectList } from '@/types';
-// import { removeBaseUrl } from '@/global/utils';
-// import { IHeadlessContentPage } from '@/types';
+// import { IHeader, IHeaderNavigationCategories, IHeadlessMaster, IProjectList } from '@/types';
+//import { IHeader, IHeaderNavigationCategories, IHeadlessMaster, IProjectList } from '@/types';
 import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query';
 
 export async function generateMetadata({ params }:  { params: { category: string; lang: string }}) {
@@ -15,19 +14,15 @@ export async function generateMetadata({ params }:  { params: { category: string
 }
 
 
-// Generate segments for both [category] and [product]
-// export async function generateStaticParams() {
-//   const url = `https://danielribamar-001-site1.itempurl.com/api/v1/content/master`;
-//   const response = await fetch(url, {
-//     method: 'GET',
-//     headers: {
-//       'x-content-culture': 'en-US'
-//     }
-//   });
+// Generate segments for [category]
+// export async function generateStaticParams({ params }:  { params: { lang: string }}) {
+//   const staticParams = await getHeadlessMaster<IHeadlessMaster>({ lang: params.lang });
+//   const headerNavigation = staticParams?.widget[0] as IHeader;
 
-//   const staticParams = await response.json();
-
-//   return staticParams?.widget[0]?.content?.navigation?.content?.categories?.map((categoryItem: any) => ({
+//   console.log('headerNavigation', headerNavigation)
+  
+//   return headerNavigation?.content?.navigation?.content?.categories?.map((categoryItem: IHeaderNavigationCategories) => ({
+//     lang: params.lang,
 //     category: categoryItem.url
 //   }));
 // }
@@ -38,7 +33,7 @@ export default async function Category({ params }: { params: { category: string;
   await queryClient.prefetchInfiniteQuery({
     queryKey: [ROUTES.projects.queryKey, params.category, params.lang],
     queryFn: ({ pageParam }) =>
-      getProjectList<IProjectList>({ category: params.category, perPage: 4, pageNumber: pageParam, lang: params.lang }),
+      getProjectList({ category: params.category, perPage: 4, pageNumber: pageParam, lang: params.lang }),
     initialPageParam: 1,
     getNextPageParam: (lastPage: any) => {
       const hasNextPage = lastPage.widgets[0].settings.next_page > lastPage.widgets[0].settings.current_page;
