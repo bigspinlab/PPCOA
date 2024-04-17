@@ -1,11 +1,13 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 
 export const useSelectLanguage = (currentLanguage: string) => {
   const router = useRouter();
   const currentPathname = usePathname();
+  const searchParams = useSearchParams();
+  const searchParamsCategory = searchParams.get('category');
 
   const handleChangeLanguage = (newLocale: string) => {
     // set cookie for next-i18n-router
@@ -16,7 +18,11 @@ export const useSelectLanguage = (currentLanguage: string) => {
     document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 
     // redirect to the new locale path
-    if (currentLanguage !== newLocale) {
+    if (currentLanguage !== newLocale && searchParamsCategory) {
+      router.replace(
+        currentPathname.replace(`/${currentLanguage}`, `/${newLocale}`) + `?category=${searchParamsCategory}`
+      );
+    } else {
       router.replace(currentPathname.replace(`/${currentLanguage}`, `/${newLocale}`));
     }
   };
