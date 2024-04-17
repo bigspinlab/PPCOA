@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { defaultLocale } from '@/global/constants';
 import { usePathname } from 'next/navigation';
 
 export const useSelectLanguage = (currentLanguage: string) => {
@@ -17,11 +16,11 @@ export const useSelectLanguage = (currentLanguage: string) => {
     document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 
     // redirect to the new locale path
-    if (currentLanguage !== defaultLocale) {
+    if (currentLanguage !== newLocale) {
       router.push(currentPathname.replace(`/${currentLanguage}`, `/${newLocale}`));
+      router.refresh()
     }
-
-    router.refresh();
+   
   };
 
   return {
