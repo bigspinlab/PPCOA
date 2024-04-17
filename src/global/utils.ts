@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { ICarousel, IRichTextContent, IImageText, ITeamList, IHeadlessContentPage } from '@/types/home';
+import { ICarousel, IRichTextContent, IImageText, ITeamList, IHeadlessContentPage } from '@/types';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -41,14 +41,3 @@ export const mapColorToClassName = (color: string): BACKGROUND_COLOR => {
 
   return bgColor[color as keyof typeof bgColor];
 };
-
-export function removeBaseUrl(fullUrl: string) {
-  const baseUrl = 'https://danielribamar-001-site1.itempurl.com/';
-  // Check if the fullUrl starts with the base URL
-  if (fullUrl && fullUrl.startsWith(baseUrl)) {
-    // Remove the base URL from the full URL
-    return fullUrl.slice(baseUrl.length);
-  }
-  // Return the full URL if it doesn't start with the base URL
-  return fullUrl;
-}

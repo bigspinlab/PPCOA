@@ -5,8 +5,8 @@ export interface IProject {
   id?: string;
   title: string;
   category?: string;
-  urlName?: string;
-  urlNameAlias: string;
+  urlName: string;
+  urlNameAlias?: string;
   image: {
     url: string;
     alt: string;
@@ -126,13 +126,11 @@ export interface IFormFields {
 }
 
 export interface IFormContact {
-  form: {
-    id: string;
-    alias: string;
-    title: string;
-    fields: IFormFields[];
-    submitText: string;
-  };
+  id: string;
+  alias: string;
+  title: string;
+  fields: IFormFields[];
+  submitText: string;
 }
 
 export interface IContactPage {
@@ -154,8 +152,88 @@ export interface ISeo {
 }
 
 export interface IHeadlessContentPage {
-  widgets: (ICarousel | IRichTextContent | IImageText | ITeamList | IContactPage | IProjectList)[];
+  widgets: (ICarousel | IRichTextContent | IImageText | ITeamList | IContactPage | IProjectList | IContactColumns)[];
   seo: ISeo;
+}
+
+export interface IHeaderBrandLogo {
+  id: number | string;
+  alias: string;
+  content: {
+    url: string;
+    alt: string;
+  };
+}
+
+export interface IHeaderNavigationItems {
+  id: number | string;
+  label: string;
+  url: string;
+}
+
+export interface IHeaderNavigationCategories {
+  id: number | string;
+  label: string;
+  themeColor?: string;
+  url: string;
+  type?: FILTER_ICON;
+}
+
+export interface IHeaderNavigation {
+  id: number | string;
+  alias: string;
+  content: {
+    items: IHeaderNavigationItems[];
+    categories: IHeaderNavigationCategories[];
+  };
+}
+
+export interface IHeader {
+  id: string;
+  alias: string;
+  content: {
+    brandLogo: IHeaderBrandLogo;
+    navigation: IHeaderNavigation;
+  };
+}
+
+export interface IFooterImage {
+  url: string;
+  alt: string;
+}
+
+export interface IFooterGridColumns {
+  id: number | string;
+  text: string;
+}
+
+export interface IFooterLanguagesContent {
+  id: number | string;
+  name: string;
+  value: string;
+  code: string;
+}
+
+export interface IFooterLanguages {
+  id: number | string;
+  alias: string;
+  content: {
+    items: IFooterLanguagesContent[];
+  };
+}
+
+export interface IFooter {
+  id: string;
+  alias: string;
+  content: {
+    image: IFooterImage;
+    gridColumns: IFooterGridColumns[];
+    languages: IFooterLanguages;
+  };
+}
+
+export interface IHeadlessMaster {
+  widget: (IHeader | IFooter)[];
 }
 
 export enum FILTER_ICON {
@@ -176,4 +254,16 @@ export interface IContactColumns {
   id: string;
   alias: string;
   items: IContactColumnsItems[];
+}
+
+export enum UmbracoWidgets {
+  header = 'header',
+  brandLogo = 'brandLogo',
+  navigation = 'navigation',
+  footer = 'footer',
+  languages = 'languages',
+  contactColumns = 'contact-columns',
+  contactForm = 'contact-form',
+  projectCard = 'projectCard',
+  carousel = 'carousel'
 }

@@ -1,5 +1,58 @@
+import createNextIntlPlugin from 'next-intl/plugin';
+
+const withNextIntl = createNextIntlPlugin();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      // Basic redirect
+      {
+        source: '/',
+        destination: '/pt/all',
+        permanent: true
+      },
+      {
+        source: '/',
+        destination: '/en/all',
+        permanent: true
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'cookie',
+            key: 'NEXT_LOCALE',
+            value: 'pt'
+          }
+        ],
+        destination: '/pt/all',
+        permanent: true
+      },
+      {
+        source: '/',
+        has: [
+          {
+            type: 'cookie',
+            key: 'NEXT_LOCALE',
+            value: 'en'
+          }
+        ],
+        destination: '/en/all',
+        permanent: true
+      },
+      {
+        source: '/pt/todos',
+        destination: '/pt/all',
+        permanent: true
+      },
+      {
+        source: '/en/todos',
+        destination: '/en/all',
+        permanent: true
+      }
+    ];
+  },
   images: {
     remotePatterns: [
       {
@@ -17,6 +70,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'danielribamar-001-site1.itempurl.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'ppcoa.org'
       }
     ],
     dangerouslyAllowSVG: true,
@@ -25,4 +82,4 @@ const nextConfig = {
   }
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

@@ -11,9 +11,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/ui-elements/TextArea';
 import { Checkbox } from '@/ui-elements/Checkbox';
 import Link from 'next/link';
-import { useGetHeadlessContent } from '@/hooks/useGetHeadlessContent';
-import { FORM_TYPE_FIELDS, IFormFields, IFormOptions } from '@/types/home';
+import { FORM_TYPE_FIELDS, IContactPage, IFormFields, IFormOptions, IHeadlessContentPage } from '@/types';
 import { useToast } from '@/hooks/useToast';
+import { ROUTES } from '@/global/constants';
+import { getHeadless } from '@/api';
+import { useQuery } from '@tanstack/react-query';
 
 const formSchema = z.object({
   email: z
@@ -36,10 +38,13 @@ const defaultValues: Partial<z.infer<typeof formSchema>> = {
   policies: false
 };
 
-export default function FormContact() {
+export default function FormContact({ params }: { params: { lang: string } }) {
   const { toast } = useToast();
-  const { data: formContent } = useGetHeadlessContent({ route: 'contact', queryKey: 'contactContent' });
-
+  const { data: formContentData } = useQuery<IHeadlessContentPage>({
+    queryKey: [ROUTES.contact.queryKey],
+    queryFn: () => getHeadless({ route: ROUTES.contact.path, lang: params.lang })
+  });
+  const formContent = formContentData?.widgets[0] as IContactPage;
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -169,7 +174,7 @@ export default function FormContact() {
     )
   };
 
-  if (!formContent) {
+  if (!formContentData) {
     return null;
   }
 
@@ -177,7 +182,7 @@ export default function FormContact() {
     <RootWrapper customClassName="w-full flex justify-start">
       <h2 className="sr-only">Contact form</h2>
       <article className="flex flex-col items-start grow">
-        <h3 className="font-bold mb-5">{formContent.widgets[0].content.form.title}</h3>
+        <h3 className="font-bold mb-5">{formContent.content.form.title}</h3>
         <Form {...form}>
           <form
             autoComplete="off"
@@ -185,7 +190,7 @@ export default function FormContact() {
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col space-y-8 w-full md:w-4/5 lg:w-1/2"
           >
-            {formContent.widgets[0].content?.form?.fields?.map((fieldItem: IFormFields) => {
+            {formContent.content?.form?.fields?.map((fieldItem: IFormFields) => {
               return formFieldContent[fieldItem.type](fieldItem);
             })}
             <Button
@@ -195,7 +200,7 @@ export default function FormContact() {
               className="ml-auto border-black text-xl px-5 py-2 h-auto"
               disabled={!form.formState.isValid}
             >
-              {formContent.widgets[0].content.form.submitText}
+              {formContent.content.form.submitText}
             </Button>
           </form>
         </Form>

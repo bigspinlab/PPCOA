@@ -1,15 +1,20 @@
-import { useGetHeadlessMaster } from '@/hooks/useGetHeadlessMaster';
 import { usePathname } from 'next/navigation';
 import NavRouteItem from '../NavRouteItem';
-import { IHeaderNavigationItems } from '@/lib/getHeadlessMaster';
+import { IHeader, IHeaderNavigationItems, IHeadlessMaster } from '@/types';
+import { getHeadlessMaster } from '@/api';
+import { useQuery } from '@tanstack/react-query';
 
 interface NavRouteListProps {
   onRouteClick: () => void;
+  lang: string;
 }
 
-export default function NavRouteList({ onRouteClick }: NavRouteListProps) {
-  const { data: headerNavList } = useGetHeadlessMaster();
-
+export default function NavRouteList({ onRouteClick, lang }: NavRouteListProps) {
+  const { data: headerNavListData } = useQuery<IHeadlessMaster>({
+    queryKey: ['masterPage'],
+    queryFn: () => getHeadlessMaster({ lang })
+  });
+  const headerNavList = headerNavListData?.widget[0] as IHeader;
   const useLocation = usePathname();
 
   if (!headerNavList) {
@@ -18,7 +23,7 @@ export default function NavRouteList({ onRouteClick }: NavRouteListProps) {
 
   return (
     <ul className="flex flex-col px-4 py-3 lg:flex-row lg:items-center gap-5 lg:p-0">
-      {headerNavList[0].content.navigation.content.items.map((route: IHeaderNavigationItems) => {
+      {headerNavList?.content?.navigation?.content?.items?.map((route: IHeaderNavigationItems) => {
         const isActive = route?.url === '/' ? useLocation === route?.url : useLocation.includes(route?.url);
 
         return (
