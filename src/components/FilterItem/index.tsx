@@ -10,7 +10,6 @@ const FilterItem = ({ id, label, url }: IHeaderNavigationCategories) => {
 
   const isActive =
     useLocation.includes(url?.toLowerCase()) ||
-    (useLocation === '/' && url?.toLowerCase() === 'todos') ||
     (useLocation === '/' && url?.toLowerCase() === 'all');
 
   return (
