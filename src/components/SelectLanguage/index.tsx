@@ -12,7 +12,7 @@ export default function SelectLanguage({ languages, currentLanguage }: SelectLan
   const { handleChangeLanguage } = useSelectLanguage(currentLanguage);
 
   return (
-    <Select onValueChange={(e) => handleChangeLanguage(e)}>
+    <Select onValueChange={(e) => handleChangeLanguage(e)} defaultValue={currentLanguage}>
       <SelectTrigger aria-label="change-language" className="justify-start gap-0.5 text-base font-bold mt-5">
         <Image className="h-5 w-5 mr-1" alt="language" src="/language.svg" width={34} height={34} unoptimized />
         <SelectValue placeholder={currentLanguage.toUpperCase()} />
