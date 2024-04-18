@@ -4,7 +4,7 @@ import { Skeleton } from '@/ui-elements/Skeleton';
 export default function Loading() {
   return (
     <>
-      <div className="w-full h-96 pt-44 mb-17 md:mb-36"></div>
+      <Skeleton className="h-96 pt-44 mb-17 w-full mt-60 md:ml-16 md:mb-36 lg:h-[700px] xl:ml-32" />;
       <RootWrapper customClassName="w-full">
         <div className="flex flex-col gap-10">
           <Skeleton className="h-10 w-2/4 mb-9 sm:w-64 md:mb-20 lg:mb-28" />
