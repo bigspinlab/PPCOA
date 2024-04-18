@@ -8,14 +8,19 @@ import { CarouselItemContent } from '@/ui-elements/CarouselItem';
 import { ScrollBar, ScrollArea } from '@/ui-elements/ScrollArea';
 import { useQuery } from '@tanstack/react-query';
 import ButtonGoBack from '../ButtonGoBack';
+import { Skeleton } from '@/ui-elements/Skeleton';
 
 export default function FakeCarousel({ params }: { params: { category: string; projectId: string; lang: string } }) {
   const { category, projectId } = params;
 
-  const { data: projectDetailData } = useQuery<IHeadlessContentPage>({
+  const { data: projectDetailData, isLoading } = useQuery<IHeadlessContentPage>({
     queryKey: [ROUTES.projectDetails.queryKey, projectId],
     queryFn: () => getProjectDetail({ projectName: projectId, lang: params.lang })
   });
+
+  if (isLoading) {
+    return <Skeleton className="h-96 pt-44 mb-17 w-full mt-60 md:ml-16 md:mb-36 lg:h-[700px] xl:ml-32" />;
+  }
 
   if (!projectDetailData) {
     return null;
