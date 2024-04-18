@@ -1,11 +1,10 @@
 'use server';
 
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
-import ProjectsGrid from '@/components/ProjectsGrid';
-import FakeCarousel from '@/components/FakeCarousel';
 import { getProjectDetail } from '@/api';
 import { ROUTES } from '@/global/constants';
 import { getProjectIdMetadata } from '@/api/getProjectIdMetadata';
+import ProjectDetailWrapper from '@/components/ProjectDetailWrapper';
 // import { IProject, IProjectList } from '@/types';
 
 export async function generateMetadata({ params }: { params: { category: string; projectId: string; lang: string } }) {
@@ -39,8 +38,7 @@ export default async function ProjectDetails({
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <FakeCarousel params={{ category, projectId, lang: params.lang }} />
-      <ProjectsGrid params={{ category, projectId, lang: params.lang }} />
+      <ProjectDetailWrapper params={{ category, projectId, lang: params.lang }} />
     </HydrationBoundary>
   );
 }
