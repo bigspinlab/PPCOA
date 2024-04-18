@@ -9,10 +9,13 @@ import { capitalizeFirstLetter } from '@/global/utils';
 import { ROUTES } from '@/global/constants';
 import { getProjectDetail } from '@/api';
 import { Skeleton } from '@/ui-elements/Skeleton';
+import { useSearchParams } from 'next/navigation';
 
 export default function ProjectsGrid({ params }: { params: { category: string; projectId: string; lang: string } }) {
-  const { category, projectId } = params;
-  const categoryWithFirstLetterCapitalized = capitalizeFirstLetter(category);
+  const { projectId } = params;
+  const searchParams = useSearchParams()
+  const searchParamsCategory = searchParams.get('category') ?? '';
+  const categoryWithFirstLetterCapitalized = capitalizeFirstLetter(searchParamsCategory);
 
   const { data: projectGridData, isLoading } = useQuery({
     queryKey: [ROUTES.projectDetails.queryKey, projectId, params.lang],
