@@ -28,7 +28,7 @@ const FilterList = ({ lang }: { lang: string }) => {
         let isCategoryActive = false;
 
         if (searchParamsCategory) {
-          isCategoryActive = category.url.includes(searchParamsCategory);
+          isCategoryActive = category.label.toLowerCase() === searchParamsCategory;
         } else {
           isCategoryActive =
             useLocation.includes(category.url?.toLowerCase()) ||
