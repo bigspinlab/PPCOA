@@ -9,14 +9,14 @@ export default function GifIntro() {
   const [hasAnimationShown, setHasAnimationShown] = useState(false);
 
   useEffect(() => {
-    const token = getItem('ppcoaAnimation', 'local');
+    const token = getItem('ppcoaAnimation', 'session');
     const hasShown = token === 'true';
 
     if (!hasShown) {
       // Start the animation after a delay
       const timeout = setTimeout(() => {
         setHasAnimationShown(true);
-        setItem('ppcoaAnimation', 'true', 'local');
+        setItem('ppcoaAnimation', 'true', 'session');
       }, 6500); // 6.5 seconds
 
       return () => clearTimeout(timeout);
