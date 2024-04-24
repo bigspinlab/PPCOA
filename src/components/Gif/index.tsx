@@ -2,9 +2,10 @@
 
 import { useSessionStorage } from '@uidotdev/usehooks';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-function Gif() {
+// eslint-disable-next-line no-unused-vars
+function Gif({setRemoveAnimationBg}: {setRemoveAnimationBg: (value: React.SetStateAction<boolean>) => void}) {
   const [hasAnimationShown, setHasAnimationShown] = useSessionStorage('ppcoaAnimation', false);
 
   useEffect(() => {
@@ -15,11 +16,13 @@ function Gif() {
 
       return () => clearTimeout(timeout);
     } else {
+      setRemoveAnimationBg(true)
       setHasAnimationShown(true);
     }
-  }, [hasAnimationShown, setHasAnimationShown]);
+  }, [hasAnimationShown, setHasAnimationShown, setRemoveAnimationBg]);
 
   if (hasAnimationShown) {
+    () => setRemoveAnimationBg(true);
     return null;
   }
 
