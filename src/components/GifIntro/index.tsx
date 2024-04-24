@@ -6,15 +6,15 @@ import { useState } from 'react';
 export default function GifIntro() {
   const [showAnimation, setShowAnimation] = useState(true); 
 
+  if (!showAnimation) {
+    return null;
+  }
+
   setTimeout(() => {
     if (showAnimation) {
       setShowAnimation(false);
     }
-  }, 6600);
-
-  if (!showAnimation) {
-    return null;
-  }
+  }, 6550);
 
   return (
     <section className='fixed top-0 right-0 left-0 h-dvh w-full z-50 flex items-center justify-center bg-white animate-[fadeOut_1.5s_6.5s]'>
