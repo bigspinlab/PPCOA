@@ -12,7 +12,7 @@ function Gif({setRemoveAnimationBg}: {setRemoveAnimationBg: (value: React.SetSta
     if (!hasAnimationShown) {
       const timeout = setTimeout(() => {
         setHasAnimationShown(true);
-      }, 6600);
+      }, 6650);
 
       return () => clearTimeout(timeout);
     } else {
