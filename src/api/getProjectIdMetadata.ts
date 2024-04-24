@@ -30,7 +30,7 @@ export const getProjectIdMetadata = async ({
     icons: {
       icon: [
         {
-          url: '/favicon.ico',
+          url: '/favicon.ico'
         }
       ]
     }

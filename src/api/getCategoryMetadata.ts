@@ -31,7 +31,7 @@ export const getCategoryMetadata = async ({ params }: { params: { lang: string; 
     icons: {
       icon: [
         {
-          url: '/favicon.ico',
+          url: '/favicon.ico'
         }
       ]
     }

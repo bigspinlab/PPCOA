@@ -26,7 +26,7 @@ export const getStaticMetadata = async ({ params, route }: { params: { lang: str
     icons: {
       icon: [
         {
-          url: '/favicon.ico',
+          url: '/favicon.ico'
         }
       ]
     }

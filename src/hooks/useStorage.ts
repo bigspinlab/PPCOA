@@ -6,7 +6,7 @@ type UseStorageReturnValue = {
   removeItem: (key: string, type?: StorageType) => void;
 };
 
-const useStorage = ():UseStorageReturnValue => {
+const useStorage = (): UseStorageReturnValue => {
   const storageType = (type?: StorageType): 'localStorage' | 'sessionStorage' => `${type ?? 'session'}Storage`;
 
   const isBrowser: boolean = ((): boolean => typeof window !== 'undefined')();
@@ -31,8 +31,8 @@ const useStorage = ():UseStorageReturnValue => {
   return {
     getItem,
     setItem,
-    removeItem,
+    removeItem
   };
 };
 
-export default useStorage
+export default useStorage;
