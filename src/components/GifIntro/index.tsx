@@ -38,6 +38,7 @@ export default function GifIntro() {
           fill
           sizes="100vw"
           unoptimized
+          priority
         />
       </article>
     </section>
