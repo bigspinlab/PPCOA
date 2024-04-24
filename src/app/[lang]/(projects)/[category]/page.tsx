@@ -50,7 +50,7 @@ export default async function Category({ params }: { params: { category: string;
     <RootWrapper customClassName="w-full">
       <h2 className="sr-only">Project list {params.category}</h2>
       <article className="pt-14 md:pt-44">
-        <ul className="w-full max-w-[550px] flex flex-col m-auto gap-16 lg:gap-20">
+        <ul className="w-full max-w-[550px] flex flex-col mx-auto gap-16 lg:gap-20">
           <HydrationBoundary state={dehydrate(queryClient)}>
             <ProjectsList params={params} />
           </HydrationBoundary>
