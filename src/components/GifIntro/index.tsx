@@ -13,15 +13,14 @@ export default function GifIntro() {
     const hasShown = token === 'true';
 
     if (!hasShown) {
-      // Start the animation after a delay
       const timeout = setTimeout(() => {
         setHasAnimationShown(true);
         setItem('ppcoaAnimation', 'true', 'session');
-      }, 6500); // 6.5 seconds
+      }, 6509);
 
       return () => clearTimeout(timeout);
     } else {
-      setHasAnimationShown(true); // Already shown, don't wait
+      setHasAnimationShown(true);
     }
   }, [getItem, setItem]);
 
