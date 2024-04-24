@@ -26,6 +26,13 @@ export const getProjectIdMetadata = async ({
     },
     openGraph: {
       images: [seoData?.imageSrc?.url]
+    },
+    icons: {
+      icon: [
+        {
+          url: '/favicon.ico'
+        }
+      ]
     }
   } as Metadata;
 };

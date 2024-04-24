@@ -8,6 +8,7 @@ import { Toaster } from '@/ui-elements/Toast/Toaster';
 import { Outfit } from 'next/font/google';
 import { getHeadlessMaster } from '@/api';
 import { IHeadlessMaster } from '@/types';
+import GifIntro from '@/components/GifIntro';
 
 const outFit = Outfit({
   subsets: ['latin'],
@@ -37,6 +38,7 @@ export default async function RootLayout({
             <h1 className="sr-only">PPCOA website</h1>
             <main className="w-full min-h-screen flex flex-col m-auto pt-22">{children}</main>
             <Footer lang={params.lang} />
+            <GifIntro />
             <Toaster />
           </HydrationBoundary>
         </Providers>

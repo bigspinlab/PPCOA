@@ -22,6 +22,13 @@ export const getStaticMetadata = async ({ params, route }: { params: { lang: str
     },
     openGraph: {
       images: [seoData?.imageSrc?.url]
+    },
+    icons: {
+      icon: [
+        {
+          url: '/favicon.ico'
+        }
+      ]
     }
   } as Metadata;
 };
