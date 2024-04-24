@@ -1,28 +1,23 @@
 'use client';
 
-import useStorage from '@/hooks/useStorage';
+import { useSessionStorage } from '@uidotdev/usehooks';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-export default function GifIntro() {
-  const { getItem, setItem } = useStorage();
-  const [hasAnimationShown, setHasAnimationShown] = useState(false);
+function Gif() {
+  const [hasAnimationShown, setHasAnimationShown] = useSessionStorage('ppcoaAnimation', false);
 
   useEffect(() => {
-    const token = getItem('ppcoaAnimation', 'session');
-    const hasShown = token === 'true';
-
-    if (!hasShown) {
+    if (!hasAnimationShown) {
       const timeout = setTimeout(() => {
         setHasAnimationShown(true);
-        setItem('ppcoaAnimation', 'true', 'session');
-      }, 6509);
+      }, 6550);
 
       return () => clearTimeout(timeout);
     } else {
       setHasAnimationShown(true);
     }
-  }, [getItem, setItem]);
+  }, [hasAnimationShown, setHasAnimationShown]);
 
   if (hasAnimationShown) {
     return null;
@@ -44,3 +39,5 @@ export default function GifIntro() {
     </section>
   );
 }
+
+export { Gif };
