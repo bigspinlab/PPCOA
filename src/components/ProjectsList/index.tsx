@@ -66,7 +66,7 @@ export default function ProjectsList({ params }: { params: { category: string; l
           <ProjectCard {...project} showCategoryText />
         </li>
       ))}
-      {isFetchingNextPage || isFetching ? (
+      {isFetchingNextPage || isFetching || isLoading ? (
         <li>
           <ProjectCardSkeleton />
         </li>
