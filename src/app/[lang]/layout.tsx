@@ -8,7 +8,7 @@ import { Toaster } from '@/ui-elements/Toast/Toaster';
 import { Outfit } from 'next/font/google';
 import { getHeadlessMaster } from '@/api';
 import { IHeadlessMaster } from '@/types';
-import GifIntro from '@/components/GifIntro';
+import { IntroAnimation } from '@/components/IntroAnimation';
 
 const outFit = Outfit({
   subsets: ['latin'],
@@ -36,9 +36,9 @@ export default async function RootLayout({
           <HydrationBoundary state={dehydrate(queryClient)}>
             <Header lang={params.lang} />
             <h1 className="sr-only">PPCOA website</h1>
-            <main className="w-full min-h-screen flex flex-col m-auto pt-22">{children}</main>
+            <main className="w-full min-h-screen flex flex-col mx-auto pt-22">{children}</main>
             <Footer lang={params.lang} />
-            <GifIntro />
+            <IntroAnimation />
             <Toaster />
           </HydrationBoundary>
         </Providers>

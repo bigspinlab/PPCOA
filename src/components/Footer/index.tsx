@@ -23,7 +23,7 @@ export default function Footer({ lang }: { lang: string }) {
 
   return (
     <footer className="w-full mt-16 border-t border-solid border-Black py-16 px-4 lg:p-16 lg:mt-24">
-      <div className="m-auto grid gap-6 md:grid-cols-12">
+      <div className="mx-auto grid gap-6 md:grid-cols-12">
         <Link href="/" className="shrink-0 md:col-start-1 md:col-end-2">
           <Image
             alt={`footer-${footerContent?.content?.image.alt}`}

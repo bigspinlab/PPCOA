@@ -12,7 +12,7 @@ import { ROUTES } from '@/global/constants';
 export default function ProjectsList({ params }: { params: { category: string; lang: string } }) {
   const [ref, inView] = useInView();
 
-  const { data, isFetchingNextPage, isFetching, fetchNextPage, hasNextPage } = useInfiniteQuery({
+  const { data, isFetchingNextPage, isFetching, fetchNextPage, hasNextPage, isFetched, isLoading } = useInfiniteQuery({
     queryKey: [ROUTES.projects.queryKey, params.category, params.lang],
     queryFn: ({ pageParam }) =>
       getProjectList<IProjectList>({
@@ -44,6 +44,17 @@ export default function ProjectsList({ params }: { params: { category: string; l
     return [...acc, ...page.widgets[0].content];
   }, []);
 
+  if (projectList.length === 0 && isFetched && !isFetchingNextPage && !isFetching && !isLoading) {
+    return (
+      <>
+        <div className="h-dvh flex flex-col items-center gap-2">
+          <h2>Empty project list</h2>
+          <span>This category is missing projects to be published</span>
+        </div>
+      </>
+    );
+  }
+
   if (!projectList) {
     return null;
   }
@@ -55,7 +66,7 @@ export default function ProjectsList({ params }: { params: { category: string; l
           <ProjectCard {...project} showCategoryText />
         </li>
       ))}
-      {isFetchingNextPage || isFetching ? (
+      {isFetchingNextPage || isFetching || isLoading ? (
         <li>
           <ProjectCardSkeleton />
         </li>
