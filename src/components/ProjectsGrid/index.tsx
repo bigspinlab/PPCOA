@@ -23,7 +23,7 @@ export default function ProjectsGrid({ projectGridData }: { projectGridData: IHe
       <h2 className="sr-only">Project Grid</h2>
       <article className="flex flex-col gap-10">
         <h3 className="font-bold">Outros Projetos {categoryWithFirstLetterCapitalized}</h3>
-        <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 lg:grid-cols-3">
+        <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-10 md:gap-y-4 lg:grid-cols-3">
           {projectGrid?.content?.map((project: IProject) => (
             <li key={project.id}>
               <ProjectCard {...project} showCategoryText={false} />
