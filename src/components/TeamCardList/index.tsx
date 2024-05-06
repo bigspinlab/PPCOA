@@ -13,13 +13,13 @@ export default function TeamCardList({ params }: { params: { lang: string } }) {
   });
   const teamList = teamListData?.widgets[0] as ITeamList;
 
-  if (!teamListData) {
+  if (!teamList) {
     return null;
   }
 
   return (
     <ul className="w-full grid grid-cols-1 gap-6 sm:grid-cols-2 lg:gap-y-36 lg:gap-x-8">
-      {teamList.content.map((team: ITeamMember) => (
+      {teamList?.content?.map((team: ITeamMember) => (
         <li key={team.id}>
           <TeamCard {...team} />
         </li>
