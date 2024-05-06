@@ -77,12 +77,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-outfit)', ...fontFamily.sans]
-      },
-      keyframes: {
-        fadeOut: {
-          '0%': { opacity: '1' },
-          '100%': { opacity: '0' }
-        }
       }
     }
   },
