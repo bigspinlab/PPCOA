@@ -14,7 +14,7 @@ function Gif({ setRemoveAnimationBg }: { setRemoveAnimationBg: (value: React.Set
     if (!hasAnimationShown) {
       const timeout = setTimeout(() => {
         setHasAnimationShown(true);
-      }, 8000);
+      }, 7000);
 
       return () => clearTimeout(timeout);
     } else {
@@ -25,7 +25,6 @@ function Gif({ setRemoveAnimationBg }: { setRemoveAnimationBg: (value: React.Set
 
   if (hasAnimationShown) {
     () => setRemoveAnimationBg(true);
-    return null;
   }
 
   return (
@@ -41,4 +40,4 @@ function Gif({ setRemoveAnimationBg }: { setRemoveAnimationBg: (value: React.Set
   );
 }
 
-export { Gif };
+export default Gif;

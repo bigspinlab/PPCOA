@@ -1,29 +1,31 @@
 'use client';
 
-import { useIsClient } from '@uidotdev/usehooks';
-import { Gif } from '../Gif';
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import dynamic from 'next/dynamic';
+
+const Gif = dynamic(() => import('../Gif'), {
+  ssr: false,
+});
 
 function IntroAnimation() {
   const [removeAnimationBg, setRemoveAnimationBg] = useState(false);
-  const isClient = useIsClient();
-
-  useEffect(() => {
-    if (!isClient) {
-      return;
-    }
-  }, [isClient, removeAnimationBg]);
-
-  if (removeAnimationBg) {
-    return null;
-  }
 
   return (
-    <section className="fixed top-0 right-0 left-0 h-dvh w-full z-50 flex items-center justify-center bg-white animate-[fadeOut_1.5s_8s]">
-      <article className="flex items-center justify-center">
-        {isClient ? <Gif setRemoveAnimationBg={setRemoveAnimationBg} /> : null}
-      </article>
-    </section>
+    <AnimatePresence>
+      {!removeAnimationBg ? (
+        <motion.section
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.5 }}
+          className="fixed top-0 right-0 left-0 h-dvh w-full z-50 flex items-center justify-center bg-white"
+        >
+          <article className="flex items-center justify-center">
+            <Gif setRemoveAnimationBg={setRemoveAnimationBg} />
+          </article>
+        </motion.section>
+      ) : null}
+    </AnimatePresence>
   );
 }
 
