@@ -1,5 +1,6 @@
 import { getHeadlessMaster } from '@/api';
 import { Filter } from '@/components/Filter';
+import { IntroAnimation } from '@/components/IntroAnimation';
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import React from 'react';
 
@@ -23,6 +24,7 @@ export default async function CategoriesLayout({
         <Filter lang={params.lang} />
       </HydrationBoundary>
       {children}
+      <IntroAnimation />
     </>
   );
 }
