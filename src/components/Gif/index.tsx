@@ -15,39 +15,42 @@ function Gif({ setRemoveAnimationBg }: { setRemoveAnimationBg: (value: React.Set
     if (!hasAnimationShown) {
       const timeout = setTimeout(() => {
         setHasAnimationShown(true);
-      }, 7500);
+      }, 7000);
 
       return () => clearTimeout(timeout);
     } else {
-      setRemoveAnimationBg(true);
+      const removeBgTimeout = setTimeout(() => {
+        setRemoveAnimationBg(true);
+      }, 1300);
+
       setHasAnimationShown(true);
+
+      return () => clearTimeout(removeBgTimeout);
     }
   }, [hasAnimationShown, setHasAnimationShown, setRemoveAnimationBg]);
 
-  useEffect(() => {
-    if (hasAnimationShown) {
-      setRemoveAnimationBg(true);
-    }
-  }, [hasAnimationShown, setRemoveAnimationBg]);
-
   return (
     <AnimatePresence>
-      <motion.article
-        initial={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 1.5 }}
-        className="flex items-center justify-center relative h-full w-full"
-      >
-        <Image
-          className="h-full w-full object-cover"
-          alt="gif"
-          src={isMediumAndUp ? '/ppcoa-intro-medium.gif' : '/ppcoa-intro-small.gif'}
-          fill
-          sizes="100vw"
-          unoptimized
-          priority
-        />
-      </motion.article>
+      {!hasAnimationShown ? (
+        <motion.article
+          initial={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="fixed top-0 right-0 left-0 h-dvh w-full z-50 flex items-center justify-center bg-white"
+        >
+          <div className="flex items-center justify-center relative h-full w-full">
+            <Image
+              className="h-full w-full object-cover"
+              alt="gif"
+              src={isMediumAndUp ? '/ppcoa-intro-medium.gif' : '/ppcoa-intro-small.gif'}
+              fill
+              sizes="100vw"
+              unoptimized
+              priority
+            />
+          </div>
+        </motion.article>
+      ) : null}
     </AnimatePresence>
   );
 }
