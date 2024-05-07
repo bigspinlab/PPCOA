@@ -13,18 +13,13 @@ const nextConfig = {
         permanent: true
       },
       {
-        source: '/',
-        destination: '/en/all',
-        permanent: true
-      },
-      {
         source: '/pt',
         destination: '/pt/all',
         permanent: true
       },
       {
         source: '/en',
-        destination: '/en/all',
+        destination: '/pt/all',
         permanent: true
       },
       {
@@ -48,7 +43,7 @@ const nextConfig = {
             value: 'en'
           }
         ],
-        destination: '/en/all',
+        destination: '/pt/all',
         permanent: true
       },
       {
