@@ -7,7 +7,7 @@ import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // eslint-disable-next-line no-unused-vars
-function Gif({ setRemoveAnimationBg }: { setRemoveAnimationBg: (value: React.SetStateAction<boolean>) => void }) {
+function Gif({ setServerBackground }: { setServerBackground: (value: React.SetStateAction<boolean>) => void }) {
   const [hasAnimationShown, setHasAnimationShown] = useSessionStorage('ppcoaAnimation', false);
   const { isMediumAndUp } = useScreenSize();
 
@@ -15,14 +15,14 @@ function Gif({ setRemoveAnimationBg }: { setRemoveAnimationBg: (value: React.Set
     if (!hasAnimationShown) {
       const timeout = setTimeout(() => {
         setHasAnimationShown(true);
-      }, 7200);
+      }, 7400);
 
       return () => clearTimeout(timeout);
     } else {
-      setRemoveAnimationBg(true);
+      setServerBackground(false);
       setHasAnimationShown(true);
     }
-  }, [hasAnimationShown, setHasAnimationShown, setRemoveAnimationBg]);
+  }, [hasAnimationShown, setHasAnimationShown, setServerBackground]);
 
   return (
     <AnimatePresence>
