@@ -25,7 +25,8 @@ export default async function RootLayout({
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
     queryKey: ['masterPage'],
-    queryFn: () => getHeadlessMaster<IHeadlessMaster>({ lang: params.lang })
+    queryFn: () => getHeadlessMaster<IHeadlessMaster>({ lang: params.lang }),
+    staleTime: Infinity
   });
 
   return (

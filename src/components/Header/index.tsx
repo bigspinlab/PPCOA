@@ -15,8 +15,10 @@ export default function Header({ lang }: { lang: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const { data: headerLogo } = useQuery<IHeadlessMaster>({
     queryKey: ['masterPage'],
-    queryFn: () => getHeadlessMaster({ lang })
+    queryFn: () => getHeadlessMaster({ lang }),
+    staleTime: Infinity
   });
+
   const logo = headerLogo?.widget[0] as IHeader;
 
   if (!headerLogo?.widget?.length) {

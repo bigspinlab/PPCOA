@@ -13,7 +13,8 @@ const FilterList = ({ lang }: { lang: string }) => {
 
   const { data: headerLogo } = useQuery<IHeadlessMaster>({
     queryKey: ['masterPage'],
-    queryFn: () => getHeadlessMaster({ lang })
+    queryFn: () => getHeadlessMaster({ lang }),
+    staleTime: Infinity
   });
 
   const headerFilterList = headerLogo?.widget[0] as IHeader;

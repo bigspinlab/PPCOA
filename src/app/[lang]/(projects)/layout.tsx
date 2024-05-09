@@ -15,7 +15,8 @@ export default async function CategoriesLayout({
 
   await queryClient.prefetchQuery({
     queryKey: ['masterPage'],
-    queryFn: () => getHeadlessMaster({ lang: params.lang })
+    queryFn: () => getHeadlessMaster({ lang: params.lang }),
+    staleTime: Infinity
   });
 
   return (

@@ -11,8 +11,10 @@ import SelectLanguage from '../SelectLanguage';
 export default function Footer({ lang }: { lang: string }) {
   const { data: footerData } = useQuery<IHeadlessMaster>({
     queryKey: ['masterPage'],
-    queryFn: () => getHeadlessMaster({ lang })
+    queryFn: () => getHeadlessMaster({ lang }),
+    staleTime: Infinity
   });
+
   const footerContent = footerData?.widget[1] as IFooter;
 
   if (!footerData) {

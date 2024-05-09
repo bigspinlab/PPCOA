@@ -12,8 +12,10 @@ interface NavRouteListProps {
 export default function NavRouteList({ onRouteClick, lang }: NavRouteListProps) {
   const { data: headerNavListData } = useQuery<IHeadlessMaster>({
     queryKey: ['masterPage'],
-    queryFn: () => getHeadlessMaster({ lang })
+    queryFn: () => getHeadlessMaster({ lang }),
+    staleTime: Infinity
   });
+
   const headerNavList = headerNavListData?.widget[0] as IHeader;
   const useLocation = usePathname();
 
